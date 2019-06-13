@@ -1,0 +1,11 @@
+
+@define-mixin input $color
+	border: none
+	outline: none
+
+input.input
+	@mixin input
+
+input.input--center
+	@mixin input
+	text-align: center
