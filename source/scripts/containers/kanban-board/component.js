@@ -15,9 +15,12 @@ export default class extends p__react.PureComponent {
 		columns: p__prop_types.objectOf(
 			ps__immutable.List,
 		).isRequired,
+		actions: p__prop_types.shape({
+			reset: p__prop_types.func.isRequired,
+		}).isRequired,
 	}
-	renders = {
-		column: (object) => {
+	self = {
+		render_column: (object) => {
 			return [
 				$(m__containers__column, {
 					key: object.id,
@@ -26,11 +29,18 @@ export default class extends p__react.PureComponent {
 			][0]
 		},
 	}
-	render = () => {
+	render() {
 		return [
 			$('div.kanban-board', [
 				$('div.kanban-board--wrapper', [
-					this.props.columns.map(this.renders.column),
+					this.props.columns.map(this.self.render_column),
+				]),
+				$('div.kanban-board--reset', [
+					$('span.active--reset', {
+						onClick: this.props.actions.reset,
+					}, [
+						'сбросить',
+					]),
 				]),
 			]),
 		][0]

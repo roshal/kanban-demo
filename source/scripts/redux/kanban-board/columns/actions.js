@@ -1,5 +1,6 @@
 
 import m__action_types from './action-types'
+import m__keys from './keys'
 
 export default {
 	sort: ({
@@ -10,6 +11,7 @@ export default {
 			payload: {
 				id,
 			},
+			keys: m__keys,
 		}
 	},
 	update: ({
@@ -22,6 +24,7 @@ export default {
 				id,
 				name,
 			},
+			keys: m__keys,
 		}
 	},
 }

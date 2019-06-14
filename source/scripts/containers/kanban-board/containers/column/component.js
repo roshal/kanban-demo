@@ -26,7 +26,7 @@ export default class extends p__react.PureComponent {
 			sort: p__prop_types.func.isRequired,
 		}).isRequired,
 	}
-	custom = {
+	self = {
 		handle_change_name: ({
 			target: {
 				value,
@@ -47,13 +47,13 @@ export default class extends p__react.PureComponent {
 			][0]
 		},
 	}
-	render = () => {
+	render() {
 		return [
 			$('div.column', [
 				$('div.column--head', [
 					$('div.column--title', [
 						$('input.input--center', {
-							onChange: this.custom.handle_change_name,
+							onChange: this.self.handle_change_name,
 							placeholder: 'название столбца',
 							value: this.props.name,
 						}),
@@ -76,7 +76,7 @@ export default class extends p__react.PureComponent {
 					]),
 				]),
 				$('div.column--body', [
-					this.props.tasks.map(this.custom.render_task),
+					this.props.tasks.map(this.self.render_task),
 				]),
 			]),
 		][0]

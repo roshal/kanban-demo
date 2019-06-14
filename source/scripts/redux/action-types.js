@@ -6,8 +6,5 @@ const prefix = (name) => {
 }
 
 export default {
-	create: prefix('create'),
-	delete: prefix('delete'),
-	locate: prefix('locate'),
-	update: prefix('update'),
+	reset: prefix('reset'),
 }
