@@ -7,6 +7,7 @@ import * as ps__immutable from 'immutable'
 
 import m__containers__task from '../../containers/task'
 
+
 const $ = p__react_hyperscript
 
 export default class extends p__react.PureComponent {
@@ -52,7 +53,7 @@ export default class extends p__react.PureComponent {
 			$('div.column', [
 				$('div.column--head', [
 					$('div.column--title', [
-						$('input.input--center', {
+						$('input.column--name-input', {
 							onChange: this.self.handle_change_name,
 							placeholder: 'название столбца',
 							value: this.props.name,

@@ -11,6 +11,7 @@ import m__redux__store from '~/redux/store'
 
 import * as ms__redux__keys from '~/redux/keys'
 
+
 const $ = p__react_hyperscript
 
 const load_state = () => {
@@ -21,6 +22,7 @@ const load_state = () => {
 		}
 		return JSON.parse(string)
 	} catch (error) {
+		console.warn(error)
 		return undefined
 	}
 }

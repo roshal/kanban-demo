@@ -4,10 +4,10 @@ import * as ps__redux from 'redux'
 
 import m__actions__columns from '~/redux/kanban-board/columns/actions'
 import m__actions__tasks from '~/redux/kanban-board/tasks/actions'
-
 import m__component from './component'
 
 import * as ms__selectors from './selectors'
+
 
 export default ps__react_redux.connect(
 	(state, props) => {

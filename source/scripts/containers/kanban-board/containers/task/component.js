@@ -5,6 +5,7 @@ import p__react_hyperscript from 'react-hyperscript'
 
 import * as ps__immutable from 'immutable'
 
+
 const $ = p__react_hyperscript
 
 export default class extends p__react.PureComponent {
@@ -92,14 +93,14 @@ export default class extends p__react.PureComponent {
 		return [
 			$('div.task', [
 				$('div.task--name', [
-					$('input.input', {
+					$('input.task--name-input', {
 						onChange: this.self.handle_change_name,
 						placeholder: 'название задачи',
 						value: this.props.name,
 					}),
 				]),
 				$('div.task--text', [
-					$('input.input', {
+					$('input.task--text-input', {
 						onChange: this.self.handle_change_text,
 						placeholder: 'описание задачи',
 						value: this.props.text,
