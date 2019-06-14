@@ -5,6 +5,7 @@ import m__state from './state'
 
 import * as ms__redux__helpers from '~/redux/helpers'
 
+
 const reducers = {
 	[m__action_types.sort]: (state, action) => {
 		const index = state.findIndex((value) => {

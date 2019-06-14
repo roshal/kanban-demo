@@ -14,3 +14,14 @@ git add --all && git commit --allow-empty --allow-empty-message -m '' && git pus
 git add --all && git commit --allow-empty --allow-empty-message -m '' --amend && git push origin master -f
 
 yarn upgrade -L
+
+find source -name '*.js' | xargs wc -l | sort -g
+
+# develop
+npx nps d
+
+# release
+npx nps r
+
+# lint
+npx nps l

@@ -4,6 +4,7 @@ import * as ps__reselect from 'reselect'
 import * as ms__selectors__columns from '~/redux/kanban-board/columns/selectors'
 import * as ms__selectors__tasks from '~/redux/kanban-board/tasks/selectors'
 
+
 export const select = ps__reselect.createSelector(
 	({
 		state,

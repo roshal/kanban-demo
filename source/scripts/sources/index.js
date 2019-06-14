@@ -4,6 +4,7 @@ import p__react_hyperscript from 'react-hyperscript'
 
 import m__components__app from '~/components/app'
 
+
 const $ = p__react_hyperscript
 
 {

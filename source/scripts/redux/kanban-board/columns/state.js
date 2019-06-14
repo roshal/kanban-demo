@@ -1,6 +1,7 @@
 
 import * as ps__immutable from 'immutable'
 
+
 export default ps__immutable.List([
 	ps__immutable.Map({
 		id: 0,

@@ -5,9 +5,9 @@ import m__action_types from './action-types'
 import m__keys from './keys'
 import m__reducers__kanban_board from './kanban-board/reducer'
 
+import * as ms__keys__kanban_board from './kanban-board/keys'
 import * as ms__redux__helpers from '~/redux/helpers'
 
-import * as ms__keys__kanban_board from './kanban-board/keys'
 
 const reducers = {
 	[m__action_types.reset]: () => {},
