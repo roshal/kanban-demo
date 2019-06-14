@@ -1,8 +1,8 @@
 
-import * as ms__constants from '../constants'
+import * as ms__keys from './keys'
 
 const prefix = (name) => {
-	return [ms__constants.name, 'columns', name].join('--')
+	return [ms__keys.key, name].join('--')
 }
 
 export default {

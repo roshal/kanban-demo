@@ -5,7 +5,7 @@ scripts:
   produce: nps serve.produce
 
   release: nps clean.produce build.produce firebase.deploy
-  lint: nps lint.eslint lint.stylelint
+  lint: nps eslint stylelint
 
   analyze:
     develop:

@@ -21,20 +21,21 @@ export default class extends p__react.PureComponent {
 			update: p__prop_types.func.isRequired,
 		}).isRequired,
 	}
-	constructor(props) {
-		super(props)
-		this.reference = p__react.createRef()
-	}
-	componentDidMount = () => {
-		document.addEventListener('click', this.custom.click)
-	}
-	componentWillUnmount = () => {
-		document.removeEventListener('click', this.custom.click)
-	}
 	state = {
 		moving: false,
 	}
-	custom = {
+	constructor(props) {
+		super(props)
+		this.self.references.move = p__react.createRef()
+	}
+	componentDidMount() {
+		document.addEventListener('click', this.self.click)
+	}
+	componentWillUnmount() {
+		document.removeEventListener('click', this.self.click)
+	}
+	self = {
+		references: {},
 		handle_change_name: ({
 			target: {
 				value,
@@ -54,7 +55,7 @@ export default class extends p__react.PureComponent {
 			})
 		},
 		click: (event) => {
-			const target = this.reference.current
+			const target = this.self.references.move.current
 			if (target && target.contains(event.target)) {
 				return
 			}
@@ -87,19 +88,19 @@ export default class extends p__react.PureComponent {
 			][0]
 		},
 	}
-	render = () => {
+	render() {
 		return [
 			$('div.task', [
 				$('div.task--name', [
 					$('input.input', {
-						onChange: this.custom.handle_change_name,
+						onChange: this.self.handle_change_name,
 						placeholder: 'название задачи',
 						value: this.props.name,
 					}),
 				]),
 				$('div.task--text', [
 					$('input.input', {
-						onChange: this.custom.handle_change_text,
+						onChange: this.self.handle_change_text,
 						placeholder: 'описание задачи',
 						value: this.props.text,
 					}),
@@ -113,11 +114,11 @@ export default class extends p__react.PureComponent {
 						]),
 					]),
 					$('div.task--move', {
-						ref: this.reference,
+						ref: this.self.references.move,
 					}, [
 						$('span', {
 							className: this.state.moving ? 'active--move--active' : 'active--move',
-							onClick: this.custom.move,
+							onClick: this.self.move,
 						}, [
 							'↓ переместить',
 						]),
@@ -128,7 +129,7 @@ export default class extends p__react.PureComponent {
 								},
 							},
 						}, [
-							this.props.columns.map(this.custom.render_column),
+							this.props.columns.map(this.self.render_column),
 						]),
 					]),
 				]),

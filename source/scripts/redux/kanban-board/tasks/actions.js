@@ -1,5 +1,6 @@
 
 import m__action_types from './action-types'
+import m__keys from './keys'
 
 export default {
 	create: ({
@@ -10,6 +11,7 @@ export default {
 			payload: {
 				column_id,
 			},
+			keys: m__keys,
 		}
 	},
 	delete: ({
@@ -20,6 +22,7 @@ export default {
 			payload: {
 				id,
 			},
+			keys: m__keys,
 		}
 	},
 	locate: ({
@@ -32,6 +35,7 @@ export default {
 				id,
 				column_id,
 			},
+			keys: m__keys,
 		}
 	},
 	update: ({
@@ -46,6 +50,7 @@ export default {
 				name,
 				text,
 			},
+			keys: m__keys,
 		}
 	},
 }

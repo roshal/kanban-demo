@@ -1,4 +1,4 @@
 
-export const select_kanban_board = (state) => {
-	return state.kanban_board
+export const select = (state) => {
+	return state
 }
