@@ -1,5 +1,5 @@
 
-export const apply_filters = (filters) => {
+export const filters_applicator = (filters) => {
 	return (reducer) => {
 		return (state, action) => {
 			filters.forEach((filter) => {
@@ -12,7 +12,7 @@ export const apply_filters = (filters) => {
 	}
 }
 
-export const apply_reducers = (reducers) => {
+export const reducers_applicator = (reducers) => {
 	return (reducer) => {
 		return (state, action) => {
 			reducers.forEach((reducer) => {
