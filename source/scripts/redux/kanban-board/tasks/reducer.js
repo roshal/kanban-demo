@@ -18,7 +18,7 @@ const reducers = {
 		})
 		return state.insert(0, value)
 	},
-	[m__action_types.delete]: (state, action) => {
+	[m__action_types.remove]: (state, action) => {
 		const index = state.findIndex((value) => {
 			return value.get('id') === action.payload.id
 		})
