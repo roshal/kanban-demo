@@ -17,7 +17,7 @@ export default class extends p__react.PureComponent {
 			ps__immutable.List,
 		).isRequired,
 		actions: p__prop_types.shape({
-			delete: p__prop_types.func.isRequired,
+			remove: p__prop_types.func.isRequired,
 			locate: p__prop_types.func.isRequired,
 			update: p__prop_types.func.isRequired,
 		}).isRequired,
@@ -107,9 +107,9 @@ export default class extends p__react.PureComponent {
 					}),
 				]),
 				$('div.task--options', [
-					$('div.task--delete', [
-						$('span.active--delete', {
-							onClick: this.props.actions.delete,
+					$('div.task--remove', [
+						$('span.active--remove', {
+							onClick: this.props.actions.remove,
 						}, [
 							'удалить',
 						]),
