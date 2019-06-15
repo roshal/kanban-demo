@@ -15,18 +15,6 @@ export const create = ({
 	}
 }
 
-export const remove = ({
-	id,
-}) => {
-	return {
-		tokens: m__tokens,
-		type: m__action_types.remove,
-		payload: {
-			id,
-		},
-	}
-}
-
 export const locate = ({
 	id,
 	column_id,
@@ -37,6 +25,18 @@ export const locate = ({
 		payload: {
 			id,
 			column_id,
+		},
+	}
+}
+
+export const remove = ({
+	id,
+}) => {
+	return {
+		tokens: m__tokens,
+		type: m__action_types.remove,
+		payload: {
+			id,
 		},
 	}
 }
