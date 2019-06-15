@@ -1,9 +1,9 @@
 
 import * as ps__redux from 'redux'
 
-import m__reducer from './reducer'
+import m__reducer from '~/redux/reducer'
 
-import * as ms__tokens from './tokens'
+import * as ms__tokens from '~/redux/tokens'
 
 
 const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || ps__redux.compose
@@ -21,7 +21,7 @@ export default (state) => {
 		}
 	})
 	if (module.hot) {
-		module.hot.accept('./reducer', () => {
+		module.hot.accept('~/redux/reducer', () => {
 			store.replaceReducer(m__reducer)
 		})
 	}
