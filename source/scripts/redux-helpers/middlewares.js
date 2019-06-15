@@ -12,7 +12,7 @@ export const apply_filters = (filters) => {
 	}
 }
 
-export const compose_reducers = (reducers) => {
+export const apply_reducers = (reducers) => {
 	return (reducer) => {
 		return (state, action) => {
 			reducers.forEach((reducer) => {

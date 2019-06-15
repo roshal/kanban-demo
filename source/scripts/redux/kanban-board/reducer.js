@@ -16,7 +16,7 @@ export default ms__redux_helpers.compose_middlewares([
 	ms__redux_helpers__middlewares.apply_filters([
 		ms__redux_helpers__filters.check_tokens(m__tokens),
 	]),
-	ms__redux_helpers__middlewares.compose_reducers([
+	ms__redux_helpers__middlewares.apply_reducers([
 		ps__redux_immutable.combineReducers({
 			[ms__tokens__columns.token]: m__reducer__columns,
 			[ms__tokens__tasks.token]: m__reducer__tasks,

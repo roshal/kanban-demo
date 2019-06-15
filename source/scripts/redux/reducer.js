@@ -20,7 +20,7 @@ export default ms__redux_helpers.compose_middlewares([
 	ms__redux_helpers__middlewares.apply_filters([
 		ms__redux_helpers__filters.check_tokens(m__tokens),
 	]),
-	ms__redux_helpers__middlewares.compose_reducers([
+	ms__redux_helpers__middlewares.apply_reducers([
 		ms__redux_helpers__reducers.apply_reducers(reducers),
 		ps__redux_immutable.combineReducers({
 			[ms__tokens__kanban_board.token]: m__reducer__kanban_board,
