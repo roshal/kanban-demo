@@ -5,7 +5,7 @@ import p__react_hyperscript from 'react-hyperscript'
 
 import * as ps__immutable from 'immutable'
 
-import m__containers__task from '../../containers/task'
+import m__container__task from '../../containers/task'
 
 
 const $ = p__react_hyperscript
@@ -41,7 +41,7 @@ export default class extends p__react.PureComponent {
 			id,
 		}) => {
 			return [
-				$(m__containers__task, {
+				$(m__container__task, {
 					key: id,
 					id,
 				}),

@@ -6,17 +6,17 @@ import p__react_hyperscript from 'react-hyperscript'
 import * as ps__immutable from 'immutable'
 import * as ps__react_redux from 'react-redux'
 
-import m__containers__kanban_board from '~/containers/kanban-board'
+import m__container__kanban_board from '~/containers/kanban-board'
 import m__redux__store from '~/redux/store'
 
-import * as ms__redux__keys from '~/redux/keys'
+import * as ms__redux__tokens from '~/redux/tokens'
 
 
 const $ = p__react_hyperscript
 
 const load_state = () => {
 	try {
-		const string = window.localStorage.getItem(ms__redux__keys.key)
+		const string = window.localStorage.getItem(ms__redux__tokens.token)
 		if (string === null) {
 			return undefined
 		}
@@ -38,7 +38,7 @@ const component = class extends p__react.PureComponent {
 			$(ps__react_redux.Provider, {
 				store: m__redux__store(this.immutable),
 			}, [
-				$(m__containers__kanban_board),
+				$(m__container__kanban_board),
 			]),
 		][0]
 	}

@@ -1,6 +1,6 @@
 
 import m__action_types from './action-types'
-import m__keys from './keys'
+import m__tokens from './tokens'
 
 
 export default {
@@ -8,22 +8,22 @@ export default {
 		column_id,
 	}) => {
 		return {
+			tokens: m__tokens,
 			type: m__action_types.create,
 			payload: {
 				column_id,
 			},
-			keys: m__keys,
 		}
 	},
 	delete: ({
 		id,
 	}) => {
 		return {
+			tokens: m__tokens,
 			type: m__action_types.delete,
 			payload: {
 				id,
 			},
-			keys: m__keys,
 		}
 	},
 	locate: ({
@@ -31,12 +31,12 @@ export default {
 		column_id,
 	}) => {
 		return {
+			tokens: m__tokens,
 			type: m__action_types.locate,
 			payload: {
 				id,
 				column_id,
 			},
-			keys: m__keys,
 		}
 	},
 	update: ({
@@ -45,13 +45,13 @@ export default {
 		text,
 	}) => {
 		return {
+			tokens: m__tokens,
 			type: m__action_types.update,
 			payload: {
 				id,
 				name,
 				text,
 			},
-			keys: m__keys,
 		}
 	},
 }

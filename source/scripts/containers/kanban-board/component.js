@@ -5,7 +5,7 @@ import p__react_hyperscript from 'react-hyperscript'
 
 import * as ps__immutable from 'immutable'
 
-import m__containers__column from './containers/column'
+import m__container__column from './containers/column'
 
 
 const $ = p__react_hyperscript
@@ -23,7 +23,7 @@ export default class extends p__react.PureComponent {
 	self = {
 		render_column: (object) => {
 			return [
-				$(m__containers__column, {
+				$(m__container__column, {
 					key: object.id,
 					id: object.id,
 				}),
