@@ -3,10 +3,10 @@ import m__action_types from './action-types'
 import m__state from './state'
 import m__tokens from './tokens'
 
-import * as ms__helpers from '~/helpers'
-import * as ms__helpers__filters from '~/helpers/filters'
-import * as ms__helpers__middlewares from '~/helpers/middlewares'
-import * as ms__helpers__reducers from '~/helpers/reducers'
+import * as ms__redux_helpers from '~/redux-helpers'
+import * as ms__redux_helpers__filters from '~/redux-helpers/filters'
+import * as ms__redux_helpers__middlewares from '~/redux-helpers/middlewares'
+import * as ms__redux_helpers__reducers from '~/redux-helpers/reducers'
 
 
 const reducers = {
@@ -33,11 +33,11 @@ const reducers = {
 	},
 }
 
-export default ms__helpers.compose_middlewares([
-	ms__helpers__middlewares.apply_filters([
-		ms__helpers__filters.check_tokens(m__tokens),
+export default ms__redux_helpers.compose_middlewares([
+	ms__redux_helpers__middlewares.apply_filters([
+		ms__redux_helpers__filters.check_tokens(m__tokens),
 	]),
-	ms__helpers__middlewares.compose_reducers([
-		ms__helpers__reducers.apply_reducers(reducers),
+	ms__redux_helpers__middlewares.compose_reducers([
+		ms__redux_helpers__reducers.apply_reducers(reducers),
 	]),
 ], m__state)
