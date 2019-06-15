@@ -1,5 +1,5 @@
 
-export const check_tokens = (tokens) => {
+export const tokens_checker = (tokens) => {
 	return (state, action) => {
 		if (action.tokens) {
 			const limit = Math.min(tokens.length, action.tokens.length)

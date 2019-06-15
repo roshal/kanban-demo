@@ -10,7 +10,7 @@ import * as ms__tokens__tasks from './tasks/tokens'
 
 export default ms__redux_helpers.compose_middlewares([
 	ms__redux_helpers.middlewares.apply_filters([
-		ms__redux_helpers.filters.check_tokens(m__tokens),
+		ms__redux_helpers.filters.tokens_checker(m__tokens),
 	]),
 	ms__redux_helpers.middlewares.apply_reducers([
 		ms__redux_helpers.reducers.combiner({
