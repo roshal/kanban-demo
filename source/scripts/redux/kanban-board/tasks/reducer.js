@@ -6,9 +6,6 @@ import m__state from './state'
 import m__tokens from './tokens'
 
 import * as ms__redux_helpers from '~/redux-helpers'
-import * as ms__redux_helpers__filters from '~/redux-helpers/filters'
-import * as ms__redux_helpers__middlewares from '~/redux-helpers/middlewares'
-import * as ms__redux_helpers__reducers from '~/redux-helpers/reducers'
 
 
 const reducers = {
@@ -54,10 +51,10 @@ const reducers = {
 }
 
 export default ms__redux_helpers.compose_middlewares([
-	ms__redux_helpers__middlewares.apply_filters([
-		ms__redux_helpers__filters.check_tokens(m__tokens),
+	ms__redux_helpers.middlewares.apply_filters([
+		ms__redux_helpers.filters.check_tokens(m__tokens),
 	]),
-	ms__redux_helpers__middlewares.apply_reducers([
-		ms__redux_helpers__reducers.apply_reducer(reducers),
+	ms__redux_helpers.middlewares.apply_reducers([
+		ms__redux_helpers.reducers.selector(reducers),
 	]),
 ], m__state)
