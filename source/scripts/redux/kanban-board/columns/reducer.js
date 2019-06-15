@@ -30,11 +30,11 @@ const reducers = {
 	},
 }
 
-export default ms__redux_helpers.compose_middlewares([
+export default ms__redux_helpers.reducers.middlewares_composer([
 	ms__redux_helpers.middlewares.apply_filters([
 		ms__redux_helpers.filters.tokens_checker(m__tokens),
 	]),
 	ms__redux_helpers.middlewares.apply_reducers([
-		ms__redux_helpers.reducers.selector(reducers),
+		ms__redux_helpers.reducers.reducers_selector(reducers),
 	]),
 ], m__state)
