@@ -7,7 +7,7 @@ import * as ps__immutable from 'immutable'
 import * as ps__react_redux from 'react-redux'
 
 import m__container__kanban_board from '~/containers/kanban-board'
-import m__store from '~/commons/store'
+import m__redux_store from '~/commons/redux-store'
 
 import * as ms__local_storage from '~/commons/local-storage'
 
@@ -23,7 +23,7 @@ const component = class extends p__react.PureComponent {
 	render() {
 		return [
 			$(ps__react_redux.Provider, {
-				store: m__store(this.immutable),
+				store: m__redux_store(this.immutable),
 			}, [
 				$(m__container__kanban_board),
 			]),
