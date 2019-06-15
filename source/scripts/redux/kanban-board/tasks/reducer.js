@@ -2,10 +2,13 @@
 import * as ps__immutable from 'immutable'
 
 import m__action_types from './action-types'
-import m__keys from './keys'
 import m__state from './state'
+import m__tokens from './tokens'
 
-import * as ms__redux__helpers from '~/redux/helpers'
+import * as ms__helpers from '~/helpers'
+import * as ms__helpers__filters from '~/helpers/filters'
+import * as ms__helpers__middlewares from '~/helpers/middlewares'
+import * as ms__helpers__reducers from '~/helpers/reducers'
 
 
 const reducers = {
@@ -50,7 +53,11 @@ const reducers = {
 	},
 }
 
-export default (state = m__state, action) => {
-	state = ms__redux__helpers.curry(action, m__keys, reducers)(state, action)
-	return state
-}
+export default ms__helpers.compose_middlewares([
+	ms__helpers__middlewares.apply_filters([
+		ms__helpers__filters.check_tokens(m__tokens),
+	]),
+	ms__helpers__middlewares.compose_reducers([
+		ms__helpers__reducers.apply_reducers(reducers),
+	]),
+], m__state)

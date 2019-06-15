@@ -3,7 +3,7 @@ import * as ps__redux from 'redux'
 
 import m__reducer from './reducer'
 
-import * as ms__keys from './keys'
+import * as ms__tokens from './tokens'
 
 
 const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || ps__redux.compose
@@ -15,7 +15,7 @@ export default (state) => {
 		const state = store.getState()
 		try {
 			const string = JSON.stringify(state)
-			window.localStorage.setItem(ms__keys.key, string)
+			window.localStorage.setItem(ms__tokens.token, string)
 		} catch (error) {
 			console.warn(error)
 		}

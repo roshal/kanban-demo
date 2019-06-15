@@ -1,6 +1,6 @@
 
 import m__action_types from './action-types'
-import m__keys from './keys'
+import m__tokens from './tokens'
 
 
 export default {
@@ -8,11 +8,11 @@ export default {
 		id,
 	}) => {
 		return {
+			tokens: m__tokens,
 			type: m__action_types.sort,
 			payload: {
 				id,
 			},
-			keys: m__keys,
 		}
 	},
 	update: ({
@@ -20,12 +20,12 @@ export default {
 		name,
 	}) => {
 		return {
+			tokens: m__tokens,
 			type: m__action_types.update,
 			payload: {
 				id,
 				name,
 			},
-			keys: m__keys,
 		}
 	},
 }

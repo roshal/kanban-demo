@@ -1,9 +1,9 @@
 
-import * as ms__keys from './keys'
+import * as ms__tokens from './tokens'
 
 
 const prefix = (name) => {
-	return [ms__keys.key, name].join('--')
+	return [ms__tokens.token, name].join('--')
 }
 
 export default {
