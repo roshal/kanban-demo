@@ -1,7 +1,7 @@
 
 import * as ps__redux_immutable from 'redux-immutable'
 
-export const middlewares_composer = (middlewares, default_state) => {
+export const middlewares_composer = (middlewares) => {
 	let reducer = (state) => {
 		return state
 	}
@@ -10,7 +10,7 @@ export const middlewares_composer = (middlewares, default_state) => {
 	middlewares.forEach((middleware) => {
 		reducer = middleware(reducer)
 	})
-	return (state = default_state, action) => {
+	return (state, action) => {
 		return reducer(state, action)
 	}
 }
