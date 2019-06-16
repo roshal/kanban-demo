@@ -35,16 +35,21 @@ input.column--input--name
 	outline: none
 	text-align: center
 
-div.column--add
+div.column--action--add
 	float: left
+	user-select: none
 
-div.column--sort
+span.column--action--add--text
+	@mixin click #4b7cf3
+	cursor: pointer
+
+div.column--action--sort
 	float: right
+	user-select: none
 
-span.column--action--add
-	@mixin click
-	@mixin color #4b7cf3
+span.column--action--sort--title
+	@mixin click #2dcd72
+	cursor: pointer
 
-span.column--action--sort
-	@mixin click
-	@mixin color #2dcd72
+span.column--action--sort--arrow
+	color: #2dcd72

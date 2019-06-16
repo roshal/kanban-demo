@@ -61,23 +61,26 @@ export default class extends p__react.PureComponent {
 					$('div.column--title', [
 						$('input.column--input--name', {
 							onChange: this.self.handle_change_name,
-							placeholder: 'название столбца',
+							placeholder: 'column name',
 							value: this.props.name,
 						}),
 					]),
 					$('div.column--options', [
-						$('div.column--add', [
-							$('span.column--action--add', {
+						$('div.column--action--add', [
+							$('span.column--action--add--text', {
 								onClick: this.props.actions.add,
 							}, [
-								'добавить задачу',
+								'add task',
 							]),
 						]),
-						$('div.column--sort', [
-							$('span.column--action--sort', {
+						$('div.column--action--sort', [
+							$('span.column--action--sort--arrow', [
+								!!this.props.sorting && (this.props.sorting < 0 ? '↑' : '↓'), ' ',
+							]),
+							$('span.column--action--sort--title', {
 								onClick: this.props.actions.sort,
 							}, [
-								this.props.sorting ? 0 < this.props.sorting ? 'sort A-я' : 'sort я-A' : 'sorting',
+								'sort',
 							]),
 						]),
 					]),

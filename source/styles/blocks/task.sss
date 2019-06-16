@@ -26,20 +26,20 @@ ul.task--list
 	position: absolute 8px * * -12px
 	z-index: 1
 
-li.task--action--locate
-	display: flex
-
-div.task--action--locate--arrow
-	white-space: pre
-
-span.task--action--locate--text
-	@mixin color #000
-	white-space: nowrap
-
-div.task--action--move
-	@mixin click
+div.task--dropdown
 	float: right
 	position: relative
+
+div.task--action--remove
+	float: left
+	user-select: none
+
+span.task--action--remove--text
+	@mixin click #ef5050
+	cursor: pointer
+
+div.task--action--move
+	user-select: none
 
 span.task--action--move--text
 	color: #bdb9b9
@@ -48,11 +48,17 @@ span.task--action--move--arrow
 	color: #000
 
 span.task--action--move--title
-	@mixin color #bdb9b9
+	@mixin click #bdb9b9
+	cursor: pointer
 
-div.task--action--remove
-	@mixin click
-	float: left
+li.task--action--locate
+	display: flex
+	user-select: none
 
-span.task--action--remove--text
-	@mixin color #ef5050
+div.task--action--locate--arrow
+	white-space: pre
+
+span.task--action--locate--text
+	@mixin click #000
+	cursor: pointer
+	white-space: nowrap

@@ -1,4 +1,6 @@
 
+@import '~/mixins/action'
+
 div.kanban-board
 	padding: 8px
 
@@ -6,5 +8,10 @@ div.kanban-board--wrapper
 	display: flex
 	width: 100%
 
-div.kanban-board--reset
+div.kanban-board--action--reset
 	padding: 8px
+	user-select: none
+
+span.kanban-board--action--reset--text
+	@mixin click #000
+	cursor: pointer
