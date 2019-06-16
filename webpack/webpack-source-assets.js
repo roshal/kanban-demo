@@ -24,8 +24,5 @@ module.exports = (env = {}, argv = {}) => {
 				},
 			],
 		},
-		plugins: [
-			new p__webpack.PrefetchPlugin('./assets/sources/index.png'),
-		],
 	}
 }

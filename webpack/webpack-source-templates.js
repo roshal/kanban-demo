@@ -42,6 +42,7 @@ module.exports = (env = {}, argv = {}) => {
 							loader: 'pug-loader',
 							options: {
 								// deprecated
+								// https://pugjs.org/api/reference.html#options
 								pretty: argv.develop ? '\t' : false,
 							},
 						},
