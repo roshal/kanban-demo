@@ -22,3 +22,11 @@ export const reducers_applicator = (reducers) => {
 		}
 	}
 }
+
+export const state_initializer = (initial_state) => {
+	return (reducer) => {
+		return (state = initial_state, action) => {
+			return reducer(state, action)
+		}
+	}
+}
