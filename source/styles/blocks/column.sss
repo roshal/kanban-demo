@@ -1,10 +1,8 @@
 
 div.column
-	background: #f2f2f2
 	border-radius: 8px
 	margin: 8px
 	min-width: 256px
-	overflow: hidden
 
 div.column--head
 	background: white
@@ -12,7 +10,18 @@ div.column--head
 	flex-direction: column
 	padding: 8px 12px
 
+div.column--body
+	background: #f2f2f2
+	border: 0 solid #000
+	display: flex
+	flex-direction: column
+
 div.column--title
+	text-align: center
+
+input.column--name-input
+	border: none
+	outline: none
 	text-align: center
 
 div.column--add
@@ -20,8 +29,3 @@ div.column--add
 
 div.column--sort
 	float: right
-
-input.column--name-input
-	border: none
-	outline: none
-	text-align: center
