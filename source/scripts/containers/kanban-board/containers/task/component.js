@@ -1,4 +1,5 @@
 
+import p__classnames from 'classnames'
 import p__prop_types from 'prop-types'
 import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
@@ -74,7 +75,7 @@ export default class extends p__react.PureComponent {
 			name,
 		}) => {
 			return [
-				$('li', {
+				$('li.task--action--locate', {
 					key: id,
 					onClick: () => {
 						this.props.actions.locate({
@@ -82,8 +83,13 @@ export default class extends p__react.PureComponent {
 						})
 					},
 				}, [
-					$('span.active--locate', [
-						name,
+					$('div.task--action--locate--arrow', [
+						'→ ',
+					]),
+					$('div.task--action--locate--title', [
+						$('span.task--action--locate--text', [
+							name,
+						]),
 					]),
 				]),
 			][0]
@@ -93,43 +99,43 @@ export default class extends p__react.PureComponent {
 		return [
 			$('div.task', [
 				$('div.task--name', [
-					$('input.task--name-input', {
+					$('input.task--input--name', {
 						onChange: this.self.handle_change_name,
 						placeholder: 'название задачи',
 						value: this.props.name,
 					}),
 				]),
 				$('div.task--text', [
-					$('input.task--text-input', {
+					$('input.task--input--text', {
 						onChange: this.self.handle_change_text,
 						placeholder: 'описание задачи',
 						value: this.props.text,
 					}),
 				]),
 				$('div.task--options', [
-					$('div.task--remove', [
-						$('span.active--remove', {
+					$('div.task--action--remove', [
+						$('span.task--action--remove--text', {
 							onClick: this.props.actions.remove,
 						}, [
 							'удалить',
 						]),
 					]),
-					$('div.task--move', {
+					$('div.task--action--move', {
 						ref: this.self.references.move,
 					}, [
-						$('span', {
-							className: this.state.moving ? 'active--move--active' : 'active--move',
+						$('span.task--action--move--text', {
 							onClick: this.self.move,
 						}, [
-							'↓ переместить',
+							this.state.moving ? $([
+								$('span.task--action--move--arrow', [
+									'↓',
+								]), ' ',
+							]) : '↓ ',
+							$('span.task--action--move--title', [
+								'переместить',
+							]),
 						]),
-						$('ul.task--list', {
-							...this.state.moving ? {} : {
-								style: {
-									'display': 'none',
-								},
-							},
-						}, [
+						this.state.moving && $('ul.task--list', [
 							this.props.columns.map(this.self.render_column),
 						]),
 					]),

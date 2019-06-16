@@ -1,25 +1,36 @@
 
+@import '~/mixins/action'
+
 div.column
-	border-radius: 8px
 	margin: 8px
 	min-width: 256px
 
 div.column--head
 	background: white
+	border-top-radius: 8px
+	display: flex
+	flex-direction: column
+	padding: 8px 12px
+
+div.column--head--empty
+	background: white
+	border-radius: 8px
 	display: flex
 	flex-direction: column
 	padding: 8px 12px
 
 div.column--body
 	background: #f2f2f2
+	border-bottom-radius: 8px
 	border: 0 solid #000
 	display: flex
 	flex-direction: column
+	padding: 4px
 
 div.column--title
 	text-align: center
 
-input.column--name-input
+input.column--input--name
 	border: none
 	outline: none
 	text-align: center
@@ -29,3 +40,11 @@ div.column--add
 
 div.column--sort
 	float: right
+
+span.column--action--add
+	@mixin click
+	@mixin color #4b7cf3
+
+span.column--action--sort
+	@mixin click
+	@mixin color #2dcd72

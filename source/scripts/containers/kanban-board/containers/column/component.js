@@ -1,4 +1,5 @@
 
+import p__classnames from 'classnames'
 import p__prop_types from 'prop-types'
 import p__react from 'react'
 import p__react_hyperscript from 'react-hyperscript'
@@ -51,9 +52,14 @@ export default class extends p__react.PureComponent {
 	render() {
 		return [
 			$('div.column', [
-				$('div.column--head', [
+				$('div', {
+					className: p__classnames({
+						'column--head': !this.props.tasks.isEmpty(),
+						'column--head--empty': this.props.tasks.isEmpty(),
+					}),
+				}, [
 					$('div.column--title', [
-						$('input.column--name-input', {
+						$('input.column--input--name', {
 							onChange: this.self.handle_change_name,
 							placeholder: 'название столбца',
 							value: this.props.name,
@@ -61,14 +67,14 @@ export default class extends p__react.PureComponent {
 					]),
 					$('div.column--options', [
 						$('div.column--add', [
-							$('span.active--add', {
+							$('span.column--action--add', {
 								onClick: this.props.actions.add,
 							}, [
 								'добавить задачу',
 							]),
 						]),
 						$('div.column--sort', [
-							$('span.active--sort', {
+							$('span.column--action--sort', {
 								onClick: this.props.actions.sort,
 							}, [
 								this.props.sorting ? 0 < this.props.sorting ? 'sort A-я' : 'sort я-A' : 'sorting',
@@ -76,7 +82,7 @@ export default class extends p__react.PureComponent {
 						]),
 					]),
 				]),
-				$('div.column--body', [
+				this.props.tasks.isEmpty() || $('div.column--body', [
 					this.props.tasks.map(this.self.render_task),
 				]),
 			]),
