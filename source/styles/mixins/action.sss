@@ -1,39 +1,4 @@
 
-@define-mixin click
-	cursor: pointer
-	user-select: none
-
-@define-mixin color $color
+@define-mixin click $color
 	border: 0 0 1px / solid / rgba($color, 0.2)
 	color: $color
-
-span.active--add
-	@mixin click
-	@mixin color #4b7cf3
-
-span.active--locate
-	@mixin click
-	@mixin color #000
-
-span.active--move
-	@mixin click
-	color: #bdb9b9
-
-span.active--move--arrow
-	color: #000
-
-span.active--move--title
-	@mixin click
-	@mixin color #bdb9b9
-
-span.active--remove
-	@mixin click
-	@mixin color #ef5050
-
-span.active--reset
-	@mixin click
-	@mixin color #000
-
-span.active--sort
-	@mixin click
-	@mixin color #2dcd72

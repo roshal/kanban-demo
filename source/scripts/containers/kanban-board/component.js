@@ -36,11 +36,11 @@ export default class extends p__react.PureComponent {
 				$('div.kanban-board--wrapper', [
 					this.props.columns.map(this.self.render_column),
 				]),
-				$('div.kanban-board--reset', [
-					$('span.active--reset', {
+				$('div.kanban-board--action--reset', [
+					$('span.kanban-board--action--reset--text', {
 						onClick: this.props.actions.reset,
 					}, [
-						'сбросить',
+						'reset',
 					]),
 				]),
 			]),

@@ -75,18 +75,18 @@ export default class extends p__react.PureComponent {
 			name,
 		}) => {
 			return [
-				$('li.task--action--locate', {
-					key: id,
-					onClick: () => {
-						this.props.actions.locate({
-							column_id: id,
-						})
-					},
-				}, [
+				$('li.task--action--locate', [
 					$('div.task--action--locate--arrow', [
 						'→ ',
 					]),
-					$('div.task--action--locate--title', [
+					$('div.task--action--locate--title', {
+						key: id,
+						onClick: () => {
+							this.props.actions.locate({
+								column_id: id,
+							})
+						},
+					}, [
 						$('span.task--action--locate--text', [
 							name,
 						]),
@@ -101,14 +101,14 @@ export default class extends p__react.PureComponent {
 				$('div.task--name', [
 					$('input.task--input--name', {
 						onChange: this.self.handle_change_name,
-						placeholder: 'название задачи',
+						placeholder: 'task name',
 						value: this.props.name,
 					}),
 				]),
 				$('div.task--text', [
 					$('input.task--input--text', {
 						onChange: this.self.handle_change_text,
-						placeholder: 'описание задачи',
+						placeholder: 'task text',
 						value: this.props.text,
 					}),
 				]),
@@ -117,22 +117,24 @@ export default class extends p__react.PureComponent {
 						$('span.task--action--remove--text', {
 							onClick: this.props.actions.remove,
 						}, [
-							'удалить',
+							'delete',
 						]),
 					]),
-					$('div.task--action--move', {
+					$('div.task--dropdown', {
 						ref: this.self.references.move,
 					}, [
-						$('span.task--action--move--text', {
-							onClick: this.self.move,
-						}, [
-							this.state.moving ? $([
-								$('span.task--action--move--arrow', [
-									'↓',
-								]), ' ',
-							]) : '↓ ',
-							$('span.task--action--move--title', [
-								'переместить',
+						$('div.task--action--move', [
+							$('span.task--action--move--text', [
+								this.state.moving ? $([
+									$('span.task--action--move--arrow', [
+										'↓',
+									]), ' ',
+								]) : '↓ ',
+								$('span.task--action--move--title', {
+									onClick: this.self.move,
+								}, [
+									'move',
+								]),
 							]),
 						]),
 						this.state.moving && $('ul.task--list', [
