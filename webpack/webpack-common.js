@@ -73,8 +73,8 @@ module.exports = (env = {}, argv = {}) => {
 			],
 		},
 		performance: {
-			maxEntrypointSize: 262144,
-			maxAssetSize: 262144,
+			maxEntrypointSize: 512 << 10,
+			maxAssetSize: 512 << 10,
 			assetFilter: (asset) => {
 				return asset.endsWith('.js')
 			},
