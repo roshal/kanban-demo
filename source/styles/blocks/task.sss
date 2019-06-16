@@ -1,11 +1,19 @@
 
 div.task
 	background: white
-	border: 1px 0 0 / solid / #eee
 	display: flex
 	flex-direction: column
-	padding: 8px 12px
 	margin: 8px
+	padding: 8px 12px
+
+input.task--name-input
+	border: none
+	font-weight: bold
+	outline: none
+
+input.task--text-input
+	border: none
+	outline: none
 
 div.task--remove
 	float: left
@@ -21,12 +29,3 @@ ul.task--list
 	list-style-type: none
 	padding: 8px 12px
 	position: absolute 8px * * -12px
-
-input.task--name-input
-	border: none
-	outline: none
-	font-weight: bold
-
-input.task--text-input
-	border: none
-	outline: none
