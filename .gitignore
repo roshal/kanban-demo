@@ -14,7 +14,9 @@
 !/.stylelintignore
 !/.stylelintrc.yaml
 
+!/babel.config.js
 !/firebase.json
 !/package-scripts.yaml
 !/package.json
+!/postcss.config.js
 !/webpack.config.js

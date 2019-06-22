@@ -1,31 +1,29 @@
 
-import * as ps__react_redux from 'react-redux'
-import * as ps__redux from 'redux'
+const p__react_redux = require('react-redux')
+const p__redux = require('redux')
 
-import m__component from './component'
+const m__actions__tasks = require('~/redux/kanban-board/tasks/actions')
+const m__component = require('./component')
+const m__selectors = require('./selectors')
 
-import * as ms__actions__tasks from '~/redux/kanban-board/tasks/actions'
-import * as ms__selectors from './selectors'
-
-
-export default ps__react_redux.connect(
+module.exports = p__react_redux.connect(
 	(state, props) => {
-		return ms__selectors.select({
+		return m__selectors.select({
 			state,
 			id: props.id,
 		})
 	},
 	(dispatch, props) => {
-		const actions = ps__redux.bindActionCreators({
-			remove: () => {
-				return ms__actions__tasks.remove({
+		const actions = p__redux.bindActionCreators({
+			delete: () => {
+				return m__actions__tasks.delete({
 					id: props.id,
 				})
 			},
 			locate: ({
 				column_id,
 			}) => {
-				return ms__actions__tasks.locate({
+				return m__actions__tasks.locate({
 					id: props.id,
 					column_id,
 				})
@@ -34,7 +32,7 @@ export default ps__react_redux.connect(
 				name,
 				text,
 			}) => {
-				return ms__actions__tasks.update({
+				return m__actions__tasks.update({
 					id: props.id,
 					name,
 					text,

@@ -1,9 +1,11 @@
 
-import p__react_dom from 'react-dom'
-import p__react_hyperscript from 'react-hyperscript'
+const p__react_dom = require('react-dom')
+const p__react_hyperscript = require('react-hyperscript')
 
-import m__component__app from '~/components/app'
+const m__component__app = require('~/components/app')
 
+// require('//templates/sources/index.pug')
+// require('//styles/sources/index.sss')
 
 const $ = p__react_hyperscript
 

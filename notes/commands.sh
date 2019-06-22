@@ -15,6 +15,8 @@ git add --all && git commit --allow-empty --allow-empty-message -m '' --amend &&
 
 yarn upgrade -L
 
+npx yarn-up
+
 find source -name '*.js' | xargs wc -l | sort -g
 
 # develop

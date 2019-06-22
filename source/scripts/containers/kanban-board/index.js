@@ -1,20 +1,18 @@
 
-import * as ps__react_redux from 'react-redux'
-import * as ps__redux from 'redux'
+const p__react_redux = require('react-redux')
+const p__redux = require('redux')
 
-import m__component from './component'
+const m__actions = require('~/redux/actions')
+const m__component = require('./component')
+const m__selectors = require('./selectors')
 
-import * as ms__actions from '~/redux/actions'
-import * as ms__selectors from './selectors'
-
-
-export default ps__react_redux.connect(
+module.exports = p__react_redux.connect(
 	(state) => {
-		return ms__selectors.select(state)
+		return m__selectors.select(state)
 	},
 	(dispatch) => {
 		return {
-			actions: ps__redux.bindActionCreators(ms__actions, dispatch),
+			actions: p__redux.bindActionCreators(m__actions, dispatch),
 		}
 	},
 )(m__component)

@@ -1,12 +1,9 @@
 
-import * as ms__tokens from './tokens'
-
+const m__token = require('./token')
 
 const prefix = (name) => {
-	return [ms__tokens.token, name].join('--')
+	return [m__token.value, name].join('--')
 }
 
-export default {
-	sort: prefix('sort'),
-	update: prefix('update'),
-}
+exports.sort = prefix('sort')
+exports.update = prefix('update')

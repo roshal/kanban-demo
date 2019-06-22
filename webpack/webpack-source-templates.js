@@ -19,7 +19,7 @@ module.exports = (env = {}, argv = {}) => {
 						{
 							loader: 'file-loader',
 							options: {
-								name: 'index.html',
+								name: '[name].html',
 							},
 						},
 						{
@@ -30,16 +30,12 @@ module.exports = (env = {}, argv = {}) => {
 							options: {
 								attrs: [
 									'link:href',
-									//	'script:src',
 								],
 								removeComments: true,
 							},
 						},
 						{
-							loader: 'pug-extract-loader',
-						},
-						{
-							loader: 'pug-loader',
+							loader: 'pug-plain-loader',
 							options: {
 								// deprecated
 								// https://pugjs.org/api/reference.html#options

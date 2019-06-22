@@ -1,11 +1,11 @@
 
-export const local_storage = window.localStorage
+exports.local_storage = window.localStorage
 
-export const redux_devtools_extension_compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+exports.redux_devtools_extension_compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 
 const onbeforeunload_subscribers = []
 
-export const onbeforeunload_subscribe = (...subscribers) => {
+exports.onbeforeunload_subscribe = (...subscribers) => {
 	onbeforeunload_subscribers.push(...subscribers)
 }
 

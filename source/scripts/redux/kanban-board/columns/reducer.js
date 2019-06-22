@@ -1,10 +1,8 @@
 
-import m__action_types from './action-types'
-import m__state from './state'
-import m__tokens from './tokens'
-
-import * as ms__redux_helpers from '~/redux-helpers'
-
+const m__action_types = require('./action-types')
+const m__redux_helpers = require('~/redux-helpers')
+const m__state = require('./state')
+const m__token = require('./token')
 
 const reducers = {
 	[m__action_types.sort]: (state, action) => {
@@ -30,12 +28,12 @@ const reducers = {
 	},
 }
 
-export default ms__redux_helpers.reducers.middlewares_composer([
-	ms__redux_helpers.middlewares.state_initializer(m__state),
-	ms__redux_helpers.middlewares.filters_applicator([
-		ms__redux_helpers.reducers.tokens_checker(m__tokens),
+module.exports = m__redux_helpers.reducers.middlewares_composer([
+	m__redux_helpers.middlewares.state_initializer(m__state),
+	m__redux_helpers.middlewares.filters_applicator([
+		m__redux_helpers.reducers.tokens_checker(m__token.array),
 	]),
-	ms__redux_helpers.middlewares.reducers_applicator([
-		ms__redux_helpers.reducers.reducers_selector(reducers),
+	m__redux_helpers.middlewares.reducers_applicator([
+		m__redux_helpers.reducers.reducers_selector(reducers),
 	]),
 ])

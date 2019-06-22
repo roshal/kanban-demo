@@ -1,19 +1,18 @@
 
-import * as ps__immutable from 'immutable'
+const p__immutable = require('immutable')
 
-
-export default ps__immutable.List([
-	ps__immutable.Map({
+module.exports = p__immutable.List([
+	p__immutable.Map({
 		id: 0,
 		name: 'to do',
 		sorting: 0,
 	}),
-	ps__immutable.Map({
+	p__immutable.Map({
 		id: 1,
 		name: 'in process',
 		sorting: 0,
 	}),
-	ps__immutable.Map({
+	p__immutable.Map({
 		id: 2,
 		name: 'done',
 		sorting: 0,

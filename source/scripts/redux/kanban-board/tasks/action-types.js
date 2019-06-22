@@ -1,14 +1,11 @@
 
-import * as ms__tokens from './tokens'
-
+const m__token = require('./token')
 
 const prefix = (name) => {
-	return [ms__tokens.token, name].join('--')
+	return [m__token.value, name].join('--')
 }
 
-export default {
-	create: prefix('create'),
-	remove: prefix('remove'),
-	locate: prefix('locate'),
-	update: prefix('update'),
-}
+exports.create = prefix('create')
+exports.delete = prefix('delete')
+exports.locate = prefix('locate')
+exports.update = prefix('update')

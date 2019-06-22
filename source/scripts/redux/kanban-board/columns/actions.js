@@ -1,13 +1,12 @@
 
-import m__action_types from './action-types'
-import m__tokens from './tokens'
+const m__action_types = require('./action-types')
+const m__token = require('./token')
 
-
-export const sort = ({
+exports.sort = ({
 	id,
 }) => {
 	return {
-		tokens: m__tokens,
+		tokens: m__token,
 		type: m__action_types.sort,
 		payload: {
 			id,
@@ -15,12 +14,12 @@ export const sort = ({
 	}
 }
 
-export const update = ({
+exports.update = ({
 	id,
 	name,
 }) => {
 	return {
-		tokens: m__tokens,
+		tokens: m__token,
 		type: m__action_types.update,
 		payload: {
 			id,

@@ -1,16 +1,14 @@
 
-import * as ps__immutable from 'immutable'
+const p__immutable = require('immutable')
 
-import m__action_types from './action-types'
-import m__state from './state'
-import m__tokens from './tokens'
-
-import * as ms__redux_helpers from '~/redux-helpers'
-
+const m__action_types = require('./action-types')
+const m__redux_helpers = require('~/redux-helpers')
+const m__state = require('./state')
+const m__token = require('./token')
 
 const reducers = {
 	[m__action_types.create]: (state, action) => {
-		const value = ps__immutable.Map({
+		const value = p__immutable.Map({
 			id: Date.now(),
 			column_id: action.payload.column_id,
 			name: '',
@@ -18,7 +16,7 @@ const reducers = {
 		})
 		return state.insert(0, value)
 	},
-	[m__action_types.remove]: (state, action) => {
+	[m__action_types.delete]: (state, action) => {
 		const index = state.findIndex((value) => {
 			return value.get('id') === action.payload.id
 		})
@@ -50,12 +48,12 @@ const reducers = {
 	},
 }
 
-export default ms__redux_helpers.reducers.middlewares_composer([
-	ms__redux_helpers.middlewares.state_initializer(m__state),
-	ms__redux_helpers.middlewares.filters_applicator([
-		ms__redux_helpers.reducers.tokens_checker(m__tokens),
+module.exports = m__redux_helpers.reducers.middlewares_composer([
+	m__redux_helpers.middlewares.state_initializer(m__state),
+	m__redux_helpers.middlewares.filters_applicator([
+		m__redux_helpers.reducers.tokens_checker(m__token.array),
 	]),
-	ms__redux_helpers.middlewares.reducers_applicator([
-		ms__redux_helpers.reducers.reducers_selector(reducers),
+	m__redux_helpers.middlewares.reducers_applicator([
+		m__redux_helpers.reducers.reducers_selector(reducers),
 	]),
 ])

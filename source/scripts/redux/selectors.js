@@ -1,4 +1,4 @@
 
-export const select = (state) => {
+exports.select = (state) => {
 	return state
 }

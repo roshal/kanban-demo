@@ -1,24 +1,22 @@
 
-import p__classnames from 'classnames'
-import p__prop_types from 'prop-types'
-import p__react from 'react'
-import p__react_hyperscript from 'react-hyperscript'
-
-import * as ps__immutable from 'immutable'
-
+const p__classnames = require('classnames')
+const p__immutable = require('immutable')
+const p__prop_types = require('prop-types')
+const p__react = require('react')
+const p__react_hyperscript = require('react-hyperscript')
 
 const $ = p__react_hyperscript
 
-export default class extends p__react.PureComponent {
+module.exports = class extends p__react.PureComponent {
 	static displayName = 'task'
 	static propTypes = {
 		name: p__prop_types.string.isRequired,
 		text: p__prop_types.string.isRequired,
 		columns: p__prop_types.objectOf(
-			ps__immutable.List,
+			p__immutable.List,
 		).isRequired,
 		actions: p__prop_types.shape({
-			remove: p__prop_types.func.isRequired,
+			delete: p__prop_types.func.isRequired,
 			locate: p__prop_types.func.isRequired,
 			update: p__prop_types.func.isRequired,
 		}).isRequired,
@@ -75,12 +73,13 @@ export default class extends p__react.PureComponent {
 			name,
 		}) => {
 			return [
-				$('li.task--action--locate', [
+				$('li.task--action--locate', {
+					key: id,
+				}, [
 					$('div.task--action--locate--arrow', [
 						'→ ',
 					]),
 					$('div.task--action--locate--title', {
-						key: id,
 						onClick: () => {
 							this.props.actions.locate({
 								column_id: id,
@@ -113,9 +112,9 @@ export default class extends p__react.PureComponent {
 					}),
 				]),
 				$('div.task--options', [
-					$('div.task--action--remove', [
-						$('span.task--action--remove--text', {
-							onClick: this.props.actions.remove,
+					$('div.task--action--delete', [
+						$('span.task--action--delete--text', {
+							onClick: this.props.actions.delete,
 						}, [
 							'delete',
 						]),

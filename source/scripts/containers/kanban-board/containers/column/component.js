@@ -1,17 +1,15 @@
 
-import p__classnames from 'classnames'
-import p__prop_types from 'prop-types'
-import p__react from 'react'
-import p__react_hyperscript from 'react-hyperscript'
+const p__classnames = require('classnames')
+const p__immutable = require('immutable')
+const p__prop_types = require('prop-types')
+const p__react = require('react')
+const p__react_hyperscript = require('react-hyperscript')
 
-import * as ps__immutable from 'immutable'
-
-import m__container__task from '../../containers/task'
-
+const m__container__task = require('../../containers/task')
 
 const $ = p__react_hyperscript
 
-export default class extends p__react.PureComponent {
+module.exports = class extends p__react.PureComponent {
 	static displayName = 'column'
 	static propTypes = {
 		id: p__prop_types.number.isRequired,
@@ -20,7 +18,7 @@ export default class extends p__react.PureComponent {
 			-1, 0, 1,
 		]).isRequired,
 		tasks: p__prop_types.objectOf(
-			ps__immutable.List,
+			p__immutable.List,
 		).isRequired,
 		actions: p__prop_types.shape({
 			add: p__prop_types.func.isRequired,
@@ -75,7 +73,9 @@ export default class extends p__react.PureComponent {
 						]),
 						$('div.column--action--sort', [
 							$('span.column--action--sort--arrow', [
-								!!this.props.sorting && (this.props.sorting < 0 ? '↑' : '↓'), ' ',
+								!!this.props.sorting && (
+									this.props.sorting < 0 ? '↑' : '↓'
+								), ' ',
 							]),
 							$('span.column--action--sort--title', {
 								onClick: this.props.actions.sort,

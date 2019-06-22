@@ -1,39 +1,37 @@
 
-import * as ps__lodash from 'lodash'
+const p__lodash = require('lodash/throttle')
 
-import * as ms__tokens from '~/redux/tokens'
-import * as ms__windows from '~/commons/windows'
+const m__token = require('~/redux/token')
+const m__windows = require('~/commons/windows')
 
+const storage = m__windows.local_storage
 
-const storage = ms__windows.local_storage
-
-export const deserialize = () => {
+exports.deserialize = () => {
 	try {
-		const string = storage.getItem(ms__tokens.token)
+		const string = storage.getItem(m__token.value)
 		if (string === null) {
 			return undefined
 		}
 		return JSON.parse(string)
 	} catch (error) {
 		console.warn(error)
-		return undefined
 	}
 }
 
-export const store_serializer = (store) => {
+exports.store_serializer = (store) => {
 	return () => {
 		const state = store.getState()
 		try {
 			const string = JSON.stringify(state)
-			storage.setItem(ms__tokens.token, string)
+			storage.setItem(m__token.value, string)
 		} catch (error) {
 			console.warn(error)
 		}
 	}
 }
 
-export const store_throttler = (store, milliseconds = 1 << 12) => {
-	return ps__lodash.throttle(store_serializer(store), milliseconds, {
+exports.store_throttler = (store, milliseconds = 1 << 12) => {
+	return p__lodash(exports.store_serializer(store), milliseconds, {
 		leading: false,
 	})
 }

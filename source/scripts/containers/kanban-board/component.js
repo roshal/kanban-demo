@@ -1,20 +1,18 @@
 
-import p__prop_types from 'prop-types'
-import p__react from 'react'
-import p__react_hyperscript from 'react-hyperscript'
+const p__immutable = require('immutable')
+const p__prop_types = require('prop-types')
+const p__react = require('react')
+const p__react_hyperscript = require('react-hyperscript')
 
-import * as ps__immutable from 'immutable'
-
-import m__container__column from './containers/column'
-
+const m__container__column = require('./containers/column')
 
 const $ = p__react_hyperscript
 
-export default class extends p__react.PureComponent {
+module.exports = class extends p__react.PureComponent {
 	static displayName = 'kanban-board'
 	static propTypes = {
 		columns: p__prop_types.objectOf(
-			ps__immutable.List,
+			p__immutable.List,
 		).isRequired,
 		actions: p__prop_types.shape({
 			reset: p__prop_types.func.isRequired,
