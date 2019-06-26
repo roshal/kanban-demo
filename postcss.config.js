@@ -2,7 +2,7 @@
 const p__path = require('path')
 
 module.exports = {
-	parser: 'sugarss',
+	syntax: 'sugarss',
 	plugins: {
 		//
 		'postcss-import': {
