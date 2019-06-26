@@ -1,11 +1,12 @@
 
-const m__token = require('./token')
+import * as m__token from './token'
+
 
 const prefix = (name) => {
 	return [m__token.value, name].join('--')
 }
 
-exports.create = prefix('create')
-exports.delete = prefix('delete')
-exports.locate = prefix('locate')
-exports.update = prefix('update')
+export const create = prefix('create')
+export const remove = prefix('remove')
+export const locate = prefix('locate')
+export const update = prefix('update')

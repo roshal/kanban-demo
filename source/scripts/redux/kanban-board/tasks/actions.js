@@ -1,8 +1,9 @@
 
-const m__action_types = require('./action-types')
-const m__token = require('./token')
+import * as m__action_types from './action-types'
+import * as m__token from './token'
 
-exports.create = ({
+
+export const create = ({
 	column_id,
 }) => {
 	return {
@@ -14,19 +15,19 @@ exports.create = ({
 	}
 }
 
-exports.delete = ({
+export const remove = ({
 	id,
 }) => {
 	return {
 		tokens: m__token.array,
-		type: m__action_types.delete,
+		type: m__action_types.remove,
 		payload: {
 			id,
 		},
 	}
 }
 
-exports.locate = ({
+export const locate = ({
 	id,
 	column_id,
 }) => {
@@ -40,7 +41,7 @@ exports.locate = ({
 	}
 }
 
-exports.update = ({
+export const update = ({
 	id,
 	name,
 	text,

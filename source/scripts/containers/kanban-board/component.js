@@ -1,27 +1,34 @@
 
-const p__immutable = require('immutable')
-const p__prop_types = require('prop-types')
-const p__react = require('react')
-const p__react_hyperscript = require('react-hyperscript')
+import * as p__immutable from 'immutable'
 
-const m__container__column = require('./containers/column')
+import i__prop_types from 'prop-types'
+import i__react from 'react'
+import i__react_hyperscript from 'react-hyperscript'
 
-const $ = p__react_hyperscript
+import * as m__helpers from '~/commons/helpers'
 
-module.exports = class extends p__react.PureComponent {
+import d__container__column from './containers/column'
+
+import s__styles from './styles.sss'
+
+
+const $ = i__react_hyperscript
+const style = m__helpers.styler(s__styles)
+
+export default class extends i__react.PureComponent {
 	static displayName = 'kanban-board'
 	static propTypes = {
-		columns: p__prop_types.objectOf(
+		columns: i__prop_types.objectOf(
 			p__immutable.List,
 		).isRequired,
-		actions: p__prop_types.shape({
-			reset: p__prop_types.func.isRequired,
+		actions: i__prop_types.shape({
+			reset: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
 	self = {
 		render_column: (object) => {
 			return [
-				$(m__container__column, {
+				$(d__container__column, {
 					key: object.id,
 					id: object.id,
 				}),
@@ -30,12 +37,12 @@ module.exports = class extends p__react.PureComponent {
 	}
 	render() {
 		return [
-			$('div.kanban-board', [
-				$('div.kanban-board--wrapper', [
+			$('div' + style('kanban-board'), [
+				$('div' + style('kanban-board--wrapper'), [
 					this.props.columns.map(this.self.render_column),
 				]),
-				$('div.kanban-board--action--reset', [
-					$('span.kanban-board--action--reset--text', {
+				$('div' + style('kanban-board--action--reset'), [
+					$('span' + style('kanban-board--action--reset--text'), {
 						onClick: this.props.actions.reset,
 					}, [
 						'reset',

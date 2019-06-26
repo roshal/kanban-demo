@@ -1,11 +1,11 @@
 
 /*
 
+!/node/
 !/notes/
 !/source/
 !/webpack/
 
-!/.babelrc
 !/.editorconfig
 !/.eslintignore
 !/.eslintrc.yaml
@@ -16,7 +16,7 @@
 
 !/babel.config.js
 !/firebase.json
-!/package-scripts.yaml
+!/package-scripts.js
 !/package.json
 !/postcss.config.js
 !/webpack.config.js

@@ -1,7 +1,16 @@
 
+const p__mini_css_extract_plugin = require('mini-css-extract-plugin')
 const p__path = require('path')
 
+const m__webpack_helpers = require('../node/webpack-helpers')
+
 module.exports = (env = {}, argv = {}) => {
+	const loader = {
+		loader: p__mini_css_extract_plugin.loader,
+		options: {
+			hmr: argv.hot,
+		},
+	}
 	return {
 		module: {
 			rules: [
@@ -15,17 +24,17 @@ module.exports = (env = {}, argv = {}) => {
 						],
 					},
 					use: [
-						{
-							loader: 'style-loader',
-							options: {
-								sourceMap: argv.develop,
-							},
-						},
+						loader,
 						{
 							loader: 'css-loader',
 							options: {
 								modules: {
-									localIdentName: '[hash:base26]',
+									...argv.develop ? {
+										getLocalIdent: m__webpack_helpers.mapper('number'),
+									} : {},
+									...argv.produce ? {
+										getLocalIdent: m__webpack_helpers.mapper('string'),
+									} : {},
 								},
 								sourceMap: argv.develop,
 								importLoaders: 1,
@@ -49,18 +58,7 @@ module.exports = (env = {}, argv = {}) => {
 						],
 					},
 					use: [
-						{
-							loader: 'file-loader',
-							options: {
-								name: '[name].css',
-							},
-						},
-						{
-							loader: 'extract-loader',
-							options: {
-								sourceMap: argv.develop,
-							},
-						},
+						loader,
 						{
 							loader: 'css-loader',
 							options: {
@@ -78,5 +76,8 @@ module.exports = (env = {}, argv = {}) => {
 				},
 			],
 		},
+		plugins: [
+			new p__mini_css_extract_plugin(),
+		],
 	}
 }

@@ -1,7 +1,8 @@
 
-const m__selectors = require('../selectors')
-const m__token = require('./token')
+import * as m__selectors from '../selectors'
+import * as m__token from './token'
 
-exports.select = (state) => {
+
+export const select = (state) => {
 	return m__selectors.select(state).get(m__token.value)
 }

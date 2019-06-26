@@ -1,3 +1,17 @@
 
-.first
-	background: #f00
+@import '~/mixins/action'
+
+.kanban-board
+	padding: 8px
+
+.kanban-board--wrapper
+	display: flex
+	width: 100%
+
+.kanban-board--action--reset
+	padding: 8px
+	user-select: none
+
+.kanban-board--action--reset--text
+	@mixin click #000
+	cursor: pointer

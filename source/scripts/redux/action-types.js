@@ -1,8 +1,9 @@
 
-const m__token = require('./token')
+import * as m__token from './token'
+
 
 const prefix = (name) => {
 	return [m__token.value, name].join('--')
 }
 
-exports.reset = prefix('reset')
+export const reset = prefix('reset')

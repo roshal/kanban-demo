@@ -1,8 +1,9 @@
 
-const m__action_types = require('./action-types')
-const m__token = require('./token')
+import * as m__action_types from './action-types'
+import * as m__token from './token'
 
-exports.reset = ({
+
+export const reset = ({
 	column_id,
 }) => {
 	return {

@@ -1,3 +1,3 @@
 
-exports.middlewares = require('./middlewares')
-exports.reducers = require('./reducers')
+export * as middlewares from './middlewares'
+export * as reducers from './reducers'

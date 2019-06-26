@@ -1,5 +1,5 @@
 
-exports.filters_applicator = (filters) => {
+export const filters_applicator = (filters) => {
 	return (reducer) => {
 		return (state, action) => {
 			filters.forEach((filter) => {
@@ -12,7 +12,7 @@ exports.filters_applicator = (filters) => {
 	}
 }
 
-exports.reducers_applicator = (reducers) => {
+export const reducers_applicator = (reducers) => {
 	return (reducer) => {
 		return (state, action) => {
 			reducers.forEach((reducer) => {
@@ -23,7 +23,7 @@ exports.reducers_applicator = (reducers) => {
 	}
 }
 
-exports.state_initializer = (initial_state) => {
+export const state_initializer = (initial_state) => {
 	return (reducer) => {
 		return (state = initial_state, action) => {
 			return reducer(state, action)

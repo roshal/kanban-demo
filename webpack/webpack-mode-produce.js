@@ -7,8 +7,8 @@ module.exports = (env = {}, argv = {}) => {
 	return {
 		mode: 'production',
 		devServer: {
-			// compress: true,
-			// https: true,
+			//compress: true,
+			//https: true,
 		},
 		plugins: [
 			new p__lodash_webpack_plugin(),

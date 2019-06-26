@@ -27,3 +27,6 @@ npx nps r
 
 # lint
 npx nps l
+
+# nodemon
+npx nodemon -w webpack -x nps d

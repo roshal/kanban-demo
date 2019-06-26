@@ -1,25 +1,25 @@
 
 @import '~/mixins/action'
 
-div.task
+.task
 	background: white
 	display: flex
 	flex-direction: column
 	margin: 4px
 	padding: 8px 12px
 
-input.task--input--name
+.task--input--name
 	border: none
 	font-weight: bold
 	outline: none
 	width: 100%
 
-input.task--input--text
+.task--input--text
 	border: none
 	outline: none
 	width: 100%
 
-ul.task--list
+.task--list
 	background: white
 	border: 1px solid #000
 	box-sizing: border-box
@@ -28,39 +28,39 @@ ul.task--list
 	position: absolute 8px * * -12px
 	z-index: 1
 
-div.task--dropdown
+.task--dropdown
 	float: right
 	position: relative
 
-div.task--action--remove
+.task--action--remove
 	float: left
 	user-select: none
 
-span.task--action--remove--text
+.task--action--remove--text
 	@mixin click #ef5050
 	cursor: pointer
 
-div.task--action--move
+.task--action--move
 	user-select: none
 
-span.task--action--move--text
+.task--action--move--text
 	color: #bdb9b9
 
-span.task--action--move--arrow
+.task--action--move--arrow
 	color: #000
 
-span.task--action--move--title
+.task--action--move--title
 	@mixin click #bdb9b9
 	cursor: pointer
 
-li.task--action--locate
+.task--action--locate
 	display: flex
 	user-select: none
 
-div.task--action--locate--arrow
+.task--action--locate--arrow
 	white-space: pre
 
-span.task--action--locate--text
+.task--action--locate--text
 	@mixin click #000
 	cursor: pointer
 	white-space: nowrap

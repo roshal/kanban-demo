@@ -1,15 +1,17 @@
 
-root: true
-
+# specifying-parser
 parser: babel-eslint
 
-extends:
-  - eslint:recommended
-
+# specifying-environments
 env:
   browser: true
   node: true
 
+# configuring-plugins
+plugins:
+  - import
+
+# configuring-rules
 rules:
   # possible errors
   no-console:
@@ -24,8 +26,7 @@ rules:
   indent:
     - error
     - tab
-    -
-      SwitchCase: 1
+    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
@@ -39,3 +40,10 @@ rules:
   semi:
     - error
     - never
+
+# extending-configuration-files
+extends:
+  - eslint:recommended
+
+# configuration-cascading-and-hierarchy
+root: true

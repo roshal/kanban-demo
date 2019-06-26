@@ -1,0 +1,53 @@
+
+@import '~/mixins/action'
+
+.column
+	margin: 8px
+	min-width: 256px
+
+.column--head
+	background: white
+	border-top-radius: 8px
+	display: flex
+	flex-direction: column
+	padding: 8px 12px
+
+.column--head--empty
+	background: white
+	border-radius: 8px
+	display: flex
+	flex-direction: column
+	padding: 8px 12px
+
+.column--body
+	background: #eee
+	border-bottom-radius: 8px
+	border: 0 solid #000
+	display: flex
+	flex-direction: column
+	padding: 4px
+
+.column--input--name
+	border: none
+	outline: none
+	text-align: center
+	width: 100%
+
+.column--action--add
+	float: left
+	user-select: none
+
+.column--action--add--text
+	@mixin click #4b7cf3
+	cursor: pointer
+
+.column--action--sort
+	float: right
+	user-select: none
+
+.column--action--sort--title
+	@mixin click #2dcd72
+	cursor: pointer
+
+.column--action--sort--arrow
+	color: #2dcd72

@@ -1,8 +1,9 @@
 
-const m__action_types = require('./action-types')
-const m__token = require('./token')
+import * as m__action_types from './action-types'
+import * as m__token from './token'
 
-exports.sort = ({
+
+export const sort = ({
 	id,
 }) => {
 	return {
@@ -14,7 +15,7 @@ exports.sort = ({
 	}
 }
 
-exports.update = ({
+export const update = ({
 	id,
 	name,
 }) => {

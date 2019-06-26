@@ -1,9 +1,10 @@
 
-const p__reselect = require('reselect')
+import * as p__reselect from 'reselect'
 
-const m__selectors__columns = require('~/redux/kanban-board/columns/selectors')
+import * as m__selectors__columns from '~/redux/kanban-board/columns/selectors'
 
-exports.select = p__reselect.createSelector(
+
+export const select = p__reselect.createSelector(
 	(state) => ({
 		columns: m__selectors__columns.select(state),
 	}),

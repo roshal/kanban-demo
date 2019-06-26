@@ -1,8 +1,9 @@
 
-const m__token = require('../token')
+import * as m__token from '../token'
 
-exports.value = 'tasks'
 
-exports.array = [
-	...m__token.array, exports.value,
+export const value = 'tasks'
+
+export const array = [
+	...m__token.array, value,
 ]

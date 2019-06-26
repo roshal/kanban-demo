@@ -1,17 +1,17 @@
 
-const p__react_dom = require('react-dom')
-const p__react_hyperscript = require('react-hyperscript')
+import i__react_dom from 'react-dom'
+import i__react_hyperscript from 'react-hyperscript'
 
-const m__component__app = require('~/components/app')
+import d__component__app from '~/components/app'
 
-// require('//templates/sources/index.pug')
-// require('//styles/sources/index.sss')
+import '//styles/sources/index.sss'
 
-const $ = p__react_hyperscript
+
+const $ = i__react_hyperscript
 
 {
-	const element = $(m__component__app)
+	const element = $(d__component__app)
 	const container = document.createElement('div')
-	p__react_dom.render(element, container)
+	i__react_dom.render(element, container)
 	document.body.appendChild(container)
 }

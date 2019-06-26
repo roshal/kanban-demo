@@ -1,13 +1,15 @@
 
-const p__react_redux = require('react-redux')
-const p__redux = require('redux')
+import * as p__react_redux from 'react-redux'
+import * as p__redux from 'redux'
 
-const m__actions__columns = require('~/redux/kanban-board/columns/actions')
-const m__actions__tasks = require('~/redux/kanban-board/tasks/actions')
-const m__component = require('./component')
-const m__selectors = require('./selectors')
+import * as m__actions__columns from '~/redux/kanban-board/columns/actions'
+import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
+import * as m__selectors from './selectors'
 
-module.exports = p__react_redux.connect(
+import d__component from './component'
+
+
+export default p__react_redux.connect(
 	(state, props) => {
 		return m__selectors.select({
 			state,
@@ -39,4 +41,4 @@ module.exports = p__react_redux.connect(
 			actions,
 		}
 	},
-)(m__component)
+)(d__component)

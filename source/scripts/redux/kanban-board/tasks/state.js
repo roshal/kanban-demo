@@ -1,7 +1,8 @@
 
-const p__immutable = require('immutable')
+import * as p__immutable from 'immutable'
 
-module.exports = p__immutable.List([
+
+export default p__immutable.List([
 	p__immutable.Map({
 		id: 0,
 		column_id: 0,

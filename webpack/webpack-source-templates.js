@@ -28,17 +28,14 @@ module.exports = (env = {}, argv = {}) => {
 						{
 							loader: 'html-loader',
 							options: {
-								attrs: [
-									'link:href',
-								],
-								removeComments: true,
+								minimize: argv.produce,
+								conservativeCollapse: false,
+								interpolate: true,
 							},
 						},
 						{
 							loader: 'pug-plain-loader',
 							options: {
-								// deprecated
-								// https://pugjs.org/api/reference.html#options
 								pretty: argv.develop ? '\t' : false,
 							},
 						},

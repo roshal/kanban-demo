@@ -1,9 +1,10 @@
 
-const m__token = require('./token')
+import * as m__token from './token'
+
 
 const prefix = (name) => {
 	return [m__token.value, name].join('--')
 }
 
-exports.sort = prefix('sort')
-exports.update = prefix('update')
+export const sort = prefix('sort')
+export const update = prefix('update')

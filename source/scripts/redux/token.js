@@ -1,6 +1,6 @@
 
-exports.value = 'redux'
+export const value = 'redux'
 
-exports.array = [
-	exports.value,
+export const array = [
+	value,
 ]

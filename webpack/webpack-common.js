@@ -47,7 +47,7 @@ module.exports = (env = {}, argv = {}) => {
 		],
 		optimization: {
 			splitChunks: {
-				minSize: 65536,
+				minSize: 128 << 9,
 				minChunks: 1,
 				maxAsyncRequests: 4,
 				maxInitialRequests: 1,
@@ -76,11 +76,16 @@ module.exports = (env = {}, argv = {}) => {
 			],
 		},
 		performance: {
-			maxEntrypointSize: 512 << 10,
-			maxAssetSize: 512 << 10,
+			maxEntrypointSize: 128 << 12,
+			maxAssetSize: 128 << 12,
 			assetFilter: (asset) => {
 				return asset.endsWith('.js')
 			},
+		},
+		stats: {
+			children: false,
+			entrypoints: false,
+			maxModules: 0,
 		},
 	}
 }

@@ -1,13 +1,15 @@
 
-const m__local_storage = require('~/commons/local-storage')
-const m__reducer = require('~/redux/reducer')
-const m__windows = require('~/commons/windows')
-const p__redux = require('redux')
+import * as p__redux from 'redux'
+
+import * as m__local_storage from '~/commons/local-storage'
+import * as m__reducer from '~/redux/reducer'
+import * as m__windows from '~/commons/windows'
+
 
 const compose = m__windows.redux_devtools_extension_compose || p__redux.compose
 const enhancer = compose()
 
-module.exports = (state) => {
+export default (state) => {
 	const store = p__redux.createStore(m__reducer.reducer, state, enhancer)
 	const serialize = m__local_storage.store_serializer(store)
 	m__windows.onbeforeunload_subscribe(serialize)
