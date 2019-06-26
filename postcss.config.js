@@ -9,7 +9,7 @@ module.exports = {
 			resolve: (id) => {
 				if (id.startsWith('/')) {
 					id = [id.slice(1), 'sss'].join('.')
-					return p__path.resolve('source', id) 
+					return p__path.resolve('source', id)
 				}
 				if (id.startsWith('~/')) {
 					id = [id.slice(2), 'sss'].join('.')
