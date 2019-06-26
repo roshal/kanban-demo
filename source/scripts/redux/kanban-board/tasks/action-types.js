@@ -1,14 +1,12 @@
 
-import * as ms__tokens from './tokens'
+import * as m__token from './token'
 
 
 const prefix = (name) => {
-	return [ms__tokens.token, name].join('--')
+	return [m__token.value, name].join('--')
 }
 
-export default {
-	create: prefix('create'),
-	remove: prefix('remove'),
-	locate: prefix('locate'),
-	update: prefix('update'),
-}
+export const create = prefix('create')
+export const remove = prefix('remove')
+export const locate = prefix('locate')
+export const update = prefix('update')

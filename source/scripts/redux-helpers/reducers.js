@@ -1,5 +1,6 @@
 
-import * as ps__redux_immutable from 'redux-immutable'
+import * as p__redux_immutable from 'redux-immutable'
+
 
 export const middlewares_composer = (middlewares) => {
 	let reducer = (state) => {
@@ -17,7 +18,7 @@ export const middlewares_composer = (middlewares) => {
 
 export const reducers_combiner = (reducers) => {
 	return (state, action) => {
-		return ps__redux_immutable.combineReducers(reducers)(state, action)
+		return p__redux_immutable.combineReducers(reducers)(state, action)
 	}
 }
 

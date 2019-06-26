@@ -1,17 +1,17 @@
 
-import * as ps__reselect from 'reselect'
+import * as p__reselect from 'reselect'
 
-import * as ms__selectors__columns from '~/redux/kanban-board/columns/selectors'
-import * as ms__selectors__tasks from '~/redux/kanban-board/tasks/selectors'
+import * as m__selectors__columns from '~/redux/kanban-board/columns/selectors'
+import * as m__selectors__tasks from '~/redux/kanban-board/tasks/selectors'
 
 
-export const select = ps__reselect.createSelector(
+export const select = p__reselect.createSelector(
 	({
 		state,
 		id,
 	}) => ({
-		columns: ms__selectors__columns.select(state),
-		tasks: ms__selectors__tasks.select(state),
+		columns: m__selectors__columns.select(state),
+		tasks: m__selectors__tasks.select(state),
 		id,
 	}),
 	({

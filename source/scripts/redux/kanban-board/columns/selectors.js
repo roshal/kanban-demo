@@ -1,8 +1,8 @@
 
-import * as ms__selectors from '../selectors'
-import * as ms__tokens from './tokens'
+import * as m__selectors from '../selectors'
+import * as m__token from './token'
 
 
 export const select = (state) => {
-	return ms__selectors.select(state).get(ms__tokens.token)
+	return m__selectors.select(state).get(m__token.value)
 }

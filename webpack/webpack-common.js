@@ -1,6 +1,6 @@
 
 const p__path = require('path')
-const p__webpack_stylish = require('webpack-stylish')
+const p__webpack = require('webpack')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -39,11 +39,15 @@ module.exports = (env = {}, argv = {}) => {
 			],
 		},
 		plugins: [
-			new p__webpack_stylish(),
+			new p__webpack.SourceMapDevToolPlugin({
+				test: [
+					'.sss',
+				],
+			}),
 		],
 		optimization: {
 			splitChunks: {
-				minSize: 65536,
+				minSize: 128 << 9,
 				minChunks: 1,
 				maxAsyncRequests: 4,
 				maxInitialRequests: 1,
@@ -65,7 +69,6 @@ module.exports = (env = {}, argv = {}) => {
 			historyApiFallback: true,
 			host: '0.0.0.0',
 			port: argv.port || 8080,
-			stats: 'none',
 		},
 		watchOptions: {
 			ignored: [
@@ -73,12 +76,16 @@ module.exports = (env = {}, argv = {}) => {
 			],
 		},
 		performance: {
-			maxEntrypointSize: 512 << 10,
-			maxAssetSize: 512 << 10,
+			maxEntrypointSize: 128 << 12,
+			maxAssetSize: 128 << 12,
 			assetFilter: (asset) => {
 				return asset.endsWith('.js')
 			},
 		},
-		stats: 'none',
+		stats: {
+			children: false,
+			entrypoints: false,
+			maxModules: 0,
+		},
 	}
 }

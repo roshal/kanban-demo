@@ -1,22 +1,22 @@
 
-import * as ps__lodash from 'lodash'
+import * as p__json5 from 'json5'
+import * as p__lodash from 'lodash'
 
-import * as ms__tokens from '~/redux/tokens'
-import * as ms__windows from '~/commons/windows'
+import * as m__token from '~/redux/token'
+import * as m__windows from '~/commons/windows'
 
 
-const storage = ms__windows.local_storage
+const storage = m__windows.local_storage
 
 export const deserialize = () => {
 	try {
-		const string = storage.getItem(ms__tokens.token)
+		const string = storage.getItem(m__token.value)
 		if (string === null) {
 			return undefined
 		}
-		return JSON.parse(string)
+		return p__json5.parse(string)
 	} catch (error) {
 		console.warn(error)
-		return undefined
 	}
 }
 
@@ -24,8 +24,8 @@ export const store_serializer = (store) => {
 	return () => {
 		const state = store.getState()
 		try {
-			const string = JSON.stringify(state)
-			storage.setItem(ms__tokens.token, string)
+			const string = p__json5.stringify(state)
+			storage.setItem(m__token.value, string)
 		} catch (error) {
 			console.warn(error)
 		}
@@ -33,7 +33,7 @@ export const store_serializer = (store) => {
 }
 
 export const store_throttler = (store, milliseconds = 1 << 12) => {
-	return ps__lodash.throttle(store_serializer(store), milliseconds, {
+	return p__lodash.throttle(store_serializer(store), milliseconds, {
 		leading: false,
 	})
 }

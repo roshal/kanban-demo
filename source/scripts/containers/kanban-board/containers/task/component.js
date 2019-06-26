@@ -1,26 +1,30 @@
 
-import p__classnames from 'classnames'
-import p__prop_types from 'prop-types'
-import p__react from 'react'
-import p__react_hyperscript from 'react-hyperscript'
+import * as p__immutable from 'immutable'
 
-import * as ps__immutable from 'immutable'
+import i__prop_types from 'prop-types'
+import i__react from 'react'
+import i__react_hyperscript from 'react-hyperscript'
+
+import * as m__helpers from '~/commons/helpers'
+
+import s__styles from './styles.sss'
 
 
-const $ = p__react_hyperscript
+const $ = i__react_hyperscript
+const style = m__helpers.styler(s__styles)
 
-export default class extends p__react.PureComponent {
+export default class extends i__react.PureComponent {
 	static displayName = 'task'
 	static propTypes = {
-		name: p__prop_types.string.isRequired,
-		text: p__prop_types.string.isRequired,
-		columns: p__prop_types.objectOf(
-			ps__immutable.List,
+		name: i__prop_types.string.isRequired,
+		text: i__prop_types.string.isRequired,
+		columns: i__prop_types.objectOf(
+			p__immutable.List,
 		).isRequired,
-		actions: p__prop_types.shape({
-			remove: p__prop_types.func.isRequired,
-			locate: p__prop_types.func.isRequired,
-			update: p__prop_types.func.isRequired,
+		actions: i__prop_types.shape({
+			remove: i__prop_types.func.isRequired,
+			locate: i__prop_types.func.isRequired,
+			update: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
 	state = {
@@ -28,7 +32,7 @@ export default class extends p__react.PureComponent {
 	}
 	constructor(props) {
 		super(props)
-		this.self.references.move = p__react.createRef()
+		this.self.references.move = i__react.createRef()
 	}
 	componentDidMount() {
 		document.addEventListener('click', this.self.click)
@@ -75,19 +79,20 @@ export default class extends p__react.PureComponent {
 			name,
 		}) => {
 			return [
-				$('li.task--action--locate', [
-					$('div.task--action--locate--arrow', [
+				$('li' + style('task--action--locate'), {
+					key: id,
+				}, [
+					$('div' + style('task--action--locate--arrow'), [
 						'→ ',
 					]),
-					$('div.task--action--locate--title', {
-						key: id,
+					$('div' + style('task--action--locate--title'), {
 						onClick: () => {
 							this.props.actions.locate({
 								column_id: id,
 							})
 						},
 					}, [
-						$('span.task--action--locate--text', [
+						$('span' + style('task--action--locate--text'), [
 							name,
 						]),
 					]),
@@ -97,47 +102,47 @@ export default class extends p__react.PureComponent {
 	}
 	render() {
 		return [
-			$('div.task', [
-				$('div.task--name', [
-					$('input.task--input--name', {
+			$('div' + style('task'), [
+				$('div' + style('task--name'), [
+					$('input' + style('task--input--name'), {
 						onChange: this.self.handle_change_name,
 						placeholder: 'task name',
 						value: this.props.name,
 					}),
 				]),
-				$('div.task--text', [
-					$('input.task--input--text', {
+				$('div' + style('task--text'), [
+					$('input' + style('task--input--text'), {
 						onChange: this.self.handle_change_text,
 						placeholder: 'task text',
 						value: this.props.text,
 					}),
 				]),
-				$('div.task--options', [
-					$('div.task--action--remove', [
-						$('span.task--action--remove--text', {
+				$('div' + style('task--options'), [
+					$('div' + style('task--action--remove'), [
+						$('span' + style('task--action--remove--text'), {
 							onClick: this.props.actions.remove,
 						}, [
-							'delete',
+							'remove',
 						]),
 					]),
-					$('div.task--dropdown', {
+					$('div' + style('task--dropdown'), {
 						ref: this.self.references.move,
 					}, [
-						$('div.task--action--move', [
-							$('span.task--action--move--text', [
+						$('div' + style('task--action--move'), [
+							$('span' + style('task--action--move--text'), [
 								this.state.moving ? $([
-									$('span.task--action--move--arrow', [
+									$('span' + style('task--action--move--arrow'), [
 										'↓',
 									]), ' ',
 								]) : '↓ ',
-								$('span.task--action--move--title', {
+								$('span' + style('task--action--move--title'), {
 									onClick: this.self.move,
 								}, [
 									'move',
 								]),
 							]),
 						]),
-						this.state.moving && $('ul.task--list', [
+						this.state.moving && $('ul' + style('task--list'), [
 							this.props.columns.map(this.self.render_column),
 						]),
 					]),
