@@ -1,9 +1,10 @@
 
 export const styler = (styles) => {
 	return (...keys) => {
-		return ['', ...keys].map((key) => {
-			return styles[key]
-		}).join('.')
+		return keys.reduce((accumulator, value) => {
+			value = styles[value]
+			return value ? [accumulator, value].join('.') : value
+		}, '')
 	}
 }
 
