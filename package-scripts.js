@@ -40,8 +40,8 @@ module.exports = {
 				fix: 'eslint --fix webpack source/scripts',
 			},
 			stylelint: {
-				default: 'stylelint source/styles/**/*.sss',
-				fix: 'stylelint --fix source/styles/**/*.sss',
+				default: 'stylelint source/**/*.sss',
+				fix: 'stylelint --fix source/**/*.sss',
 			},
 		},
 		firebase: {
