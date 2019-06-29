@@ -55,6 +55,7 @@ module.exports = {
 				fix: 'stylelint --fix source/**/*.sss',
 			},
 		},
+		test: 'jest source/scripts',
 		firebase: {
 			deploy: 'firebase deploy',
 			login: {
