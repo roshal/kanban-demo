@@ -1,19 +1,29 @@
 
 const p__path = require('path')
 
+
+const object = {
+	'//': (id) => {
+		return p__path.resolve('source', id)
+	},
+	'~/': (id) => {
+		return p__path.resolve('source', 'styles', id)
+	},
+}
+
 module.exports = {
 	syntax: 'sugarss',
 	plugins: {
 		//
 		'postcss-import': {
 			resolve: (id) => {
-				if (id.startsWith('/')) {
-					id = [id.slice(1), 'sss'].join('.')
-					return p__path.resolve('source', id)
-				}
-				if (id.startsWith('~/')) {
-					id = [id.slice(2), 'sss'].join('.')
-					return p__path.resolve('source', 'styles', id)
+				for (const key in object) {
+					if (id.startsWith(key)) {
+						id = id.slice(key.length)
+						id = object[key](id)
+						id = [id, 'sss'].join('.')
+						break
+					}
 				}
 				return id
 			},
