@@ -7,18 +7,3 @@ export const styler = (styles) => {
 		}, '')
 	}
 }
-
-export const cast_actions = (token, array) => {
-	return array.reduce((object, value) => {
-		object[value] = [token, value].join('--')
-		return object
-	}, {})
-}
-
-export const cast_props = (props) => {
-	return {
-		props: props.props,
-		values: props.values,
-		actions: props.actions,
-	}
-}

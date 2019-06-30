@@ -22,8 +22,8 @@ export default class extends i__react.PureComponent {
 	static propTypes = {
 		props: i__prop_types.shape({
 			id: i__prop_types.number.isRequired,
-		}),
-		values: i__prop_types.shape({
+		}).isRequired,
+		state: i__prop_types.shape({
 			name: i__prop_types.string.isRequired,
 			sorting: i__prop_types.oneOf([
 				-1, 0, 1,
@@ -32,7 +32,7 @@ export default class extends i__react.PureComponent {
 				p__immutable.List,
 			).isRequired,
 		}).isRequired,
-		actions: i__prop_types.shape({
+		dispatch: i__prop_types.shape({
 			add: i__prop_types.func.isRequired,
 			rename: i__prop_types.func.isRequired,
 			sort: i__prop_types.func.isRequired,
@@ -45,7 +45,7 @@ export default class extends i__react.PureComponent {
 			},
 		}) => {
 			const object = m__helpers.cast_props(this.props)
-			object.actions.rename({
+			object.dispatch.rename({
 				name: value,
 			})
 		},
@@ -53,9 +53,7 @@ export default class extends i__react.PureComponent {
 			return [
 				$(d__container__task, {
 					key: object.id,
-					props: {
-						id: object.id,
-					},
+					id: object.id,
 				}),
 			][0]
 		},
@@ -66,41 +64,41 @@ export default class extends i__react.PureComponent {
 			$('div' + style('column'), [
 				$('div', {
 					className: classnames({
-						'column--head': !object.values.tasks.isEmpty(),
-						'column--head--empty': object.values.tasks.isEmpty(),
+						'column--head': !object.state.tasks.isEmpty(),
+						'column--head--empty': object.state.tasks.isEmpty(),
 					}),
 				}, [
 					$('div' + style('column--title'), [
 						$('input' + style('column--input--name'), {
 							onChange: this.self.handle_change_name,
 							placeholder: 'column name',
-							value: object.values.name,
+							value: object.state.name,
 						}),
 					]),
 					$('div' + style('column--options'), [
 						$('div' + style('column--action--add'), [
 							$('span' + style('column--action--add--text'), {
-								onClick: object.actions.add,
+								onClick: object.dispatch.add,
 							}, [
 								'add task',
 							]),
 						]),
 						$('div' + style('column--action--sort'), [
 							$('span' + style('column--action--sort--arrow'), [
-								!!object.values.sorting && (
-									object.values.sorting < 0 ? '↑' : '↓'
+								!!object.state.sorting && (
+									object.state.sorting < 0 ? '↑' : '↓'
 								), ' ',
 							]),
 							$('span' + style('column--action--sort--title'), {
-								onClick: object.actions.sort,
+								onClick: object.dispatch.sort,
 							}, [
 								'sort',
 							]),
 						]),
 					]),
 				]),
-				object.values.tasks.isEmpty() || $('div' + style('column--body'), [
-					object.values.tasks.map(this.self.render_task),
+				object.state.tasks.isEmpty() || $('div' + style('column--body'), [
+					object.state.tasks.map(this.self.render_task),
 				]),
 			]),
 		][0]

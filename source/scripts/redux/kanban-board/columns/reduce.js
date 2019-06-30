@@ -1,7 +1,7 @@
 
 import * as m__action_types from './action-types'
-import * as m__middlewares from '~/redux-helpers/middlewares'
-import * as m__reducers from '~/redux-helpers/reducers'
+import * as m__middlewares from '~/helpers/redux/middlewares'
+import * as m__reducers from '~/helpers/redux/reducers'
 import * as m__token from './token'
 
 import d__state from './state'
