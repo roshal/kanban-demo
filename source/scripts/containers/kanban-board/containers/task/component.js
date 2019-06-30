@@ -16,11 +16,16 @@ const style = m__helpers.styler(s__styles)
 export default class extends i__react.PureComponent {
 	static displayName = 'task'
 	static propTypes = {
-		name: i__prop_types.string.isRequired,
-		text: i__prop_types.string.isRequired,
-		columns: i__prop_types.objectOf(
-			p__immutable.List,
-		).isRequired,
+		props: i__prop_types.shape({
+			id: i__prop_types.number.isRequired,
+		}),
+		values: i__prop_types.shape({
+			name: i__prop_types.string.isRequired,
+			text: i__prop_types.string.isRequired,
+			columns: i__prop_types.objectOf(
+				p__immutable.List,
+			).isRequired,
+		}).isRequired,
 		actions: i__prop_types.shape({
 			remove: i__prop_types.func.isRequired,
 			locate: i__prop_types.func.isRequired,
@@ -30,8 +35,8 @@ export default class extends i__react.PureComponent {
 	state = {
 		moving: false,
 	}
-	constructor(props) {
-		super(props)
+	constructor(object) {
+		super(object)
 		this.self.references.move = i__react.createRef()
 	}
 	componentDidMount() {
@@ -47,7 +52,8 @@ export default class extends i__react.PureComponent {
 				value,
 			},
 		}) => {
-			this.props.actions.update({
+			const object = m__helpers.cast_props(this.props)
+			object.actions.update({
 				name: value,
 			})
 		},
@@ -56,7 +62,8 @@ export default class extends i__react.PureComponent {
 				value,
 			},
 		}) => {
-			this.props.actions.update({
+			const object = m__helpers.cast_props(this.props)
+			object.actions.update({
 				text: value,
 			})
 		},
@@ -78,6 +85,7 @@ export default class extends i__react.PureComponent {
 			id,
 			name,
 		}) => {
+			const object = m__helpers.cast_props(this.props)
 			return [
 				$('li' + style('task--action--locate'), {
 					key: id,
@@ -87,7 +95,7 @@ export default class extends i__react.PureComponent {
 					]),
 					$('div' + style('task--action--locate--title'), {
 						onClick: () => {
-							this.props.actions.locate({
+							object.actions.locate({
 								column_id: id,
 							})
 						},
@@ -101,26 +109,27 @@ export default class extends i__react.PureComponent {
 		},
 	}
 	render() {
+		const object = m__helpers.cast_props(this.props)
 		return [
 			$('div' + style('task'), [
 				$('div' + style('task--name'), [
 					$('input' + style('task--input--name'), {
 						onChange: this.self.handle_change_name,
 						placeholder: 'task name',
-						value: this.props.name,
+						value: object.values.name,
 					}),
 				]),
 				$('div' + style('task--text'), [
 					$('input' + style('task--input--text'), {
 						onChange: this.self.handle_change_text,
 						placeholder: 'task text',
-						value: this.props.text,
+						value: object.values.text,
 					}),
 				]),
 				$('div' + style('task--options'), [
 					$('div' + style('task--action--remove'), [
 						$('span' + style('task--action--remove--text'), {
-							onClick: this.props.actions.remove,
+							onClick: object.actions.remove,
 						}, [
 							'remove',
 						]),
@@ -143,7 +152,7 @@ export default class extends i__react.PureComponent {
 							]),
 						]),
 						this.state.moving && $('ul' + style('task--list'), [
-							this.props.columns.map(this.self.render_column),
+							object.values.columns.map(this.self.render_column),
 						]),
 					]),
 				]),

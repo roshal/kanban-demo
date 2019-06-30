@@ -2,7 +2,7 @@
 const p__big_integer = require('big-integer')
 const p__path = require('path')
 
-const m__big_factorial = require('../node/big-factorial')
+const m__big_factorial = require('.//big-factorial')
 
 exports.mapper = (mode) => {
 	const number = '0123456789'
