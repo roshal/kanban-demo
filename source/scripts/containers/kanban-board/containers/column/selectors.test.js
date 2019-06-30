@@ -7,8 +7,9 @@ import d__state from '~/redux/state'
 
 
 test('select', () => {
+	const select = m__selectors.selector()
 	let value
-	value = m__selectors.select(d__state, {
+	value = select(d__state, {
 		id: 0,
 	})
 	value = p__immutable.fromJS(value).toJS()
