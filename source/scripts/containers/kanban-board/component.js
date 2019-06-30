@@ -18,12 +18,12 @@ const style = m__helpers.styler(s__styles)
 export default class extends i__react.PureComponent {
 	static displayName = 'kanban-board'
 	static propTypes = {
-		values: i__prop_types.shape({
+		state: i__prop_types.shape({
 			columns: i__prop_types.objectOf(
 				p__immutable.List,
 			).isRequired,
 		}).isRequired,
-		actions: i__prop_types.shape({
+		dispatch: i__prop_types.shape({
 			reset: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
@@ -32,9 +32,7 @@ export default class extends i__react.PureComponent {
 			return [
 				$(d__container__column, {
 					key: object.id,
-					props: {
-						id: object.id,
-					},
+					id: object.id,
 				}),
 			][0]
 		},
@@ -44,11 +42,11 @@ export default class extends i__react.PureComponent {
 		return [
 			$('div' + style('kanban-board'), [
 				$('div' + style('kanban-board--wrapper'), [
-					object.values.columns.map(this.self.render_column),
+					object.state.columns.map(this.self.render_column),
 				]),
 				$('div' + style('kanban-board--action--reset'), [
 					$('span' + style('kanban-board--action--reset--text'), {
-						onClick: object.actions.reset,
+						onClick: object.dispatch.reset,
 					}, [
 						'reset',
 					]),

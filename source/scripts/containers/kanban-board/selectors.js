@@ -1,14 +1,13 @@
 
-import * as p__immutable from 'immutable'
 import * as p__reselect from 'reselect'
 
-import * as m__selectors__columns from '~/redux/kanban-board/columns/selectors'
+import d__select__columns from '~/redux/kanban-board/columns/select'
 
 
 export const selector = () => {
 	return p__reselect.createSelector(
 		(state) => ({
-			columns: m__selectors__columns.select(state),
+			columns: d__select__columns(state),
 		}),
 		({
 			columns,

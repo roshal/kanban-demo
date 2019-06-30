@@ -1,18 +1,17 @@
 
-import * as p__immutable from 'immutable'
 import * as p__reselect from 'reselect'
 
-import * as m__selectors__columns from '~/redux/kanban-board/columns/selectors'
-import * as m__selectors__tasks from '~/redux/kanban-board/tasks/selectors'
+import d__select__columns from '~/redux/kanban-board/columns/select'
+import d__select__tasks from '~/redux/kanban-board/tasks/select'
 
 
-export const selector = () =>{
+export const selector = () => {
 	return p__reselect.createSelector(
 		(state, {
 			id,
 		}) => ({
-			columns: m__selectors__columns.select(state),
-			tasks: m__selectors__tasks.select(state),
+			columns: d__select__columns(state),
+			tasks: d__select__tasks(state),
 			id,
 		}),
 		({
