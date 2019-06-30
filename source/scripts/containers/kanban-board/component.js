@@ -38,7 +38,7 @@ export default class extends i__react.PureComponent {
 		},
 	}
 	render() {
-		const object = m__helpers.cast_props(this.props)
+		const object = this.props
 		return [
 			$('div' + style('kanban-board'), [
 				$('div' + style('kanban-board--wrapper'), [

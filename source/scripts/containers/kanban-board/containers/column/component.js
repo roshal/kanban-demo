@@ -44,7 +44,7 @@ export default class extends i__react.PureComponent {
 				value,
 			},
 		}) => {
-			const object = m__helpers.cast_props(this.props)
+			const object = this.props
 			object.dispatch.rename({
 				name: value,
 			})
@@ -59,7 +59,7 @@ export default class extends i__react.PureComponent {
 		},
 	}
 	render() {
-		const object = m__helpers.cast_props(this.props)
+		const object = this.props
 		return [
 			$('div' + style('column'), [
 				$('div', {
