@@ -14,3 +14,11 @@ export const cast_actions = (token, array) => {
 		return object
 	}, {})
 }
+
+export const cast_props = (props) => {
+	return {
+		props: props.props,
+		values: props.values,
+		actions: props.actions,
+	}
+}

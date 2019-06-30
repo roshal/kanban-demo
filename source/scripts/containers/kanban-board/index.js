@@ -1,20 +1,24 @@
 
-import * as p__react_redux from 'react-redux'
-import * as p__redux from 'redux'
+import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__actions from '~/redux/actions'
+import * as m__hooks from '~/redux-helpers/hooks'
 import * as m__selectors from './selectors'
 
 import d__component from './component'
 
 
-export default p__react_redux.connect(
-	(state) => {
-		return m__selectors.select(state)
-	},
-	(dispatch) => {
-		return {
-			actions: p__redux.bindActionCreators(m__actions, dispatch),
-		}
-	},
-)(d__component)
+const $ = i__react_hyperscript
+
+const component = (object) => {
+	return $(d__component, {
+		values: m__hooks.use_values(m__selectors.selector),
+		actions: m__hooks.use_actions({
+			reset: m__actions.reset,
+		}),
+	})
+}
+
+export default component
+
+component.displayName = ['c', d__component.displayName].join('.')
