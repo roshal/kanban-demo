@@ -11,12 +11,12 @@ snake_case is used instead of camelCase
 ||||
 ---|---|---
 prefix|description|example
-`c__`|class|`const c__app = class {`
-`d__`|default imported from module|`import d__component from './component'`
+`p__`|imported package|`import * as p__lodash from 'lodash'`
 `i__`|default imported from package|`import i__react from 'react'`
 `m__`|imported module|`import * as m__selectors from './selectors'`
-`p__`|imported package|`import * as p__lodash from 'lodash'`
+`d__`|default imported from module|`import d__component from './component'`
 `s__`|default imported style|`import s__styles from './styles.sss'`
+`c__`|class|`const c__app = class {`
 
 
 # firebase

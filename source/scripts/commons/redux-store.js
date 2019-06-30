@@ -2,22 +2,23 @@
 import * as p__redux from 'redux'
 
 import * as m__local_storage from '~/commons/local-storage'
-import * as m__reducer from '~/redux/reducer'
 import * as m__windows from '~/commons/windows'
+
+import d__reducer from '~/redux/reducer'
 
 
 const compose = m__windows.redux_devtools_extension_compose || p__redux.compose
 const enhancer = compose()
 
 export default (state) => {
-	const store = p__redux.createStore(m__reducer.reducer, state, enhancer)
+	const store = p__redux.createStore(d__reducer, state, enhancer)
 	const serialize = m__local_storage.store_serializer(store)
 	m__windows.onbeforeunload_subscribe(serialize)
 	const throttle = m__local_storage.store_throttler(store)
 	store.subscribe(throttle)
 	if (module.hot) {
 		module.hot.accept('~/redux/reducer', () => {
-			store.replaceReducer(m__reducer.reducer)
+			store.replaceReducer(d__reducer)
 		})
 	}
 	return store

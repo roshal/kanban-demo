@@ -1,32 +1,31 @@
 
-import * as p__react_redux from 'react-redux'
-import * as p__redux from 'redux'
-
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
+import * as m__hooks from '~/redux-helpers/hooks'
 import * as m__selectors from './selectors'
 
 import d__component from './component'
 
+import i__react_hyperscript from 'react-hyperscript'
 
-export default p__react_redux.connect(
-	(state, props) => {
-		return m__selectors.select({
-			state,
-			id: props.id,
-		})
-	},
-	(dispatch, props) => {
-		const actions = p__redux.bindActionCreators({
+
+const $ = i__react_hyperscript
+
+const component = (object) => {
+	return $(d__component, {
+		values: m__hooks.use_values(m__selectors.selector, {
+			id: object.props.id,
+		}),
+		actions: m__hooks.use_actions({
 			remove: () => {
 				return m__actions__tasks.remove({
-					id: props.id,
+					id: object.props.id,
 				})
 			},
 			locate: ({
 				column_id,
 			}) => {
 				return m__actions__tasks.locate({
-					id: props.id,
+					id: object.props.id,
 					column_id,
 				})
 			},
@@ -35,14 +34,15 @@ export default p__react_redux.connect(
 				text,
 			}) => {
 				return m__actions__tasks.update({
-					id: props.id,
+					id: object.props.id,
 					name,
 					text,
 				})
 			},
-		}, dispatch)
-		return {
-			actions,
-		}
-	},
-)(d__component)
+		}),
+	})
+}
+
+export default component
+
+component.displayName = ['c', d__component.displayName].join('.')

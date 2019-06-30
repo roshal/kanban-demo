@@ -20,14 +20,18 @@ const style = m__helpers.styler(s__styles)
 export default class extends i__react.PureComponent {
 	static displayName = 'column'
 	static propTypes = {
-		id: i__prop_types.number.isRequired,
-		name: i__prop_types.string.isRequired,
-		sorting: i__prop_types.oneOf([
-			-1, 0, 1,
-		]).isRequired,
-		tasks: i__prop_types.objectOf(
-			p__immutable.List,
-		).isRequired,
+		props: i__prop_types.shape({
+			id: i__prop_types.number.isRequired,
+		}),
+		values: i__prop_types.shape({
+			name: i__prop_types.string.isRequired,
+			sorting: i__prop_types.oneOf([
+				-1, 0, 1,
+			]).isRequired,
+			tasks: i__prop_types.objectOf(
+				p__immutable.List,
+			).isRequired,
+		}).isRequired,
 		actions: i__prop_types.shape({
 			add: i__prop_types.func.isRequired,
 			rename: i__prop_types.func.isRequired,
@@ -40,61 +44,63 @@ export default class extends i__react.PureComponent {
 				value,
 			},
 		}) => {
-			this.props.actions.rename({
+			const object = m__helpers.cast_props(this.props)
+			object.actions.rename({
 				name: value,
 			})
 		},
-		render_task: ({
-			id,
-		}) => {
+		render_task: (object) => {
 			return [
 				$(d__container__task, {
-					key: id,
-					id,
+					key: object.id,
+					props: {
+						id: object.id,
+					},
 				}),
 			][0]
 		},
 	}
 	render() {
+		const object = m__helpers.cast_props(this.props)
 		return [
 			$('div' + style('column'), [
 				$('div', {
 					className: classnames({
-						'column--head': !this.props.tasks.isEmpty(),
-						'column--head--empty': this.props.tasks.isEmpty(),
+						'column--head': !object.values.tasks.isEmpty(),
+						'column--head--empty': object.values.tasks.isEmpty(),
 					}),
 				}, [
 					$('div' + style('column--title'), [
 						$('input' + style('column--input--name'), {
 							onChange: this.self.handle_change_name,
 							placeholder: 'column name',
-							value: this.props.name,
+							value: object.values.name,
 						}),
 					]),
 					$('div' + style('column--options'), [
 						$('div' + style('column--action--add'), [
 							$('span' + style('column--action--add--text'), {
-								onClick: this.props.actions.add,
+								onClick: object.actions.add,
 							}, [
 								'add task',
 							]),
 						]),
 						$('div' + style('column--action--sort'), [
 							$('span' + style('column--action--sort--arrow'), [
-								!!this.props.sorting && (
-									this.props.sorting < 0 ? '↑' : '↓'
+								!!object.values.sorting && (
+									object.values.sorting < 0 ? '↑' : '↓'
 								), ' ',
 							]),
 							$('span' + style('column--action--sort--title'), {
-								onClick: this.props.actions.sort,
+								onClick: object.actions.sort,
 							}, [
 								'sort',
 							]),
 						]),
 					]),
 				]),
-				this.props.tasks.isEmpty() || $('div' + style('column--body'), [
-					this.props.tasks.map(this.self.render_task),
+				object.values.tasks.isEmpty() || $('div' + style('column--body'), [
+					object.values.tasks.map(this.self.render_task),
 				]),
 			]),
 		][0]

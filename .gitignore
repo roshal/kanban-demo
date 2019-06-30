@@ -2,7 +2,7 @@
 /*
 
 !/docs/
-!/node/
+!/javascript/
 !/notes/
 !/source/
 !/webpack/
@@ -17,6 +17,7 @@
 
 !/babel.config.js
 !/firebase.json
+!/jest.config.js
 !/package-scripts.js
 !/package.json
 !/postcss.config.js
