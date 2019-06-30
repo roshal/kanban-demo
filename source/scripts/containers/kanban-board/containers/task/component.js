@@ -52,7 +52,7 @@ export default class extends i__react.PureComponent {
 				value,
 			},
 		}) => {
-			const object = m__helpers.cast_props(this.props)
+			const object = this.props
 			object.dispatch.update({
 				name: value,
 			})
@@ -62,7 +62,7 @@ export default class extends i__react.PureComponent {
 				value,
 			},
 		}) => {
-			const object = m__helpers.cast_props(this.props)
+			const object = this.props
 			object.dispatch.update({
 				text: value,
 			})
@@ -85,7 +85,7 @@ export default class extends i__react.PureComponent {
 			id,
 			name,
 		}) => {
-			const object = m__helpers.cast_props(this.props)
+			const object = this.props
 			return [
 				$('li' + style('task--action--locate'), {
 					key: id,
@@ -109,7 +109,7 @@ export default class extends i__react.PureComponent {
 		},
 	}
 	render() {
-		const object = m__helpers.cast_props(this.props)
+		const object = this.props
 		return [
 			$('div' + style('task'), [
 				$('div' + style('task--name'), [
