@@ -15,13 +15,11 @@ import s__styles from './styles.sss'
 const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
 
-export default class extends i__react.PureComponent {
+export default class extends i__react.Component {
 	static displayName = 'kanban-board'
 	static propTypes = {
 		state: i__prop_types.shape({
-			columns: i__prop_types.objectOf(
-				p__immutable.List,
-			).isRequired,
+			columns: i__prop_types.instanceOf(p__immutable.List).isRequired,
 		}).isRequired,
 		dispatch: i__prop_types.shape({
 			reset: i__prop_types.func.isRequired,

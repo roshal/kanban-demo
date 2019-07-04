@@ -1,25 +1,25 @@
 
-import * as p__redux from 'redux'
+import i__react from 'react'
 
 import * as m__actions__columns from '~/redux/kanban-board/columns/actions'
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
-import * as m__react_redux from '~/helpers/react-redux'
+import * as m__react_hooks from '~/helpers/react-hooks'
 import * as m__selectors from './selectors'
 
 import d__component from './component'
 
+import i__react_hyperscript from 'react-hyperscript'
 
-export default m__react_redux.connect(
-	() => {
-		const select = m__selectors.selector()
-		return (state, props) => {
-			return select(state, {
-				id: props.id,
-			})
-		}
-	},
-	(dispatch, props) => {
-		return p__redux.bindActionCreators({
+
+const $ = i__react_hyperscript
+
+const component = i__react.memo((props) => {
+	return $(d__component, {
+		props,
+		state: m__react_hooks.use_state(m__selectors.selector, {
+			id: props.id,
+		}),
+		dispatch: m__react_hooks.use_dispatch({
 			add: () => {
 				return m__actions__tasks.create({
 					column_id: props.id,
@@ -38,6 +38,10 @@ export default m__react_redux.connect(
 					id: props.id,
 				})
 			},
-		}, dispatch)
-	},
-)(d__component)
+		}),
+	})
+})
+
+export default component
+
+component.displayName = ['c', d__component.displayName].join('.')
