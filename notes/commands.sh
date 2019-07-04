@@ -14,6 +14,8 @@ git push origin shadow
 git merge --ff-only shadow
 git merge --squash shadow
 
+git rebase master
+
 git commit --allow-empty --allow-empty-message -m ''
 git commit --allow-empty --allow-empty-message -m '' --amend
 
