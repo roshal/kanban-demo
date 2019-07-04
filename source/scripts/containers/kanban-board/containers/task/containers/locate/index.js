@@ -1,7 +1,6 @@
 
 import * as p__redux from 'redux'
 
-import * as m__actions__columns from '~/redux/kanban-board/columns/actions'
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
 import * as m__react_redux from '~/helpers/react-redux'
 import * as m__selectors from './selectors'
@@ -20,22 +19,12 @@ export default m__react_redux.connect(
 	},
 	(dispatch, props) => {
 		return p__redux.bindActionCreators({
-			add: () => {
-				return m__actions__tasks.create({
-					column_id: props.id,
-				})
-			},
-			rename: ({
-				name,
+			locate: ({
+				column_id,
 			}) => {
-				return m__actions__columns.update({
+				return m__actions__tasks.locate({
 					id: props.id,
-					name,
-				})
-			},
-			sort: () => {
-				return m__actions__columns.sort({
-					id: props.id,
+					column_id,
 				})
 			},
 		}, dispatch)

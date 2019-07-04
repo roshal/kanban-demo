@@ -1,11 +1,11 @@
 
-import * as p__immutable from 'immutable'
-
 import i__prop_types from 'prop-types'
 import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '~/commons/helpers'
+
+import d__container__locate from './containers/locate'
 
 import s__styles from './styles.sss'
 
@@ -13,7 +13,7 @@ import s__styles from './styles.sss'
 const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
 
-export default class extends i__react.PureComponent {
+export default class extends i__react.Component {
 	static displayName = 'task'
 	static propTypes = {
 		props: i__prop_types.shape({
@@ -22,22 +22,18 @@ export default class extends i__react.PureComponent {
 		state: i__prop_types.shape({
 			name: i__prop_types.string.isRequired,
 			text: i__prop_types.string.isRequired,
-			columns: i__prop_types.objectOf(
-				p__immutable.List,
-			).isRequired,
 		}).isRequired,
 		dispatch: i__prop_types.shape({
 			remove: i__prop_types.func.isRequired,
-			locate: i__prop_types.func.isRequired,
 			update: i__prop_types.func.isRequired,
 		}).isRequired,
-	}
-	state = {
-		moving: false,
 	}
 	constructor(object) {
 		super(object)
 		this.self.references.move = i__react.createRef()
+	}
+	state = {
+		moving: false,
 	}
 	componentDidMount() {
 		document.addEventListener('click', this.self.click)
@@ -80,32 +76,6 @@ export default class extends i__react.PureComponent {
 			this.setState({
 				moving: !this.state.moving,
 			})
-		},
-		render_column: ({
-			id,
-			name,
-		}) => {
-			const object = this.props
-			return [
-				$('li' + style('task--action--locate'), {
-					key: id,
-				}, [
-					$('div' + style('task--action--locate--arrow'), [
-						'→ ',
-					]),
-					$('div' + style('task--action--locate--title'), {
-						onClick: () => {
-							object.dispatch.locate({
-								column_id: id,
-							})
-						},
-					}, [
-						$('span' + style('task--action--locate--text'), [
-							name,
-						]),
-					]),
-				]),
-			][0]
 		},
 	}
 	render() {
@@ -151,9 +121,9 @@ export default class extends i__react.PureComponent {
 								]),
 							]),
 						]),
-						this.state.moving && $('ul' + style('task--list'), [
-							object.state.columns.map(this.self.render_column),
-						]),
+						this.state.moving && $(d__container__locate, {
+							id: object.props.id,
+						}),
 					]),
 				]),
 			]),
