@@ -1,15 +1,15 @@
 
 const p__path = require('path')
 
+const array = [
+	p__path.resolve('node_modules'),
+]
+
 module.exports = {
-	cacheDirectory: 'node/jest',
-	coverageDirectory: 'node/coverage',
-	//coveragePathIgnorePatterns: [
-	//	'/node_modules/',
-	//],
-	//moduleDirectories: [
-	//	'node_modules',
-	//],
+	cacheDirectory: 'node/jest/cache',
+	coverageDirectory: 'node/jest/coverage',
+	coveragePathIgnorePatterns: array,
+	moduleDirectories: array,
 	moduleFileExtensions: [
 		'js',
 	],
@@ -19,6 +19,9 @@ module.exports = {
 	},
 	testMatch: [
 		'**/__tests__/**/*.[jt]s',
-		'**/+(*.)test.[tj]s',
+		'**/*.test.[tj]s',
 	],
+	testPathIgnorePatterns: array,
+	transformIgnorePatterns: array,
+	watchPathIgnorePatterns: array,
 }

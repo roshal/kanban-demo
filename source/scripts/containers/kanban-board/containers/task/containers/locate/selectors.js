@@ -19,31 +19,22 @@ export const selector = () => {
 			tasks,
 			id,
 		}) => {
-			const column = columns.find((column) => {
-				return column.get('id') === id
+			const task = tasks.find((task) => {
+				return id === task.get('id')
 			})
-			const name = column.get('name')
-			const sorting = column.get('sorting')
-			tasks = tasks.filter((task) => {
-				return id === task.get('column_id')
+			const column_id = task.get('column_id')
+			const index = columns.findIndex((column) => {
+				return column.get('id') === column_id
 			})
-			if (sorting) {
-				tasks = tasks.sortBy((task) => {
-					return task.get('name')
-				})
-				if (sorting < 0) {
-					tasks = tasks.reverse()
-				}
-			}
-			tasks = tasks.map((task) => {
+			columns = columns.delete(index)
+			columns = columns.map((column) => {
 				return {
-					id: task.get('id'),
+					id: column.get('id'),
+					name: column.get('name'),
 				}
 			})
 			return {
-				name,
-				sorting,
-				tasks,
+				columns,
 			}
 		},
 	)

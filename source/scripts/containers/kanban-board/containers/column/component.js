@@ -17,7 +17,7 @@ const $ = i__react_hyperscript
 const classnames = i__classnames.bind(s__styles)
 const style = m__helpers.styler(s__styles)
 
-export default class extends i__react.PureComponent {
+export default class extends i__react.Component {
 	static displayName = 'column'
 	static propTypes = {
 		props: i__prop_types.shape({
@@ -28,9 +28,7 @@ export default class extends i__react.PureComponent {
 			sorting: i__prop_types.oneOf([
 				-1, 0, 1,
 			]).isRequired,
-			tasks: i__prop_types.objectOf(
-				p__immutable.List,
-			).isRequired,
+			tasks: i__prop_types.instanceOf(p__immutable.List).isRequired,
 		}).isRequired,
 		dispatch: i__prop_types.shape({
 			add: i__prop_types.func.isRequired,

@@ -30,10 +30,10 @@ module.exports = (env = {}, argv = {}) => {
 							options: {
 								modules: {
 									...argv.develop ? {
-										getLocalIdent: m__webpack_helpers.mapper('number'),
+										getLocalIdent: m__webpack_helpers.mapper(10),
 									} : {},
 									...argv.produce ? {
-										getLocalIdent: m__webpack_helpers.mapper('string'),
+										getLocalIdent: m__webpack_helpers.mapper(26),
 									} : {},
 								},
 								sourceMap: argv.develop,

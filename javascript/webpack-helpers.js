@@ -1,52 +1,61 @@
 
-const p__big_integer = require('big-integer')
 const p__path = require('path')
 
-const m__big_factorial = require('.//big-factorial')
-
-exports.mapper = (mode) => {
-	const number = '0123456789'
-	const string = 'abcdefghijklmnopqrstuvwxyz'
-	const values = [
-		number,
-		string,
-		string.toUpperCase(),
+exports.mapper = (() => {
+	const numbers = '0123456789'
+	const letters = 'abcdefghijklmnopqrstuvwxyz'
+	const symbols = [
+		numbers,
+		letters,
+		letters.toUpperCase(),
 		'-./\\_',
 	].join('')
-	const index = values.length
-	const {
-		stack,
-		value,
-	} = (() => {
-		if (mode === 'number') {
-			return {
-				stack: '_',
-				value: number,
+	return (base) => {
+		const {
+			string,
+			handle,
+		} = (() => {
+			if (base === numbers.length) {
+				return {
+					string: numbers,
+					handle: (value, name) => {
+						return [name, value].join('--')
+					},
+				}
 			}
-		}
-		if (mode === 'string') {
-			return {
-				stack: '',
-				value: string,
+			if (base === letters.length) {
+				return {
+					string: letters,
+					handle: (value, name) => {
+						return value
+					},
+				}
 			}
+		})()
+		const limit_next = string.length
+		const limit_prev = symbols.length
+		return (context, mask, name) => {
+			let array, value
+			value = p__path.relative(context.rootContext, context.context)
+			value = [value, name].join('.').split('').reverse()
+			array = []
+			value = value.reduce((accumulator, value, index) => {
+				value = limit_prev ** index * symbols.indexOf(value)
+				for (let key = 0; value; key += 1) {
+					value += accumulator[key] || 0
+					accumulator[key] = value % limit_next
+					value = Math.floor(value / limit_next)
+				}
+				return accumulator
+			}, array).slice(0, limit_next)
+			const limit = value.length
+			array = string.split('')
+			value = value.reduce((accumulator, value, index) => {
+				index = limit - index
+				value = accumulator.splice(value % index, 1)
+				return accumulator.concat(value)
+			}, array).join('')
+			return handle(value, name)
 		}
-	})()
-	const limit = m__big_factorial(value.length)
-	return (context, mask, name) => {
-		let number = p__big_integer.zero
-		let path = p__path.relative(context.rootContext, context.context)
-		name = [path, name].join('.')
-		for (const value of name) {
-			number = number.multiply(index)
-			number = number.add((values.indexOf(value) % index + index) % index)
-			number = number.mod(limit)
-		}
-		let string = stack
-		const items = value.split('')
-		for (let index = value.length; 0 < index; index -= 1) {
-			string += items.splice(number.mod(index).valueOf(), 1)
-			number = number.divide(index)
-		}
-		return string
 	}
-}
+})()

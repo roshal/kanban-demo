@@ -6,26 +6,15 @@ import * as m__selectors from './selectors'
 import d__state from '~/redux/state'
 
 
-test('select', () => {
+test(m__selectors.selector.name, () => {
 	const select = m__selectors.selector()
-	let value
-	value = select(d__state, {
+	const value = select(d__state, {
 		id: 0,
 	})
-	value = p__immutable.fromJS(value).toJS()
-	const equal = {
+	const received = p__immutable.fromJS(value).toJS()
+	const expected = {
 		name: 'qwe',
 		text: 'qaz',
-		columns: [
-			{
-				id: 1,
-				name: 'in process',
-			},
-			{
-				id: 2,
-				name: 'done',
-			},
-		],
 	}
-	expect(value).toEqual(equal)
+	expect(received).toEqual(expected)
 })
