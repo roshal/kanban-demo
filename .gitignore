@@ -18,6 +18,7 @@
 !/babel.config.js
 !/firebase.json
 !/jest.config.js
+!/license.md
 !/package-scripts.js
 !/package.json
 !/postcss.config.js
