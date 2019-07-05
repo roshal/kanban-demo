@@ -1,15 +1,17 @@
 
-import p__react_dom from 'react-dom'
-import p__react_hyperscript from 'react-hyperscript'
+import i__react_dom from 'react-dom'
+import i__react_hyperscript from 'react-hyperscript'
 
-import m__component__app from '~/components/app'
+import d__component__app from '~/components/app'
+
+import '//styles/sources/index.sss'
 
 
-const $ = p__react_hyperscript
+const $ = i__react_hyperscript
 
 {
-	const element = $(m__component__app)
+	const element = $(d__component__app)
 	const container = document.createElement('div')
-	p__react_dom.render(element, container)
+	i__react_dom.render(element, container)
 	document.body.appendChild(container)
 }

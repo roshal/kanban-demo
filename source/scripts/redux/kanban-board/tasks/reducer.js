@@ -1,16 +1,16 @@
 
-import * as ps__immutable from 'immutable'
+import * as p__immutable from 'immutable'
 
-import m__action_types from './action-types'
-import m__state from './state'
-import m__tokens from './tokens'
+import * as m__action_types from './action-types'
+import * as m__redux_helpers from '~/redux-helpers'
+import * as m__token from './token'
 
-import * as ms__redux_helpers from '~/redux-helpers'
+import d__state from './state'
 
 
 const reducers = {
 	[m__action_types.create]: (state, action) => {
-		const value = ps__immutable.Map({
+		const value = p__immutable.Map({
 			id: Date.now(),
 			column_id: action.payload.column_id,
 			name: '',
@@ -50,12 +50,12 @@ const reducers = {
 	},
 }
 
-export default ms__redux_helpers.reducers.middlewares_composer([
-	ms__redux_helpers.middlewares.state_initializer(m__state),
-	ms__redux_helpers.middlewares.filters_applicator([
-		ms__redux_helpers.reducers.tokens_checker(m__tokens),
+export default m__redux_helpers.reducers.middlewares_composer([
+	m__redux_helpers.middlewares.state_initializer(d__state),
+	m__redux_helpers.middlewares.filters_applicator([
+		m__redux_helpers.reducers.tokens_checker(m__token.array),
 	]),
-	ms__redux_helpers.middlewares.reducers_applicator([
-		ms__redux_helpers.reducers.reducers_selector(reducers),
+	m__redux_helpers.middlewares.reducers_applicator([
+		m__redux_helpers.reducers.reducers_selector(reducers),
 	]),
 ])

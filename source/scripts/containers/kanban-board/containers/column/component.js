@@ -1,31 +1,37 @@
 
-import p__classnames from 'classnames'
-import p__prop_types from 'prop-types'
-import p__react from 'react'
-import p__react_hyperscript from 'react-hyperscript'
+import * as p__immutable from 'immutable'
 
-import * as ps__immutable from 'immutable'
+import i__classnames from 'classnames/bind'
+import i__prop_types from 'prop-types'
+import i__react from 'react'
+import i__react_hyperscript from 'react-hyperscript'
 
-import m__container__task from '../../containers/task'
+import * as m__helpers from '~/commons/helpers'
+
+import d__container__task from '../../containers/task'
+
+import s__styles from './styles.sss'
 
 
-const $ = p__react_hyperscript
+const $ = i__react_hyperscript
+const classnames = i__classnames.bind(s__styles)
+const style = m__helpers.styler(s__styles)
 
-export default class extends p__react.PureComponent {
+export default class extends i__react.PureComponent {
 	static displayName = 'column'
 	static propTypes = {
-		id: p__prop_types.number.isRequired,
-		name: p__prop_types.string.isRequired,
-		sorting: p__prop_types.oneOf([
+		id: i__prop_types.number.isRequired,
+		name: i__prop_types.string.isRequired,
+		sorting: i__prop_types.oneOf([
 			-1, 0, 1,
 		]).isRequired,
-		tasks: p__prop_types.objectOf(
-			ps__immutable.List,
+		tasks: i__prop_types.objectOf(
+			p__immutable.List,
 		).isRequired,
-		actions: p__prop_types.shape({
-			add: p__prop_types.func.isRequired,
-			rename: p__prop_types.func.isRequired,
-			sort: p__prop_types.func.isRequired,
+		actions: i__prop_types.shape({
+			add: i__prop_types.func.isRequired,
+			rename: i__prop_types.func.isRequired,
+			sort: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
 	self = {
@@ -42,7 +48,7 @@ export default class extends p__react.PureComponent {
 			id,
 		}) => {
 			return [
-				$(m__container__task, {
+				$(d__container__task, {
 					key: id,
 					id,
 				}),
@@ -51,33 +57,35 @@ export default class extends p__react.PureComponent {
 	}
 	render() {
 		return [
-			$('div.column', [
+			$('div' + style('column'), [
 				$('div', {
-					className: p__classnames({
+					className: classnames({
 						'column--head': !this.props.tasks.isEmpty(),
 						'column--head--empty': this.props.tasks.isEmpty(),
 					}),
 				}, [
-					$('div.column--title', [
-						$('input.column--input--name', {
+					$('div' + style('column--title'), [
+						$('input' + style('column--input--name'), {
 							onChange: this.self.handle_change_name,
 							placeholder: 'column name',
 							value: this.props.name,
 						}),
 					]),
-					$('div.column--options', [
-						$('div.column--action--add', [
-							$('span.column--action--add--text', {
+					$('div' + style('column--options'), [
+						$('div' + style('column--action--add'), [
+							$('span' + style('column--action--add--text'), {
 								onClick: this.props.actions.add,
 							}, [
 								'add task',
 							]),
 						]),
-						$('div.column--action--sort', [
-							$('span.column--action--sort--arrow', [
-								!!this.props.sorting && (this.props.sorting < 0 ? '↑' : '↓'), ' ',
+						$('div' + style('column--action--sort'), [
+							$('span' + style('column--action--sort--arrow'), [
+								!!this.props.sorting && (
+									this.props.sorting < 0 ? '↑' : '↓'
+								), ' ',
 							]),
-							$('span.column--action--sort--title', {
+							$('span' + style('column--action--sort--title'), {
 								onClick: this.props.actions.sort,
 							}, [
 								'sort',
@@ -85,7 +93,7 @@ export default class extends p__react.PureComponent {
 						]),
 					]),
 				]),
-				this.props.tasks.isEmpty() || $('div.column--body', [
+				this.props.tasks.isEmpty() || $('div' + style('column--body'), [
 					this.props.tasks.map(this.self.render_task),
 				]),
 			]),

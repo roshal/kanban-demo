@@ -1,21 +1,21 @@
 
-import m__reducer__columns from './columns/reducer'
-import m__reducer__tasks from './tasks/reducer'
-import m__tokens from './tokens'
+import * as m__redux_helpers from '~/redux-helpers'
+import * as m__token from './token'
+import * as m__token__columns from './columns/token'
+import * as m__token__tasks from './tasks/token'
 
-import * as ms__redux_helpers from '~/redux-helpers'
-import * as ms__tokens__columns from './columns/tokens'
-import * as ms__tokens__tasks from './tasks/tokens'
+import d__reducer__columns from './columns/reducer'
+import d__reducer__tasks from './tasks/reducer'
 
 
-export default ms__redux_helpers.reducers.middlewares_composer([
-	ms__redux_helpers.middlewares.filters_applicator([
-		ms__redux_helpers.reducers.tokens_checker(m__tokens),
+export default m__redux_helpers.reducers.middlewares_composer([
+	m__redux_helpers.middlewares.filters_applicator([
+		m__redux_helpers.reducers.tokens_checker(m__token),
 	]),
-	ms__redux_helpers.middlewares.reducers_applicator([
-		ms__redux_helpers.reducers.reducers_combiner({
-			[ms__tokens__columns.token]: m__reducer__columns,
-			[ms__tokens__tasks.token]: m__reducer__tasks,
+	m__redux_helpers.middlewares.reducers_applicator([
+		m__redux_helpers.reducers.reducers_combiner({
+			[m__token__columns.value]: d__reducer__columns,
+			[m__token__tasks.value]: d__reducer__tasks,
 		}),
 	]),
 ])

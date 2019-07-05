@@ -1,11 +1,9 @@
 
-import * as ms__tokens from './tokens'
+import * as m__token from './token'
 
 
 const prefix = (name) => {
-	return [ms__tokens.token, name].join('--')
+	return [m__token.value, name].join('--')
 }
 
-export default {
-	reset: prefix('reset'),
-}
+export const reset = prefix('reset')

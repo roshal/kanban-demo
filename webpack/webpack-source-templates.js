@@ -1,6 +1,7 @@
 
+const p__html_webpack_plugin = require('html-webpack-plugin')
 const p__path = require('path')
-const p__webpack = require('webpack')
+const p__script_ext_html_webpack_plugin = require('script-ext-html-webpack-plugin')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -17,41 +18,21 @@ module.exports = (env = {}, argv = {}) => {
 					},
 					use: [
 						{
-							loader: 'file-loader',
-							options: {
-								name: 'index.html',
-							},
-						},
-						{
-							loader: 'extract-loader',
-						},
-						{
-							loader: 'html-loader',
-							options: {
-								attrs: [
-									'link:href',
-									//	'script:src',
-								],
-								removeComments: true,
-							},
-						},
-						{
-							loader: 'pug-extract-loader',
-						},
-						{
 							loader: 'pug-loader',
-							options: {
-								// deprecated
-								// https://pugjs.org/api/reference.html#options
-								pretty: argv.develop ? '\t' : false,
-							},
 						},
 					],
 				},
 			],
 		},
 		plugins: [
-			new p__webpack.PrefetchPlugin('./templates/sources/index.pug'),
+			new p__html_webpack_plugin({
+				template: './templates/sources/index.pug',
+				inject: 'head',
+				favicon: p__path.resolve('source', 'assets', 'index.png'),
+			}),
+			new p__script_ext_html_webpack_plugin({
+				defaultAttribute: 'defer',
+			}),
 		],
 	}
 }
