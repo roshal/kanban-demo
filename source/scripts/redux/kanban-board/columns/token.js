@@ -1,9 +1,8 @@
 
-import m__tokens from '../tokens'
+const m__token = require('../token')
 
+exports.value = 'columns'
 
-export const token = 'columns'
-
-export default [
-	...m__tokens, token,
+exports.array = [
+	...m__token.array, exports.value,
 ]
