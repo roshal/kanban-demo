@@ -18,6 +18,7 @@ export default class extends i__react.Component {
 	static propTypes = {
 		props: i__prop_types.shape({
 			id: i__prop_types.number.isRequired,
+			close: i__prop_types.func.isRequired,
 		}).isRequired,
 		state: i__prop_types.shape({
 			columns: i__prop_types.instanceOf(p__immutable.List).isRequired,
@@ -41,6 +42,7 @@ export default class extends i__react.Component {
 					]),
 					$('div' + style('task--action--locate--title'), {
 						onClick: () => {
+							object.props.close()
 							object.dispatch.locate({
 								column_id: id,
 							})

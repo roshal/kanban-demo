@@ -28,18 +28,12 @@ export default class extends i__react.Component {
 			update: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
+	state = {
+		popup: false,
+	}
 	constructor(object) {
 		super(object)
-		this.self.references.move = i__react.createRef()
-	}
-	state = {
-		moving: false,
-	}
-	componentDidMount() {
-		document.addEventListener('click', this.self.click)
-	}
-	componentWillUnmount() {
-		document.removeEventListener('click', this.self.click)
+		this.self.references.popup = i__react.createRef()
 	}
 	self = {
 		references: {},
@@ -63,19 +57,31 @@ export default class extends i__react.Component {
 				text: value,
 			})
 		},
-		click: (event) => {
-			const target = this.self.references.move.current
-			if (target && target.contains(event.target)) {
+		open: () => {
+			if (this.state.popup) {
 				return
 			}
+			document.addEventListener('click', this.self.click)
 			this.setState({
-				moving: false,
+				popup: true,
 			})
 		},
-		move: () => {
+		close: (event) => {
+			if (!this.state.popup) {
+				return
+			}
+			document.removeEventListener('click', this.self.click)
 			this.setState({
-				moving: !this.state.moving,
+				popup: false,
 			})
+		},
+		click: (event) => {
+			const current = this.self.references.popup.current
+			const statement = current && current.contains(event.target)
+			if (statement) {
+				return
+			}
+			this.self.close()
 		},
 	}
 	render() {
@@ -105,24 +111,25 @@ export default class extends i__react.Component {
 						]),
 					]),
 					$('div' + style('task--dropdown'), {
-						ref: this.self.references.move,
+						ref: this.self.references.popup,
 					}, [
 						$('div' + style('task--action--move'), [
 							$('span' + style('task--action--move--text'), [
-								this.state.moving ? $([
+								this.state.popup ? $([
 									$('span' + style('task--action--move--arrow'), [
 										'↓',
 									]), ' ',
 								]) : '↓ ',
 								$('span' + style('task--action--move--title'), {
-									onClick: this.self.move,
+									onClick: this.state.popup ? this.self.close : this.self.open,
 								}, [
 									'move',
 								]),
 							]),
 						]),
-						this.state.moving && $(d__container__locate, {
+						this.state.popup && $(d__container__locate, {
 							id: object.props.id,
+							close: this.self.close,
 						}),
 					]),
 				]),
