@@ -70,10 +70,5 @@
     "webpack-merge": "^4.2.1",
     "webpack-stylish": "^0.1.8"
   },
-  "devDependencies": {
-    "pug-html-loader": "^1.1.5",
-    "restyle-loader": "^0.0.3",
-    "style-loader": "^0.23.1"
-  },
   "license": "MIT"
 }
