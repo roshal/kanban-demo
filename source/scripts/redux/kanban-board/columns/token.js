@@ -1,9 +1,9 @@
 
-import * as m__token from '../token'
+import m__tokens from '../tokens'
 
 
-export const value = 'columns'
+export const token = 'columns'
 
-export const array = [
-	...m__token.array, value,
+export default [
+	...m__tokens, token,
 ]

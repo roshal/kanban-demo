@@ -1,6 +1,6 @@
 
-export const value = 'redux'
+export const token = 'redux'
 
-export const array = [
-	value,
+export default [
+	token,
 ]
