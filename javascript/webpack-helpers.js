@@ -37,7 +37,7 @@ exports.mapper = (() => {
 		return (context, mask, name) => {
 			let array, value
 			value = p__path.relative(context.rootContext, context.context)
-			value = [value, name].join('.').split('').reverse()
+			value = [value, name].join('.').split('')
 			array = []
 			value = value.reduce((accumulator, value, index) => {
 				value = limit_prev ** index * symbols.indexOf(value)
@@ -47,13 +47,10 @@ exports.mapper = (() => {
 					value = Math.floor(value / limit_next)
 				}
 				return accumulator
-			}, array).slice(0, limit_next)
-			const limit = value.length
+			}, array)
 			array = string.split('')
-			value = value.reduce((accumulator, value, index) => {
-				index = limit - index
-				value = accumulator.splice(value % index, 1)
-				return accumulator.concat(value)
+			value = value.reduce((accumulator, value) => {
+				return accumulator.splice(value % limit_next, 1).concat(accumulator)
 			}, array).join('')
 			return handle(value, name)
 		}

@@ -68,7 +68,7 @@ module.exports = (env = {}, argv = {}) => {
 		devServer: {
 			historyApiFallback: true,
 			host: '0.0.0.0',
-			port: argv.port || 8080,
+			port: argv.port || 1024,
 		},
 		watchOptions: {
 			ignored: [
