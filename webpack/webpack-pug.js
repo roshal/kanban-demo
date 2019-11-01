@@ -3,6 +3,7 @@ const p__html_webpack_plugin = require('html-webpack-plugin')
 const p__path = require('path')
 const p__script_ext_html_webpack_plugin = require('script-ext-html-webpack-plugin')
 
+
 module.exports = (env = {}, argv = {}) => {
 	return {
 		module: {
@@ -10,7 +11,7 @@ module.exports = (env = {}, argv = {}) => {
 				{
 					resource: {
 						include: [
-							p__path.resolve('source', 'templates'),
+							p__path.resolve('pug'),
 						],
 						test: [
 							/\.pug$/,
@@ -26,7 +27,7 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new p__html_webpack_plugin({
-				template: './templates/sources/index.pug',
+				template: './pug/sources/index.pug',
 				inject: 'head',
 				favicon: p__path.resolve('source', 'assets', 'index.png'),
 			}),
