@@ -14,6 +14,7 @@ const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
 
 export default class extends i__react.Component {
+
 	static displayName = 'task'
 	static propTypes = {
 		props: i__prop_types.shape({
@@ -28,13 +29,16 @@ export default class extends i__react.Component {
 			update: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
+
 	state = {
 		popup: false,
 	}
+
 	constructor(object) {
 		super(object)
 		this.self.references.popup = i__react.createRef()
 	}
+
 	self = {
 		references: {},
 		handle_change_name: ({
@@ -84,6 +88,7 @@ export default class extends i__react.Component {
 			this.self.close()
 		},
 	}
+
 	render() {
 		const object = this.props
 		return [
@@ -136,4 +141,5 @@ export default class extends i__react.Component {
 			]),
 		][0]
 	}
+
 }

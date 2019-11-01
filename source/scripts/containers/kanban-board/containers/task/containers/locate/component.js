@@ -14,6 +14,7 @@ const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
 
 export default class extends i__react.Component {
+
 	static displayName = 'column'
 	static propTypes = {
 		props: i__prop_types.shape({
@@ -27,6 +28,7 @@ export default class extends i__react.Component {
 			locate: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
+
 	self = {
 		render_column: ({
 			id,
@@ -56,6 +58,7 @@ export default class extends i__react.Component {
 			][0]
 		},
 	}
+
 	render() {
 		const object = this.props
 		return [
@@ -64,4 +67,5 @@ export default class extends i__react.Component {
 			]),
 		][0]
 	}
+
 }

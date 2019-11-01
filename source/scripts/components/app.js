@@ -15,11 +15,14 @@ import d__redux_store from '~/commons/redux-store'
 const $ = i__react_hyperscript
 
 const component = class extends i__react.PureComponent {
+
 	static displayName = 'app'
+
 	componentWillMount() {
 		const state = m__local_storage.deserialize()
 		this.immutable = p__immutable.fromJS(state)
 	}
+
 	render() {
 		return [
 			$(p__react_redux.Provider, {
@@ -29,6 +32,7 @@ const component = class extends i__react.PureComponent {
 			]),
 		][0]
 	}
+
 }
 
 export default i__react_hot_loader__root.hot(component)

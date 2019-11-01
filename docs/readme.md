@@ -1,10 +1,11 @@
+
 # kanban board
 
 this is a test task
 
 # code style
 
-snake_case is used instead of camelCase
+`snake_case` is used instead of `camelCase`
 
 # name prefixes
 
@@ -16,7 +17,6 @@ prefix|description|example
 `m__`|imported module|`import * as m__selectors from './selectors'`
 `d__`|default imported from module|`import d__component from './component'`
 `s__`|default imported style|`import s__styles from './styles.sss'`
-`c__`|class|`const c__app = class {`
 
 
 # firebase
@@ -25,9 +25,9 @@ prefix|description|example
 
 # prerequisites
 
-`node`
+`node` `&` `npx`
 <br>
-`yarn`|`npm`
+`yarn` `|` `npm`
 
 # management commands
 

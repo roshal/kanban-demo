@@ -18,6 +18,7 @@ const classnames = i__classnames.bind(s__styles)
 const style = m__helpers.styler(s__styles)
 
 export default class extends i__react.Component {
+
 	static displayName = 'column'
 	static propTypes = {
 		props: i__prop_types.shape({
@@ -36,6 +37,7 @@ export default class extends i__react.Component {
 			sort: i__prop_types.func.isRequired,
 		}).isRequired,
 	}
+
 	self = {
 		handle_change_name: ({
 			target: {
@@ -56,6 +58,7 @@ export default class extends i__react.Component {
 			][0]
 		},
 	}
+
 	render() {
 		const object = this.props
 		return [
@@ -101,4 +104,5 @@ export default class extends i__react.Component {
 			]),
 		][0]
 	}
+
 }
