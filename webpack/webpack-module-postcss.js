@@ -1,8 +1,9 @@
 
 const p__mini_css_extract_plugin = require('mini-css-extract-plugin')
 const p__path = require('path')
+const p__webpack = require('webpack')
 
-const m__webpack_helpers = require('../javascript/webpack-helpers')
+const m__name_generator = require('../javascript/name-generator')
 
 
 module.exports = (env = {}, argv = {}) => {
@@ -31,10 +32,10 @@ module.exports = (env = {}, argv = {}) => {
 							options: {
 								modules: {
 									...argv.develop ? {
-										getLocalIdent: m__webpack_helpers.mapper(10),
+										getLocalIdent: m__name_generator(10),
 									} : {},
 									...argv.produce ? {
-										getLocalIdent: m__webpack_helpers.mapper(26),
+										getLocalIdent: m__name_generator(26),
 									} : {},
 								},
 								sourceMap: argv.develop,
@@ -79,6 +80,11 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new p__mini_css_extract_plugin(),
+			new p__webpack.SourceMapDevToolPlugin({
+				test: [
+					'.sss',
+				],
+			}),
 		],
 	}
 }

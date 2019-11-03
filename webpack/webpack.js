@@ -8,7 +8,7 @@ module.exports = (env = {}, argv = {}) => {
 		require('./webpack-module-babel')(),
 		require('./webpack-module-file')(),
 		require('./webpack-module-postcss')(env, argv),
-		require('./webpack-module-pug')(env, argv),
+		require('./webpack-module-pug')(),
 		argv.analyze && require('./webpack-mode-analyze')(),
 		argv.develop && require('./webpack-mode-develop')(),
 		argv.produce && require('./webpack-mode-produce')(),

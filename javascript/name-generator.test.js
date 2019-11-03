@@ -1,8 +1,9 @@
 
-const m__webpack_helpers = require('./webpack-helpers')
+const m__name_generator = require('./name-generator')
 
-test(m__webpack_helpers.mapper.name, () => {
-	const map = m__webpack_helpers.mapper(10)
+
+test(m__name_generator.generator.name, () => {
+	const map = m__name_generator.generator(10)
 	const received = map({
 		rootContext: '/abc',
 		context: '/abc/def',

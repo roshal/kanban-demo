@@ -1,6 +1,5 @@
 
 const p__path = require('path')
-const p__webpack = require('webpack')
 
 
 module.exports = (env = {}, argv = {}) => {
@@ -39,13 +38,6 @@ module.exports = (env = {}, argv = {}) => {
 				p__path.resolve('node_modules'),
 			],
 		},
-		plugins: [
-			new p__webpack.SourceMapDevToolPlugin({
-				test: [
-					'.sss',
-				],
-			}),
-		],
 		optimization: {
 			splitChunks: {
 				minSize: 128 << 9,
