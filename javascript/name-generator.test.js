@@ -2,8 +2,8 @@
 const m__name_generator = require('./name-generator')
 
 
-test(m__name_generator.generator.name, () => {
-	const map = m__name_generator.generator(10)
+test(m__name_generator.name, () => {
+	const map = m__name_generator(10)
 	const received = map({
 		rootContext: '/abc',
 		context: '/abc/def',

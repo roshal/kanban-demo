@@ -11,28 +11,22 @@ const symbols = [
 	'-./\\_',
 ].join('')
 
+
 module.exports = (base) => {
-	const {
-		string,
-		handle,
-	} = (() => {
-		if (base === numbers.length) {
-			return {
-				string: numbers,
-				handle: (value, name) => {
-					return [name, value].join('--')
-				},
-			}
+	let string
+	let handle
+	if (base === numbers.length) {
+		string = numbers
+		handle = (value, name) => {
+			return [name, value].join('--')
 		}
-		if (base === letters.length) {
-			return {
-				string: letters,
-				handle: (value, name) => {
-					return value
-				},
-			}
+	}
+	if (base === letters.length) {
+		string = letters
+		handle = (value, name) => {
+			return value
 		}
-	})()
+	}
 	const limit_next = string.length
 	const limit_prev = symbols.length
 	return (context, mask, name) => {
