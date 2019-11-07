@@ -18,7 +18,8 @@ const component = class extends i__react.PureComponent {
 
 	static displayName = 'app'
 
-	componentWillMount() {
+	constructor(object) {
+		super(object)
 		const state = m__local_storage.deserialize()
 		this.immutable = p__immutable.fromJS(state)
 	}
@@ -34,5 +35,6 @@ const component = class extends i__react.PureComponent {
 	}
 
 }
+
 
 export default i__react_hot_loader__root.hot(component)

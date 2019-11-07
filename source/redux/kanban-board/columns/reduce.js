@@ -31,6 +31,7 @@ const reducers = {
 	},
 }
 
+
 export default m__reducers.middlewares_composer([
 	m__middlewares.state_initializer(d__state),
 	m__middlewares.filters_applicator([

@@ -7,7 +7,7 @@ module.exports = (env = {}, argv = {}) => {
 		mode: 'none',
 		context: p__path.resolve('source'),
 		entry: {
-			'index': p__path.resolve('source', 'sources', 'index.js'),
+			'index': './sources/index.js',
 		},
 		output: {
 			path: p__path.resolve('public'),

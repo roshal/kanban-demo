@@ -12,6 +12,7 @@ const reducers = {
 	[m__action_types.reset]: () => {},
 }
 
+
 export default m__reducers.middlewares_composer([
 	m__middlewares.filters_applicator([
 		m__reducers.tokens_checker(m__token.array),
