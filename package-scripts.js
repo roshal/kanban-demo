@@ -12,11 +12,20 @@ const {
 } = p__nps_utils
 
 const scripts = {
+
+	analyze: series('serve.analyze'),
 	develop: series('serve.develop'),
 	produce: series('serve.produce'),
-	release: series('clean.produce', 'build.produce', 'firebase.deploy'),
+
+	release: series('clean', 'build.produce', 'firebase.deploy'),
+
+	lint: concurrent('eslint', 'stylelint'),
+	test: concurrent('jest'),
+
 	clean: 'rm -fr public/*',
+
 	build: {
+		analyze: 'webpack --analyze',
 		develop: 'webpack --develop',
 		produce: 'webpack --produce',
 	},
@@ -30,35 +39,7 @@ const scripts = {
 		develop: 'webpack-dev-server --develop --hot',
 		produce: 'webpack-dev-server --produce --hot',
 	},
-	analyze: {
-		develop: {
-			default: series('analyze.develop.build'),
-			build: 'webpack --analyze --develop',
-			watch: 'webpack --analyze --develop --watch',
-			serve: 'webpack-dev-server --analyze --develop --hot',
-		},
-		produce: {
-			default: series('analyze.produce.build'),
-			build: 'webpack --analyze --produce',
-			watch: 'webpack --analyze --produce --watch',
-			serve: 'webpack-dev-server --analyze --produce --hot',
-		},
-	},
-	lint: {
-		default: concurrent('lint.eslint', 'lint.stylelint'),
-		eslint: {
-			default: 'eslint webpack source/scripts',
-			fix: 'eslint --fix webpack source/scripts',
-		},
-		stylelint: {
-			default: 'stylelint source/**/*.sss',
-			fix: 'stylelint --fix source/**/*.sss',
-		},
-	},
-	test: {
-		default: 'jest',
-		watch: 'jest --watch',
-	},
+
 	firebase: {
 		deploy: 'firebase deploy',
 		login: {
@@ -67,6 +48,21 @@ const scripts = {
 		},
 		serve: 'firebase serve',
 	},
+
+	eslint: {
+		default: 'eslint webpack source',
+		fix: 'eslint --fix webpack source',
+	},
+	stylelint: {
+		default: 'stylelint source/**/*.sss',
+		fix: 'stylelint --fix source/**/*.sss',
+	},
+
+	jest: {
+		default: 'jest',
+		watch: 'jest --watch',
+	},
+
 }
 
 

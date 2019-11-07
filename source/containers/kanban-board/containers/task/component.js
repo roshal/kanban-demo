@@ -1,4 +1,6 @@
 
+import * as p__react_debounce_input from 'react-debounce-input'
+
 import i__prop_types from 'prop-types'
 import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
@@ -46,8 +48,7 @@ export default class extends i__react.Component {
 				value,
 			},
 		}) => {
-			const object = this.props
-			object.dispatch.update({
+			this.props.dispatch.update({
 				name: value,
 			})
 		},
@@ -56,8 +57,7 @@ export default class extends i__react.Component {
 				value,
 			},
 		}) => {
-			const object = this.props
-			object.dispatch.update({
+			this.props.dispatch.update({
 				text: value,
 			})
 		},
@@ -90,27 +90,30 @@ export default class extends i__react.Component {
 	}
 
 	render() {
-		const object = this.props
 		return [
 			$('div' + style('task'), [
 				$('div' + style('task--name'), [
-					$('input' + style('task--input--name'), {
+					$(p__react_debounce_input, {
+						className: s__styles['task--input--name'],
+						debounceTimeout: 250,
 						onChange: this.self.handle_change_name,
 						placeholder: 'task name',
-						value: object.state.name,
+						value: this.props.state.name,
 					}),
 				]),
 				$('div' + style('task--text'), [
-					$('input' + style('task--input--text'), {
+					$(p__react_debounce_input, {
+						className: s__styles['task--input--text'],
+						debounceTimeout: 250,
 						onChange: this.self.handle_change_text,
 						placeholder: 'task text',
-						value: object.state.text,
+						value: this.props.state.text,
 					}),
 				]),
 				$('div' + style('task--options'), [
 					$('div' + style('task--action--remove'), [
 						$('span' + style('task--action--remove--text'), {
-							onClick: object.dispatch.remove,
+							onClick: this.props.dispatch.remove,
 						}, [
 							'remove',
 						]),
@@ -133,7 +136,7 @@ export default class extends i__react.Component {
 							]),
 						]),
 						this.state.popup && $(d__container__locate, {
-							id: object.props.id,
+							id: this.props.props.id,
 							close: this.self.close,
 						}),
 					]),

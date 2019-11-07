@@ -39,15 +39,14 @@ export default class extends i__react.Component {
 	}
 
 	render() {
-		const object = this.props
 		return [
 			$('div' + style('kanban-board'), [
 				$('div' + style('kanban-board--wrapper'), [
-					object.state.columns.map(this.self.render_column),
+					this.props.state.columns.map(this.self.render_column),
 				]),
 				$('div' + style('kanban-board--action--reset'), [
 					$('span' + style('kanban-board--action--reset--text'), {
-						onClick: object.dispatch.reset,
+						onClick: this.props.dispatch.reset,
 					}, [
 						'reset',
 					]),

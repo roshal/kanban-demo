@@ -52,6 +52,7 @@
     "pug-extract-loader": "^1.0.8",
     "pug-loader": "^2.4.0",
     "react": "^16.11.0",
+    "react-debounce-input": "^3.2.2",
     "react-dom": "^16.11.0",
     "react-hot-loader": "^4.12.15",
     "react-hyperscript": "^3.2.0",

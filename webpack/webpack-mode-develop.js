@@ -7,8 +7,14 @@ module.exports = (env = {}, argv = {}) => {
 		mode: 'development',
 		plugins: [
 			new p__webpack.DefinePlugin({
-				$$$: 'console.table',
-				$$: 'console.info',
+				$$: 'console.log',
+				$$$: 'console',
+				$c: 'console.count',
+				$e: 'console.error',
+				$i: 'console.info',
+				$l: 'console.log',
+				$t: 'console.table',
+				$w: 'console.warn',
 			}),
 		],
 		devtool: 'source-map',

@@ -34,7 +34,6 @@ export default class extends i__react.Component {
 			id,
 			name,
 		}) => {
-			const object = this.props
 			return [
 				$('li' + style('task--action--locate'), {
 					key: id,
@@ -44,8 +43,8 @@ export default class extends i__react.Component {
 					]),
 					$('div' + style('task--action--locate--title'), {
 						onClick: () => {
-							object.props.close()
-							object.dispatch.locate({
+							this.props.props.close()
+							this.props.dispatch.locate({
 								column_id: id,
 							})
 						},
@@ -60,10 +59,9 @@ export default class extends i__react.Component {
 	}
 
 	render() {
-		const object = this.props
 		return [
 			$('ul' + style('task--list'), [
-				object.state.columns.map(this.self.render_column),
+				this.props.state.columns.map(this.self.render_column),
 			]),
 		][0]
 	}

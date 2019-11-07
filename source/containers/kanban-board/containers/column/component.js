@@ -1,5 +1,6 @@
 
 import * as p__immutable from 'immutable'
+import * as p__react_debounce_input from 'react-debounce-input'
 
 import i__classnames from 'classnames/bind'
 import i__prop_types from 'prop-types'
@@ -44,8 +45,7 @@ export default class extends i__react.Component {
 				value,
 			},
 		}) => {
-			const object = this.props
-			object.dispatch.rename({
+			this.props.dispatch.rename({
 				name: value,
 			})
 		},
@@ -60,46 +60,47 @@ export default class extends i__react.Component {
 	}
 
 	render() {
-		const object = this.props
 		return [
 			$('div' + style('column'), [
 				$('div', {
 					className: classnames({
-						'column--head': !object.state.tasks.isEmpty(),
-						'column--head--empty': object.state.tasks.isEmpty(),
+						'column--head': !this.props.state.tasks.isEmpty(),
+						'column--head--empty': this.props.state.tasks.isEmpty(),
 					}),
 				}, [
 					$('div' + style('column--title'), [
-						$('input' + style('column--input--name'), {
+						$(p__react_debounce_input, {
+							className: s__styles['column--input--name'],
+							debounceTimeout: 250,
 							onChange: this.self.handle_change_name,
 							placeholder: 'column name',
-							value: object.state.name,
+							value: this.props.state.name,
 						}),
 					]),
 					$('div' + style('column--options'), [
 						$('div' + style('column--action--add'), [
 							$('span' + style('column--action--add--text'), {
-								onClick: object.dispatch.add,
+								onClick: this.props.dispatch.add,
 							}, [
 								'add task',
 							]),
 						]),
 						$('div' + style('column--action--sort'), [
 							$('span' + style('column--action--sort--arrow'), [
-								!!object.state.sorting && (
-									object.state.sorting < 0 ? '↑' : '↓'
+								!!this.props.state.sorting && (
+									this.props.state.sorting < 0 ? '↑' : '↓'
 								), ' ',
 							]),
 							$('span' + style('column--action--sort--title'), {
-								onClick: object.dispatch.sort,
+								onClick: this.props.dispatch.sort,
 							}, [
 								'sort',
 							]),
 						]),
 					]),
 				]),
-				object.state.tasks.isEmpty() || $('div' + style('column--body'), [
-					object.state.tasks.map(this.self.render_task),
+				this.props.state.tasks.isEmpty() || $('div' + style('column--body'), [
+					this.props.state.tasks.map(this.self.render_task),
 				]),
 			]),
 		][0]

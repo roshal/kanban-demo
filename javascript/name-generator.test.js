@@ -8,6 +8,6 @@ test(m__name_generator.name, () => {
 		rootContext: '/abc',
 		context: '/abc/def',
 	}, null, 'name')
-	const expected = 'name--0391527486'
+	const expected = 'name--6470825319'
 	expect(received).toEqual(expected)
 })
