@@ -9,7 +9,7 @@ module.exports = (env = {}, argv = {}) => {
 				{
 					resource: {
 						include: [
-							p__path.resolve('source', 'scripts'),
+							p__path.resolve('source'),
 						],
 						test: [
 							/\.js$/,

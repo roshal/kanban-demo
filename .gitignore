@@ -1,10 +1,12 @@
 
 /*
 
+!/assets/
 !/docs/
 !/javascript/
 !/pug/
 !/source/
+!/styles/
 !/webpack/
 
 !/.editorconfig

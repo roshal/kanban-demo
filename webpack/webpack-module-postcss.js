@@ -19,7 +19,7 @@ module.exports = (env = {}, argv = {}) => {
 				{
 					resource: {
 						include: [
-							p__path.resolve('source', 'scripts'),
+							p__path.resolve('source'),
 						],
 						test: [
 							/\.sss$/,
@@ -53,7 +53,7 @@ module.exports = (env = {}, argv = {}) => {
 				{
 					resource: {
 						include: [
-							p__path.resolve('source', 'styles'),
+							p__path.resolve('styles'),
 						],
 						test: [
 							/\.sss$/,

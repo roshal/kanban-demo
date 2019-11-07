@@ -7,7 +7,7 @@ module.exports = (env = {}, argv = {}) => {
 		mode: 'none',
 		context: p__path.resolve('source'),
 		entry: {
-			'index': './scripts/sources/index.js',
+			'index': p__path.resolve('source', 'sources', 'index.js'),
 		},
 		output: {
 			path: p__path.resolve('public'),
@@ -17,8 +17,8 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		resolve: {
 			alias: {
-				'/': p__path.resolve('source'),
-				'~': p__path.resolve('source', 'scripts'),
+				'/': p__path.resolve(),
+				'~': p__path.resolve('source'),
 				...argv.hot ? {
 					'react-dom': '@hot-loader/react-dom',
 				} : {},

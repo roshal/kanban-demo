@@ -27,7 +27,7 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new p__html_webpack_plugin({
-				favicon: p__path.resolve('source', 'assets', 'index.png'),
+				favicon: p__path.resolve('assets', 'sources', 'index.png'),
 				inject: 'head',
 				template: p__path.resolve('pug', 'sources', 'index.pug'),
 			}),

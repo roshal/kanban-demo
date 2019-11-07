@@ -4,10 +4,10 @@ const p__path = require('path')
 
 const object = {
 	'//': (id) => {
-		return p__path.resolve('source', id)
+		return p__path.resolve(id)
 	},
 	'~/': (id) => {
-		return p__path.resolve('source', 'styles', id)
+		return p__path.resolve('styles', id)
 	},
 }
 
