@@ -38,3 +38,6 @@ npx nps l
 
 # nodemon
 npx nodemon -w webpack -x nps d
+
+# babel-node
+npx -p @babel/core -p @babel/node babel-node source/sources/index.js

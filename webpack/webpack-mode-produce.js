@@ -29,6 +29,7 @@ module.exports = (env = {}, argv = {}) => {
 					},
 				}),
 				new p__terser_webpack_plugin({
+					extractComments: false,
 					terserOptions: {
 						cache: true,
 						parallel: true,

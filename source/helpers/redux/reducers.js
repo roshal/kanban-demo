@@ -17,8 +17,9 @@ export const middlewares_composer = (middlewares) => {
 }
 
 export const reducers_combiner = (reducers) => {
+	const reduce = p__redux_immutable.combineReducers(reducers)
 	return (state, action) => {
-		return p__redux_immutable.combineReducers(reducers)(state, action)
+		return reduce(state, action)
 	}
 }
 

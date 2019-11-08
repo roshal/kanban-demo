@@ -1,6 +1,8 @@
 
 const p__path = require('path')
 
+const m__alias = require('../alias')
+
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -17,8 +19,7 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		resolve: {
 			alias: {
-				'/': p__path.resolve(),
-				'~': p__path.resolve('source'),
+				...m__alias,
 				...argv.hot ? {
 					'react-dom': '@hot-loader/react-dom',
 				} : {},

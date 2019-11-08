@@ -59,8 +59,8 @@ const scripts = {
 	},
 
 	jest: {
-		default: 'jest',
-		watch: 'jest --watch',
+		default: 'jest source',
+		watch: 'jest --watch source',
 	},
 
 }

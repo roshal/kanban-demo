@@ -17,6 +17,7 @@
 !/.stylelintignore
 !/.stylelintrc.yaml
 
+!/alias.js
 !/babel.config.js
 !/firebase.json
 !/jest.config.js

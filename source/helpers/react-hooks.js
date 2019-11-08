@@ -1,5 +1,5 @@
 
-import * as p__lodash from 'lodash'
+import * as p__ramda from 'ramda'
 import * as p__react_redux from 'react-redux'
 import * as p__redux from 'redux'
 
@@ -13,5 +13,5 @@ export const use_state = (selector, object) => {
 	const select = selector()
 	return p__react_redux.useSelector((state) => {
 		return select(state, object)
-	}, p__lodash.isEqual)
+	}, p__ramda.equals)
 }
