@@ -3,6 +3,16 @@
 
 this is a test task
 
+# main stack
+
+`webpack` `babel`
+
+`react` `redux` `immer` `reselect`
+
+`postcss` `classnames`
+
+`lodash` `ramda`
+
 # code style
 
 `snake_case` is used instead of `camelCase`
