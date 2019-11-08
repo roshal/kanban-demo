@@ -19,9 +19,8 @@ this is a test task
 
 # name prefixes
 
-||||
----|---|---
 prefix|description|example
+---|---|---
 `p__`|imported package|`import * as p__lodash from 'lodash'`
 `i__`|default imported from package|`import i__react from 'react'`
 `m__`|imported module|`import * as m__selectors from './selectors'`
@@ -67,9 +66,9 @@ start develop
 npx nps d
 ```
 
-`nps develop` `series('serve.develop')`
+`=` `nps develop` `=` `series('serve.develop')`
 
-`nps serve.develop` `webpack-dev-server --develop --hot`
+`&` `nps serve.develop` `=` `webpack-dev-server --develop --hot`
 
 # linting
 
@@ -79,11 +78,11 @@ run lint
 npx nps l
 ```
 
-`nps lint` `concurrent('lint.eslint', 'lint.stylelint')`
+`=` `nps lint` `=` `concurrent('eslint', 'stylelint')`
 
-`nps serve.develop` `eslint webpack source/scripts`
+`|` `nps eslint` `=` `eslint webpack source`
 <br>
-`nps lint.develop` `stylelint source/**/*.sss`
+`|` `nps stylelint` `=` `stylelint styles source/**/*.sss`
 
 # testing
 
@@ -93,4 +92,6 @@ run test
 npx nps t
 ```
 
-`nps test` `jest source/scripts`
+`=` `nps test` `=` `series('jest')`
+
+`&` `nps jest` `=` `jest source`

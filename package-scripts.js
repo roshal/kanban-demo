@@ -20,7 +20,7 @@ const scripts = {
 	release: series('clean', 'build.produce', 'firebase.deploy'),
 
 	lint: concurrent('eslint', 'stylelint'),
-	test: concurrent('jest'),
+	test: series('jest'),
 
 	clean: 'rm -fr public/*',
 
@@ -54,8 +54,8 @@ const scripts = {
 		fix: 'eslint --fix webpack source',
 	},
 	stylelint: {
-		default: 'stylelint source/**/*.sss',
-		fix: 'stylelint --fix source/**/*.sss',
+		default: 'stylelint styles source/**/*.sss',
+		fix: 'stylelint --fix styles source/**/*.sss',
 	},
 
 	jest: {
