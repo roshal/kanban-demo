@@ -20,8 +20,8 @@ test(name + ' sort', () => {
 	}
 	const action = m__actions.sort(object)
 	const value = d__reduce(d__state, action).find((column) => {
-		return object.id === column.get('id')
-	}).get('sorting')
+		return object.id === column.id
+	}).sorting
 	const check = 1
 	expect(value).toEqual(check)
 })
@@ -33,8 +33,8 @@ test(name + ' update', () => {
 	}
 	const action = m__actions.update(object)
 	const value = d__reduce(d__state, action).find((column) => {
-		return object.id === column.get('id')
-	}).get('name')
+		return object.id === column.id
+	}).name
 	const check = object.name
 	expect(value).toEqual(check)
 })

@@ -7,5 +7,5 @@ import d__select from '../select'
 
 
 export default p__reselect.defaultMemoize((state) => {
-	return d__select(state).get(m__token.value)
+	return d__select(state)[m__token.value]
 })

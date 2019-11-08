@@ -1,6 +1,4 @@
 
-import * as p__immutable from 'immutable'
-
 import i__prop_types from 'prop-types'
 import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
@@ -20,7 +18,9 @@ export default class extends i__react.Component {
 	static displayName = 'kanban-board'
 	static propTypes = {
 		state: i__prop_types.shape({
-			columns: i__prop_types.instanceOf(p__immutable.List).isRequired,
+			columns: i__prop_types.arrayOf(i__prop_types.shape({
+				id: i__prop_types.number.isRequired,
+			})).isRequired,
 		}).isRequired,
 		dispatch: i__prop_types.shape({
 			reset: i__prop_types.func.isRequired,

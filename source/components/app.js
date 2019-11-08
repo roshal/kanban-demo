@@ -1,5 +1,4 @@
 
-import * as p__immutable from 'immutable'
 import * as p__react_redux from 'react-redux'
 
 import i__react from 'react'
@@ -20,14 +19,13 @@ const component = class extends i__react.PureComponent {
 
 	constructor(object) {
 		super(object)
-		const state = m__local_storage.deserialize()
-		this.immutable = p__immutable.fromJS(state)
+		this.storage = m__local_storage.deserialize()
 	}
 
 	render() {
 		return [
 			$(p__react_redux.Provider, {
-				store: d__redux_store(this.immutable),
+				store: d__redux_store(this.storage),
 			}, [
 				$(d__container__kanban_board),
 			]),

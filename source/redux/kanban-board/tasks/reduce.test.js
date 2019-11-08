@@ -19,8 +19,8 @@ test(name + ' create', () => {
 		column_id: 0,
 	}
 	const action = m__actions.create(object)
-	const value = d__reduce(d__state, action).count()
-	const check = d__state.count() + 1
+	const value = d__reduce(d__state, action).length
+	const check = d__state.length + 1
 	expect(value).toEqual(check)
 })
 
@@ -29,8 +29,8 @@ test(name + ' remove', () => {
 		id: 0,
 	}
 	const action = m__actions.remove(object)
-	const value = d__reduce(d__state, action).count()
-	const check = d__state.count() - 1
+	const value = d__reduce(d__state, action).length
+	const check = d__state.length - 1
 	expect(value).toEqual(check)
 })
 
@@ -41,8 +41,8 @@ test(name + ' locate', () => {
 	}
 	const action = m__actions.locate(object)
 	const value = d__reduce(d__state, action).find((task) => {
-		return object.id === task.get('id')
-	}).toJS()
+		return object.id === task.id
+	})
 	const check = object
 	expect(value).toMatchObject(check)
 })
@@ -55,8 +55,8 @@ test(name + ' update', () => {
 	}
 	const action = m__actions.update(object)
 	const value = d__reduce(d__state, action).find((task) => {
-		return object.id === task.get('id')
-	}).toJS()
+		return object.id === task.id
+	})
 	const check = object
 	expect(value).toMatchObject(check)
 })

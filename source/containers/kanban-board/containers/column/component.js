@@ -1,5 +1,4 @@
 
-import * as p__immutable from 'immutable'
 import * as p__react_debounce_input from 'react-debounce-input'
 
 import i__classnames from 'classnames/bind'
@@ -29,8 +28,10 @@ export default class extends i__react.Component {
 			name: i__prop_types.string.isRequired,
 			sorting: i__prop_types.oneOf([
 				-1, 0, 1,
-			]).isRequired,
-			tasks: i__prop_types.instanceOf(p__immutable.List).isRequired,
+			]),
+			tasks: i__prop_types.arrayOf(i__prop_types.shape({
+				id: i__prop_types.number.isRequired,
+			})).isRequired,
 		}).isRequired,
 		dispatch: i__prop_types.shape({
 			add: i__prop_types.func.isRequired,
@@ -64,8 +65,8 @@ export default class extends i__react.Component {
 			$('div' + style('column'), [
 				$('div', {
 					className: classnames({
-						'column--head': !this.props.state.tasks.isEmpty(),
-						'column--head--empty': this.props.state.tasks.isEmpty(),
+						'column--head': this.props.state.tasks.length,
+						'column--head--empty': !this.props.state.tasks.length,
 					}),
 				}, [
 					$('div' + style('column--title'), [
@@ -99,9 +100,9 @@ export default class extends i__react.Component {
 						]),
 					]),
 				]),
-				this.props.state.tasks.isEmpty() || $('div' + style('column--body'), [
+				this.props.state.tasks.length ? $('div' + style('column--body'), [
 					this.props.state.tasks.map(this.self.render_task),
-				]),
+				]) : null,
 			]),
 		][0]
 	}

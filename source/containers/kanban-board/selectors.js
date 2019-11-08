@@ -14,7 +14,7 @@ export const selector = () => {
 		}) => {
 			columns = columns.map((column) => {
 				return {
-					id: column.get('id'),
+					id: column.id,
 				}
 			})
 			return {

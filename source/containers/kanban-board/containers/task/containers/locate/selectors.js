@@ -20,19 +20,19 @@ export const selector = () => {
 			id,
 		}) => {
 			const task = tasks.find((task) => {
-				return id === task.get('id')
+				return id === task.id
 			})
-			const column_id = task.get('column_id')
+			const column_id = task.column_id
 			const index = columns.findIndex((column) => {
-				return column.get('id') === column_id
+				return column.id === column_id
 			})
-			columns = columns.delete(index)
 			columns = columns.map((column) => {
 				return {
-					id: column.get('id'),
-					name: column.get('name'),
+					id: column.id,
+					name: column.name,
 				}
 			})
+			columns.splice(index, 1)
 			return {
 				columns,
 			}

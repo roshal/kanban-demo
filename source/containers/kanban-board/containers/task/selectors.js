@@ -17,10 +17,10 @@ export const selector = () => {
 			id,
 		}) => {
 			const task = tasks.find((task) => {
-				return id === task.get('id')
+				return id === task.id
 			})
-			const name = task.get('name')
-			const text = task.get('text')
+			const name = task.name
+			const text = task.text
 			return {
 				name,
 				text,

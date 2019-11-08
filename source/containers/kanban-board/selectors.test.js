@@ -8,8 +8,7 @@ import d__state from '~/redux/state'
 
 test(m__selectors.selector.name, () => {
 	const select = m__selectors.selector()
-	const value = select(d__state)
-	const received = p__immutable.fromJS(value).toJS()
+	const received = select(d__state)
 	const expected = {
 		columns: [
 			{

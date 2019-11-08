@@ -8,10 +8,9 @@ import d__state from '~/redux/state'
 
 test(m__selectors.selector.name, () => {
 	const select = m__selectors.selector()
-	const value = select(d__state, {
+	const received = select(d__state, {
 		id: 0,
 	})
-	const received = p__immutable.fromJS(value).toJS()
 	const expected = {
 		name: 'to do',
 		sorting: 0,
