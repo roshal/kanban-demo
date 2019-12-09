@@ -8,13 +8,9 @@ import * as m__selectors from './selectors'
 
 import d__component from './component'
 
-import i__react_hyperscript from 'react-hyperscript'
-
-
-const $ = i__react_hyperscript
 
 const component = i__react.memo((props) => {
-	return $(d__component, {
+	return d__component({
 		props,
 		state: m__react_hooks.use_state(m__selectors.selector, {
 			id: props.id,
@@ -42,6 +38,7 @@ const component = i__react.memo((props) => {
 	})
 })
 
-export default component
-
 component.displayName = ['c', d__component.displayName].join('.')
+
+
+export default component
