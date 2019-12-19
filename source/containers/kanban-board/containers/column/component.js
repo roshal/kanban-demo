@@ -2,6 +2,7 @@
 import * as p__react_debounce_input from 'react-debounce-input'
 
 import i__classnames from 'classnames/bind'
+import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '~/commons/helpers'
@@ -18,8 +19,10 @@ const classnames = i__classnames.bind(s__styles)
 const style = m__helpers.styler(s__styles)
 
 const component = (props) => {
-	const handlers = m__handlers.produce({
-		props,
+	const handlers = i__react.useCallback(() => {
+		return m__handlers.produce({
+			props,
+		})
 	})
 	return [
 		$('div' + style('column'), [

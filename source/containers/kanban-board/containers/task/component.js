@@ -25,14 +25,18 @@ const component = (props) => {
 	const references = {
 		popup: i__react.createRef(),
 	}
-	const handlers = i__react.useCallback(m__handlers.produce({
-		props,
-	}))
-	const callbacks = i__react.useCallback(m__callbacks.produce({
-		state, set_state,
-		handlers,
-		references,
-	}))
+	const handlers = i__react.useCallback(() => {
+		return m__handlers.produce({
+			props,
+		})
+	})
+	const callbacks = i__react.useCallback(() => {
+		return m__callbacks.produce({
+			state, set_state,
+			handlers,
+			references,
+		})
+	})
 	return [
 		$('div' + style('task'), [
 			$('div' + style('task--name'), [
