@@ -1,5 +1,10 @@
 
+import i__react_hyperscript from 'react-hyperscript'
+
 import d__container__column from './containers/column'
+
+
+const $ = i__react_hyperscript
 
 
 export const column = ({

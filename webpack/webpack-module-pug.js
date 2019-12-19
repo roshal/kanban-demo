@@ -27,9 +27,10 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new p__html_webpack_plugin({
-				favicon: p__path.resolve('assets', 'sources', 'index.png'),
-				inject: 'head',
 				template: p__path.resolve('pug', 'sources', 'index.pug'),
+				inject: 'head',
+				favicon: p__path.resolve('assets', 'sources', 'index.png'),
+				hash: true,
 			}),
 			new p__script_ext_html_webpack_plugin({
 				defaultAttribute: 'defer',
