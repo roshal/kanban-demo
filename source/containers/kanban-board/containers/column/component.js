@@ -19,11 +19,11 @@ const classnames = i__classnames.bind(s__styles)
 const style = m__helpers.styler(s__styles)
 
 const component = (props) => {
-	const handlers = i__react.useCallback(() => {
+	const handlers = i__react.useMemo(() => {
 		return m__handlers.produce({
 			props,
 		})
-	})
+	}, [])
 	return [
 		$('div' + style('column'), [
 			$('div', {
