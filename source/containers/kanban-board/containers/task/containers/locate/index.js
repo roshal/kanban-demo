@@ -1,7 +1,7 @@
 
 import * as p__redux from 'redux'
 
-import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
+import * as m__actions from './actions'
 import * as m__react_redux from '~/helpers/react-redux'
 import * as m__selectors from './selectors'
 
@@ -18,15 +18,8 @@ export default m__react_redux.connect(
 		}
 	},
 	(dispatch, props) => {
-		return p__redux.bindActionCreators({
-			locate: ({
-				column_id,
-			}) => {
-				return m__actions__tasks.locate({
-					id: props.object.id,
-					column_id,
-				})
-			},
-		}, dispatch)
+		return p__redux.bindActionCreators(m__actions.produce({
+			props,
+		}), dispatch)
 	},
 )(d__component)

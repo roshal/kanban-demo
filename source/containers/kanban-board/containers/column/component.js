@@ -5,10 +5,9 @@ import i__classnames from 'classnames/bind'
 import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
-import * as m__helpers from '~/commons/helpers'
-
 import * as m__components from './components'
 import * as m__handlers from './handlers'
+import * as m__helpers from '~/commons/helpers'
 import * as m__types from './types'
 
 import s__styles from './styles.sss'
