@@ -30,14 +30,14 @@ const scripts = {
 		produce: 'webpack --produce',
 	},
 	watch: {
-		analyze: 'webpack --analyze --watch',
-		develop: 'webpack --develop --watch',
-		produce: 'webpack --produce --watch',
+		analyze: 'webpack --watch --analyze',
+		develop: 'webpack --watch --develop',
+		produce: 'webpack --watch --produce',
 	},
 	serve: {
-		analyze: 'webpack-dev-server --analyze --hot',
-		develop: 'webpack-dev-server --develop --hot',
-		produce: 'webpack-dev-server --produce --hot',
+		analyze: 'webpack-dev-server --hot --analyze',
+		develop: 'webpack-dev-server --hot --develop',
+		produce: 'webpack-dev-server --hot --produce',
 	},
 
 	firebase: {
