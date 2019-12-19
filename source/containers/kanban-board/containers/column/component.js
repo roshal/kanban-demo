@@ -64,9 +64,9 @@ const component = (props) => {
 				]),
 			]),
 			props.state.tasks.length ? $('div' + style('column--body'), [
-				props.state.tasks.map((props) => {
+				props.state.tasks.map((object) => {
 					return m__components.task({
-						props,
+						object,
 					})
 				}),
 			]) : null,
@@ -75,7 +75,7 @@ const component = (props) => {
 }
 
 component.displayName = 'column'
-component.propTypes = m__types.component_props
+component.propTypes = m__types.props__component
 
 
 export default component

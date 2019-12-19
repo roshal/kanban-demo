@@ -11,7 +11,7 @@ import d__component from './component'
 export default m__react_redux.connect(
 	() => {
 		const select = m__selectors.selector()
-		return (state) => {
+		return (state, props) => {
 			return select(state)
 		}
 	},

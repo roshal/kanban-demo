@@ -13,7 +13,7 @@ export default m__react_redux.connect(
 		const select = m__selectors.selector()
 		return (state, props) => {
 			return select(state, {
-				id: props.id,
+				id: props.object.id,
 			})
 		}
 	},
@@ -23,7 +23,7 @@ export default m__react_redux.connect(
 				column_id,
 			}) => {
 				return m__actions__tasks.locate({
-					id: props.id,
+					id: props.object.id,
 					column_id,
 				})
 			},

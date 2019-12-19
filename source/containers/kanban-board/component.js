@@ -16,9 +16,9 @@ const component = (props) => {
 	return [
 		$('div' + style('kanban-board'), [
 			$('div' + style('kanban-board--wrapper'), [
-				props.state.columns.map((props) => {
+				props.state.columns.map((object) => {
 					return m__components.column({
-						props,
+						object,
 					})
 				}),
 			]),
@@ -34,7 +34,7 @@ const component = (props) => {
 }
 
 component.displayName = 'kanban-board'
-component.propTypes = m__types.component_props
+component.propTypes = m__types.props__component
 
 
 export default component

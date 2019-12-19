@@ -83,8 +83,12 @@ const component = (props) => {
 						]),
 					]),
 					state.popup && $(d__container__locate, {
-						id: props.props.id,
-						close: callbacks.close,
+						object: {
+							id: props.object.id,
+						},
+						callbacks: {
+							close: callbacks.close,
+						},
 					}),
 				]),
 			]),
@@ -93,7 +97,7 @@ const component = (props) => {
 }
 
 component.displayName = 'task'
-component.propTypes = m__types.component_props
+component.propTypes = m__types.props__component
 
 
 export default component

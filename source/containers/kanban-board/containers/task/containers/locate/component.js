@@ -15,13 +15,13 @@ const style = m__helpers.styler(s__styles)
 const component = (props) => {
 	return [
 		$('ul' + style('task--list'), [
-			props.state.columns.map((props) => {
+			props.state.columns.map((object) => {
 				const {
 					dispatch,
 					callbacks,
 				} = props
 				return m__components.column({
-					props,
+					object,
 					dispatch,
 					callbacks,
 				})
@@ -30,8 +30,8 @@ const component = (props) => {
 	][0]
 }
 
-component.displayName = 'locale'
-component.propTypes = m__types.component_props
+component.displayName = 'locate'
+component.propTypes = m__types.props__component
 
 
 export default component

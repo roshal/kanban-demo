@@ -13,7 +13,7 @@ export default m__react_redux.connect(
 		const select = m__selectors.selector()
 		return (state, props) => {
 			return select(state, {
-				id: props.id,
+				id: props.object.id,
 			})
 		}
 	},
@@ -21,14 +21,14 @@ export default m__react_redux.connect(
 		return p__redux.bindActionCreators({
 			remove: () => {
 				return m__actions__tasks.remove({
-					id: props.id,
+					id: props.object.id,
 				})
 			},
 			locate: ({
 				column_id,
 			}) => {
 				return m__actions__tasks.locate({
-					id: props.id,
+					id: props.object.id,
 					column_id,
 				})
 			},
@@ -37,7 +37,7 @@ export default m__react_redux.connect(
 				text,
 			}) => {
 				return m__actions__tasks.update({
-					id: props.id,
+					id: props.object.id,
 					name,
 					text,
 				})

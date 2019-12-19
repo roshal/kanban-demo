@@ -2,8 +2,8 @@
 import i__prop_types from 'prop-types'
 
 
-export const component_props = {
-	props: i__prop_types.shape({
+export const props__component = {
+	object: i__prop_types.shape({
 		id: i__prop_types.number.isRequired,
 	}).isRequired,
 	state: i__prop_types.shape({
@@ -19,5 +19,11 @@ export const component_props = {
 		add: i__prop_types.func.isRequired,
 		rename: i__prop_types.func.isRequired,
 		sort: i__prop_types.func.isRequired,
+	}).isRequired,
+}
+
+export const props__task = {
+	object: i__prop_types.shape({
+		id: i__prop_types.number.isRequired,
 	}).isRequired,
 }

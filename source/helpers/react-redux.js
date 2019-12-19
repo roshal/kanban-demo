@@ -9,9 +9,15 @@ export const connect = (cast_state, cast_dispatch) => {
 		cast_dispatch,
 		(state, dispatch, props) => {
 			return {
-				props,
-				state,
-				dispatch,
+				...props,
+				state: {
+					...state,
+					...props.state,
+				},
+				dispatch: {
+					...dispatch,
+					...props.dispatch,
+				},
 			}
 		},
 	)
