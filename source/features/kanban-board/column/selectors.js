@@ -1,6 +1,7 @@
 
-import * as m__react_helpers from './helpers'
 import * as m__react_redux from '~/helpers/react-redux'
+
+import * as m__react_helpers from './helpers'
 
 import d__select__columns from '~/redux/kanban-board/columns/select'
 import d__select__tasks from '~/redux/kanban-board/tasks/select'

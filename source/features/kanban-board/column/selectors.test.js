@@ -1,6 +1,4 @@
 
-import * as p__immutable from 'immutable'
-
 import * as m__selectors from './selectors'
 
 import d__state from '~/redux/state'

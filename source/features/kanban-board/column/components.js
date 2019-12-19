@@ -1,17 +1,18 @@
 
 import i__react_hyperscript from 'react-hyperscript'
 
-import d__container__column from './containers/column'
 
 import * as m__types from './types'
+
+import d__container__task from '../task'
 
 
 const $ = i__react_hyperscript
 
 
-export const column = (props) => {
+export const task = (props) => {
 	return [
-		$(d__container__column, {
+		$(d__container__task, {
 			key: props.object.id,
 			object: props.object,
 		}),
@@ -19,5 +20,5 @@ export const column = (props) => {
 }
 
 
-column.displayName = 'column'
-column.propTypes = m__types.props__column
+task.displayName = 'task'
+task.propTypes = m__types.props__task

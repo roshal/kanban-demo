@@ -2,6 +2,7 @@
 import * as m__actions__columns from '~/redux/kanban-board/columns/actions'
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
 
+
 export const produce = ({
 	props,
 }) => ({

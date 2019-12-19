@@ -1,7 +1,8 @@
 
-import * as m__action_types from './action-types'
 import * as m__middlewares from '~/helpers/redux/middlewares'
 import * as m__reducers from '~/helpers/redux/reducers'
+
+import * as m__action_types from './action-types'
 import * as m__token from './token'
 import * as m__token__kanban_board from './kanban-board/token'
 

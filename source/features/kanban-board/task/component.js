@@ -4,12 +4,14 @@ import * as p__react_debounce_input from 'react-debounce-input'
 import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
+
+import * as m__helpers from '~/commons/helpers'
+
 import * as m__callbacks from './callbacks'
 import * as m__handlers from './handlers'
-import * as m__helpers from '~/commons/helpers'
 import * as m__types from './types'
 
-import d__container__locate from './containers/locate'
+import d__container__locate from '../locate'
 
 import s__styles from './styles.sss'
 

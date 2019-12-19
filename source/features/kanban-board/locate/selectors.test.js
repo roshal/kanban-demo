@@ -1,6 +1,4 @@
 
-import * as p__immutable from 'immutable'
-
 import * as m__selectors from './selectors'
 
 import d__state from '~/redux/state'
@@ -12,8 +10,16 @@ test(m__selectors.selector.name, () => {
 		id: 0,
 	})
 	const expected = {
-		name: 'qwe',
-		text: 'qaz',
+		columns: [
+			{
+				id: 1,
+				name: 'in process',
+			},
+			{
+				id: 2,
+				name: 'done',
+			},
+		],
 	}
 	expect(received).toEqual(expected)
 })
