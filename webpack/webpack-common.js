@@ -4,12 +4,14 @@ const p__path = require('path')
 const m__alias = require('../alias')
 
 
+const node_modules = p__path.resolve('node_modules');
+
 module.exports = (env = {}, argv = {}) => {
 	return {
 		mode: 'none',
 		context: p__path.resolve('source'),
 		entry: {
-			'index': './sources/index.js',
+			'index': './sources/index.ts',
 		},
 		output: {
 			path: p__path.resolve('public'),
@@ -28,7 +30,7 @@ module.exports = (env = {}, argv = {}) => {
 				'.js',
 			],
 			modules: [
-				p__path.resolve('node_modules'),
+				node_modules,
 			],
 		},
 		resolveLoader: {
@@ -36,7 +38,7 @@ module.exports = (env = {}, argv = {}) => {
 				'.js',
 			],
 			modules: [
-				p__path.resolve('node_modules'),
+				node_modules,
 			],
 		},
 		optimization: {
@@ -54,7 +56,7 @@ module.exports = (env = {}, argv = {}) => {
 					},
 					vendors: {
 						priority: 1,
-						test: p__path.resolve('node_modules'),
+						test: node_modules,
 					},
 				},
 			},
@@ -66,7 +68,7 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		watchOptions: {
 			ignored: [
-				p__path.resolve('node_modules'),
+				node_modules,
 			],
 		},
 		performance: {
