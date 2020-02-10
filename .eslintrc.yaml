@@ -1,48 +1,53 @@
 
-# specifying-parser
-  parser: babel-eslint
-# specifying-environments
-  env:
-    browser: true
-    node: true
-    es6: true
-    jest: true
-# configuring-plugins
-  plugins:
-    - import
-    - react
-    - jest
+# configuration-cascading-and-hierarchy
+  root: true
+
+# extending-configuration-files
+  extends:
+    # eslint:recommended
+    - plugin:@typescript-eslint/eslint-recommended
+    - plugin:@typescript-eslint/recommended
+    # plugin:@typescript-eslint/recommended-requiring-type-checking
+
+## specifying-environments
+#  env:
+#    browser: true
+#    node: true
+#    es6: true
+#    jest: true
+
+## configuring-plugins
+#  plugins:
+#    - import
+#    - react
+#    - jest
+
 # configuring-rules
   rules:
     # possible errors
-      no-console:
+      '@typescript-eslint/no-console':
         - off
     # variables
-      no-unused-vars:
+      '@typescript-eslint/no-unused-vars':
         - off
     # stylistic issues
-      comma-dangle:
+      '@typescript-eslint/comma-dangle':
         - error
         - always-multiline
-      indent:
+      '@typescript-eslint/indent':
         - error
         - tab
         - SwitchCase: 1
-      linebreak-style:
+      '@typescript-eslint/linebreak-style':
         - error
         - unix
-      new-parens:
+      '@typescript-eslint/new-parens':
         - error
-      no-mixed-spaces-and-tabs:
+      '@typescript-eslint/no-mixed-spaces-and-tabs':
         - error
-      quotes:
+      '@typescript-eslint/quotes':
         - error
         - single
-      semi:
+      '@typescript-eslint/semi':
         - error
         - never
-# extending-configuration-files
-  extends:
-    - eslint:recommended
-# configuration-cascading-and-hierarchy
-  root: true

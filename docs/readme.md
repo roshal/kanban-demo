@@ -1,9 +1,9 @@
 
-# kanban board
+## kanban board
 
 this is a test task
 
-# main stack
+## main stack
 
 `webpack` `babel`
 
@@ -13,11 +13,11 @@ this is a test task
 
 `lodash` `ramda`
 
-# code style
+## code style
 
 `snake_case` is used instead of `camelCase`
 
-# name prefixes
+## name prefixes
 
 prefix|description|example
 ---|---|---
@@ -28,23 +28,23 @@ prefix|description|example
 `s__`|default imported style|`import s__styles from './styles.sss'`
 
 
-# firebase
+## firebase
 
 [firebase](https://firebase.google.com/) is used as a hosting
 
-# prerequisites
+## prerequisites
 
 `node` `&` `npx`
 <br>
 `yarn` `|` `npm`
 
-# management commands
+## management commands
 
 [node-package-script](https://www.npmjs.com/package/nps) is used
 
 see all commands in [package-scripts.js](../package-scripts.js)
 
-# installing
+## installing
 
 install dependencies
 
@@ -58,7 +58,7 @@ or
 npm i
 ```
 
-# start
+## start
 
 start develop
 
@@ -70,7 +70,7 @@ npx nps d
 
 `&` `nps serve.develop` `=` `webpack-dev-server --develop --hot`
 
-# linting
+## linting
 
 run lint
 
@@ -84,7 +84,7 @@ npx nps l
 <br>
 `|` `nps stylelint` `=` `stylelint styles source/**/*.sss`
 
-# testing
+## testing
 
 run test
 
