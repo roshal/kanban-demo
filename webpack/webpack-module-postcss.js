@@ -10,7 +10,7 @@ module.exports = (env = {}, argv = {}) => {
 	const loader = {
 		loader: p__mini_css_extract_plugin.loader,
 		options: {
-			hmr: argv.hot,
+			hmr: !!argv.hot,
 		},
 	}
 	return {
@@ -38,14 +38,14 @@ module.exports = (env = {}, argv = {}) => {
 										getLocalIdent: m__name_generator(26),
 									} : {},
 								},
-								sourceMap: argv.develop,
+								sourceMap: !!argv.develop,
 								importLoaders: 1,
 							},
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
-								sourceMap: argv.develop,
+								sourceMap: !!argv.develop,
 							},
 						},
 					],
@@ -64,14 +64,14 @@ module.exports = (env = {}, argv = {}) => {
 						{
 							loader: 'css-loader',
 							options: {
-								sourceMap: argv.develop,
+								sourceMap: !!argv.develop,
 								importLoaders: 1,
 							},
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
-								sourceMap: argv.develop,
+								sourceMap: !!argv.develop,
 							},
 						},
 					],

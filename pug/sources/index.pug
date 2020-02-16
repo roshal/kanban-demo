@@ -4,3 +4,14 @@ html(lang='en')
 		meta(charset='utf-8')
 		meta(name='viewport' content='width=device-width, initial-scale=0.5')
 		title kanban
+		if options.assets.favicon
+			link(rel='icon' href=options.assets.favicon)
+		each value in options.assets.css
+			link(rel='stylesheet' href=value)
+		each chunk, key in options.assets.chunks
+			if key !== 'runtime'
+				script(defer src=chunk.entry)
+		if options.assets.chunks.runtime
+			script
+				| #{''}
+				| !{options.compilation.assets['runtime.js'].source()}
