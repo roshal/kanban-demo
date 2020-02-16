@@ -1,9 +1,9 @@
 
+import * as p__react from 'react'
+// https://github.com/gaearon/react-hot-loader#getting-started
+import * as p__react_hot_loader__root from 'react-hot-loader/root'
 import * as p__react_redux from 'react-redux'
 
-import i__react_hot_loader__root from 'react-hot-loader/root'
-// https://github.com/gaearon/react-hot-loader#getting-started
-import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
 
@@ -16,7 +16,7 @@ import d__redux_store from '~/commons/redux-store'
 const $ = i__react_hyperscript
 
 const component = () => {
-	const store = i__react.useMemo(() => {
+	const store = p__react.useMemo(() => {
 		const storage = m__local_storage.deserialize()
 		return d__redux_store(storage)
 	}, [])
@@ -32,4 +32,4 @@ const component = () => {
 component.displayName = 'app'
 
 
-export default i__react_hot_loader__root.hot(component)
+export default (component)

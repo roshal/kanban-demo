@@ -1,16 +1,20 @@
 
 import * as p__vuex from 'vuex'
 
-import * as m__module from './module'
+
 import * as m__types from './types'
+
+import d__module from './module'
+
 
 const store_options: p__vuex.StoreOptions<m__types.state__root> = {
 	state: {
-		version: '1.0.0',
+		todos: [],
 	},
 	modules: {
-		module: m__module,
+		module: d__module,
 	},
 }
+
 
 export default new p__vuex.Store<m__types.state__root>(store_options)

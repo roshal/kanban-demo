@@ -1,5 +1,5 @@
 
-import i__react from 'react'
+import * as p__react from 'react'
 
 
 import * as m__actions from '~/redux/actions'
@@ -12,8 +12,8 @@ import * as m__types from './types'
 import d__component from './component'
 
 
-const component = i__react.memo((
-	props: m__types.props__component,
+const component = p__react.memo((
+	props: m__types.props__container,
 ) => {
 	return d__component({
 		state: m__helper__react_hooks.use_state(m__selectors.selector),

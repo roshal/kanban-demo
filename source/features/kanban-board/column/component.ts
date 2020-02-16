@@ -1,9 +1,10 @@
 
+import * as p__react from 'react'
 import * as p__react_debounce_input from 'react-debounce-input'
 
-import i__classnames from 'classnames/bind'
-import i__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
+
+import i__classnames from 'classnames/bind'
 
 
 import * as m__helpers from '~/commons/helpers'
@@ -12,8 +13,8 @@ import * as m__components from './components'
 import * as m__handlers from './handlers'
 import * as m__types from './types'
 
-import s__styles from './styles.sss'
 
+const s__styles = require('./styles.sss')
 
 const $ = i__react_hyperscript
 const classnames = i__classnames.bind(s__styles)
@@ -21,8 +22,8 @@ const style = m__helpers.styler(s__styles)
 
 const component = (
 	props: m__types.props__component,
-) => {
-	const handlers = i__react.useMemo(() => {
+): p__react.ReactElement => {
+	const handlers = p__react.useMemo(() => {
 		return m__handlers.produce({
 			props,
 		})
@@ -36,7 +37,8 @@ const component = (
 				}),
 			}, [
 				$('div' + style('column--title'), [
-					$(p__react_debounce_input, {
+					$(p__react_debounce_input.DebounceInput, {
+						// @ts-ignore
 						className: s__styles['column--input--name'],
 						debounceTimeout: 250,
 						onChange: handlers.change_name,

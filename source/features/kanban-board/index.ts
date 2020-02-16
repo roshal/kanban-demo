@@ -1,4 +1,4 @@
 
 export {
 	default,
-} from './kanban-board'
+} from './kanban-board/hooks'

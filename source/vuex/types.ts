@@ -1,8 +1,8 @@
 
 export interface state__module {
-	todos: string,
+	todos: any,
 }
 
 export interface state__root {
-	todos: string,
+	todos: any,
 }

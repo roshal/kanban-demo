@@ -3,7 +3,7 @@ import * as p__react_redux from 'react-redux'
 import * as p__reselect from 'reselect'
 
 
-export const connect = (cast_state: (state: {}, ownProps: {}) => {}, cast_dispatch: {}) => {
+export const connect = (cast_state: (state: {}, ownProps) => {}, cast_dispatch: {}) => {
 	return p__react_redux.connect(
 		cast_state,
 		cast_dispatch,

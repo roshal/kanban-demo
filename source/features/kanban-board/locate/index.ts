@@ -19,8 +19,6 @@ export default m__react_redux.connect(
 		}
 	},
 	(dispatch: any, props: m__types.props__component) => {
-		return p__redux.bindActionCreators(m__actions.produce({
-			props,
-		}), dispatch)
+		return p__redux.bindActionCreators(m__actions.produce(props), dispatch)
 	},
 )(d__component)

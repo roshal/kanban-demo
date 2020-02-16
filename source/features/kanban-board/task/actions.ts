@@ -1,35 +1,31 @@
 
+import * as p__redux from 'redux'
+
+
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
 
 import * as m__types from './types'
 
 
-export const produce = ({
-	props,
-}: {
-	props: m__types.props__component,
-}) => ({
+export const produce = (
+	props: m__types.props__container,
+): p__redux.ActionCreatorsMapObject => ({
 	remove: () => {
 		return m__actions__tasks.remove({
 			id: props.object.id,
 		})
 	},
-	locate: ({
-		column_id,
-	}) => {
+	locate: (options) => {
 		return m__actions__tasks.locate({
 			id: props.object.id,
-			column_id,
+			column_id: options.column_id,
 		})
 	},
-	update: ({
-		name,
-		text,
-	}) => {
+	update: (options) => {
 		return m__actions__tasks.update({
 			id: props.object.id,
-			name,
-			text,
+			name: options.name,
+			text: options.text,
 		})
 	},
 })

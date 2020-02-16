@@ -3,24 +3,32 @@ export interface props__component {
 	object: {
 		id: number,
 	},
-	state: {
+	state?: {
 		columns: {
+			id: number,
 			name: string,
 		}[],
 	},
-	dispatch: {
+	dispatch?: {
 		locate: Function,
 	},
-	callbacks: {
+	callbacks?: {
 		close: Function,
 	},
 }
 
-export interface props__column {
+export interface props__container {
 	object: {
 		id: number,
 	},
-	dispatch: {
+}
+
+export interface props__component__column {
+	object: {
+		id: number,
+		name: string,
+	},
+	dispatch?: {
 		locate: Function,
 	},
 	callbacks: {

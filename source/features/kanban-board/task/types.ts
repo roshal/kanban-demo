@@ -1,4 +1,10 @@
 
+export interface props__container {
+	object: {
+		id: number,
+	},
+}
+
 export interface props__component {
 	object: {
 		id: number,

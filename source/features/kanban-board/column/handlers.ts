@@ -8,16 +8,10 @@ export const produce = ({
 	props: m__types.props__component,
 }) => ({
 	change_name: ({
-		target: {
-			value,
-		},
-	}: {
-		target: {
-			value: string,
-		},
+		target,
 	}) => {
 		props.dispatch.rename({
-			name: value,
+			name: target.value,
 		})
 	},
 })

@@ -1,5 +1,5 @@
 
-import i__react from 'react'
+import * as p__react from 'react'
 
 
 import * as m__actions__columns from '~/redux/kanban-board/columns/actions'
@@ -13,11 +13,10 @@ import * as m__types from './types'
 import d__component from './component'
 
 
-const component = i__react.memo((
+const component = p__react.memo((
 	props: m__types.props__component,
 ) => {
 	return d__component({
-		props,
 		state: m__helper__react_hooks.use_state(m__selectors.selector, {
 			id: props.object.id,
 		}),

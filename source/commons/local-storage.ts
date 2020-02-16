@@ -1,6 +1,6 @@
 
 import * as p__json5 from 'json5'
-import * as p__lodash from 'lodash'
+import * as p__lodash_es from 'lodash-es'
 import * as p__redux from 'redux'
 
 
@@ -35,7 +35,7 @@ export const store_serializer = (store: p__redux.Store) => {
 }
 
 export const store_throttler = (store: p__redux.Store, milliseconds = 1 << 12) => {
-	return p__lodash.throttle(store_serializer(store), milliseconds, {
+	return p__lodash_es.throttle(store_serializer(store), milliseconds, {
 		leading: false,
 	})
 }

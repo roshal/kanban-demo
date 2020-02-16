@@ -8,21 +8,17 @@ export const produce = ({
 	props: m__types.props__component,
 }) => ({
 	change_name: ({
-		target: {
-			value,
-		},
+		target,
 	}) => {
 		props.dispatch.update({
-			name: value,
+			name: target.value,
 		})
 	},
 	change_text: ({
-		target: {
-			value,
-		},
+		target,
 	}) => {
 		props.dispatch.update({
-			text: value,
+			text: target.value,
 		})
 	},
 })
