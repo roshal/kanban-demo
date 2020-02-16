@@ -21,14 +21,10 @@ const component = (
 	return [
 		$('ul' + style('task--list'), [
 			props.state.columns.map((object) => {
-				const {
-					dispatch,
-					callbacks,
-				} = props
 				return m__components.column({
 					object,
-					dispatch,
-					callbacks,
+					dispatch: props.dispatch,
+					callbacks: props.callbacks,
 				})
 			}),
 		]),

@@ -5,10 +5,7 @@ export interface props__container {
 	},
 }
 
-export interface props__component {
-	object: {
-		id: number,
-	},
+export interface props__component extends props__container {
 	state: {
 		name: string,
 		text: string,

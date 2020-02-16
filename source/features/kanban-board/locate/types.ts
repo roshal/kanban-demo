@@ -1,25 +1,22 @@
 
-export interface props__component {
+export interface props__container {
 	object: {
 		id: number,
 	},
-	state?: {
+	callbacks: {
+		close: Function,
+	},
+}
+
+export interface props__component extends props__container {
+	state: {
 		columns: {
 			id: number,
 			name: string,
 		}[],
 	},
-	dispatch?: {
+	dispatch: {
 		locate: Function,
-	},
-	callbacks?: {
-		close: Function,
-	},
-}
-
-export interface props__container {
-	object: {
-		id: number,
 	},
 }
 

@@ -1,4 +1,4 @@
 
 export {
 	default,
-} from './kanban-board/hooks'
+} from './kanban-board/container'

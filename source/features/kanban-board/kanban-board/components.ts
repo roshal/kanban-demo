@@ -6,7 +6,7 @@ import * as i__react_hyperscript from 'react-hyperscript'
 
 import * as m__types from './types'
 
-import d__container__column from '../column'
+import d__container__column from '../column/container'
 
 
 const $ = i__react_hyperscript

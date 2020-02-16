@@ -1,14 +1,11 @@
 
 export interface props__container {
-	object?: {
+	object: {
 		id: number,
 	},
 }
 
 export interface props__component {
-	object?: {
-		id: number,
-	},
 	state: {
 		name: string,
 		sorting: -1 | 0 | 1,

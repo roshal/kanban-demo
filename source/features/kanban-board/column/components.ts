@@ -6,7 +6,7 @@ import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__types from './types'
 
-import d__container__task from '../task/hooks'
+import d__container__task from '../task/container'
 
 
 const $ = i__react_hyperscript

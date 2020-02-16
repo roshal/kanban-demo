@@ -2,6 +2,7 @@
 import * as p__react from 'react'
 
 
+import * as m__actions__columns from '~/redux/kanban-board/columns/actions'
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
 import * as m__helper__react from '~/helpers/react'
 import * as m__helper__react_hooks from '~/helpers/react-hooks'
@@ -12,43 +13,36 @@ import * as m__types from './types'
 import d__component from './component'
 
 
-const component = p__react.memo((
+const container = p__react.memo((
 	props: m__types.props__container,
 ) => {
 	return d__component({
-		object: props.object,
 		state: m__helper__react_hooks.use_state(m__selectors.selector, {
 			id: props.object.id,
 		}),
 		dispatch: m__helper__react_hooks.use_dispatch({
-			remove: () => {
-				return m__actions__tasks.remove({
-					id: props.object.id,
+			add: () => {
+				return m__actions__tasks.create({
+					column_id: props.object.id,
 				})
 			},
-			locate: ({
-				column_id,
-			}) => {
-				return m__actions__tasks.locate({
-					id: props.object.id,
-					column_id,
-				})
-			},
-			update: ({
+			rename: ({
 				name,
-				text,
 			}) => {
-				return m__actions__tasks.update({
+				return m__actions__columns.update({
 					id: props.object.id,
 					name,
-					text,
+				})
+			},
+			sort: () => {
+				return m__actions__columns.sort({
+					id: props.object.id,
 				})
 			},
 		}),
 	})
 })
 
-component.displayName = m__helper__react.get_container_name(d__component.displayName)
+container.displayName = m__helper__react.get_container_name(d__component.displayName)
 
-
-export default component
+export default container

@@ -12,8 +12,8 @@ import * as m__types from './types'
 import d__component from './component'
 
 
-const component = p__react.memo((
-	props: m__types.props__component,
+const container = p__react.memo((
+	props: m__types.props__container,
 ) => {
 	return d__component({
 		object: props.object,
@@ -21,6 +21,11 @@ const component = p__react.memo((
 			id: props.object.id,
 		}),
 		dispatch: m__helper__react_hooks.use_dispatch({
+			remove: () => {
+				return m__actions__tasks.remove({
+					id: props.object.id,
+				})
+			},
 			locate: ({
 				column_id,
 			}) => {
@@ -29,11 +34,20 @@ const component = p__react.memo((
 					column_id,
 				})
 			},
+			update: ({
+				name,
+				text,
+			}) => {
+				return m__actions__tasks.update({
+					id: props.object.id,
+					name,
+					text,
+				})
+			},
 		}),
 	})
 })
 
-component.displayName = m__helper__react.get_container_name(d__component.displayName)
+container.displayName = m__helper__react.get_container_name(d__component.displayName)
 
-
-export default component
+export default container

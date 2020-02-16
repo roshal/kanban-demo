@@ -11,7 +11,7 @@ import * as m__callbacks from './callbacks'
 import * as m__handlers from './handlers'
 import * as m__types from './types'
 
-import d__container__locate from '../locate/hooks'
+import d__container__locate from '../locate/container'
 
 
 const s__styles = require('./styles.sss')

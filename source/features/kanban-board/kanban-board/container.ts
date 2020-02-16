@@ -12,7 +12,7 @@ import * as m__types from './types'
 import d__component from './component'
 
 
-const component = p__react.memo((
+const container = p__react.memo((
 	props: m__types.props__container,
 ) => {
 	return d__component({
@@ -23,7 +23,6 @@ const component = p__react.memo((
 	})
 })
 
-component.displayName = m__helper__react.get_container_name(d__component.displayName)
+container.displayName = m__helper__react.get_container_name(d__component.displayName)
 
-
-export default component
+export default container
