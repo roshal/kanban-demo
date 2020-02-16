@@ -1,10 +1,14 @@
 
+const p__inline_manifest_webpack_plugin = require('inline-manifest-webpack-plugin')
 const p__path = require('path')
 
 const m__alias = require('../alias')
+const m__crypto_hex_sequence = require('../javascript/crypto-sequence-hex')
+const m__name_generator = require('../javascript/name-generator')
 
 
-const node_modules = p__path.resolve('node_modules');
+const node_modules = p__path.resolve('node_modules')
+
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -14,9 +18,10 @@ module.exports = (env = {}, argv = {}) => {
 			'index': './sources/index.ts',
 		},
 		output: {
-			path: p__path.resolve('public'),
 			chunkFilename: 'chunks/[id].js',
 			filename: '[name].js',
+			hashFunction: m__crypto_hex_sequence,
+			path: p__path.resolve('public'),
 			publicPath: '/',
 		},
 		resolve: {
@@ -28,6 +33,7 @@ module.exports = (env = {}, argv = {}) => {
 			},
 			extensions: [
 				'.js',
+				'.sss',
 			],
 			modules: [
 				node_modules,
@@ -49,18 +55,22 @@ module.exports = (env = {}, argv = {}) => {
 				maxInitialRequests: 1,
 				automaticNameDelimiter: '/',
 				name: !!argv.produce,
-				cacheGroups: {
-					default: {
-						priority: 0,
-						reuseExistingChunk: true,
-					},
-					vendors: {
-						priority: 1,
-						test: node_modules,
-					},
-				},
+				//cacheGroups: {
+				//	default: {
+				//		priority: 0,
+				//		reuseExistingChunk: true,
+				//	},
+				//	vendors: {
+				//		test: node_modules,
+				//		priority: 1,
+				//	},
+				//},
 			},
+			runtimeChunk: 'single',
 		},
+		//plugins: [
+		//	new p__inline_manifest_webpack_plugin(),
+		//],
 		devServer: {
 			historyApiFallback: true,
 			host: '0.0.0.0',

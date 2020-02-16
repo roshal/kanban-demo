@@ -1,6 +1,8 @@
 
 const p__path = require('path')
 
+const m__alias = require('../alias')
+
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -15,9 +17,28 @@ module.exports = (env = {}, argv = {}) => {
 							/\.ts$/,
 						],
 					},
+					resolve: {
+						alias: {
+							...m__alias,
+							...argv.hot ? {
+								'react-dom': '@hot-loader/react-dom',
+							} : {},
+						},
+						extensions: [
+							'.ts',
+							'.js',
+							'.sss',
+						],
+					},
 					use: [
 						{
 							loader: 'ts-loader',
+							options: {
+								context: p__path.resolve(),
+								compilerOptions: {
+									sourceMap: true,
+								},
+							},
 						},
 					],
 				},
