@@ -25,4 +25,5 @@
 !/package-scripts.js
 !/package.json
 !/postcss.config.js
+!/tsconfig.json
 !/webpack.config.js

@@ -25,29 +25,58 @@
 # configuring-rules
   rules:
     # possible errors
-      '@typescript-eslint/no-console':
-        - off
+      no-console: off
     # variables
-      '@typescript-eslint/no-unused-vars':
-        - off
+      no-unused-vars: off
     # stylistic issues
-      '@typescript-eslint/comma-dangle':
+      comma-dangle:
         - error
         - always-multiline
+      linebreak-style:
+        - error
+        - unix
+      new-parens:
+        - error
+      no-mixed-spaces-and-tabs:
+        - error
+    ## @typescript-eslint
+      '@typescript-eslint/ban-ts-ignore': off
+      '@typescript-eslint/camelcase': off
+      '@typescript-eslint/class-name-casing': off
+      '@typescript-eslint/explicit-function-return-type':
+        - warn
+        -
+          allowExpressions: true
       '@typescript-eslint/indent':
         - error
         - tab
         - SwitchCase: 1
-      '@typescript-eslint/linebreak-style':
+      '@typescript-eslint/member-delimiter-style':
         - error
-        - unix
-      '@typescript-eslint/new-parens':
-        - error
-      '@typescript-eslint/no-mixed-spaces-and-tabs':
-        - error
+        -
+          multiline:
+            delimiter: comma
+          singleline:
+            delimiter: comma
+      '@typescript-eslint/no-empty-interface': off
+      '@typescript-eslint/no-unused-vars': off
+      '@typescript-eslint/no-var-requires': off
       '@typescript-eslint/quotes':
         - error
         - single
       '@typescript-eslint/semi':
         - error
         - never
+
+
+# report-unused-eslint-disable-comments
+  reportUnusedDisableDirectives: true
+
+# configuration-based-on-glob-patterns
+  overrides:
+    -
+      files: '*.js'
+      rules:
+        ## @typescript-eslint
+          '@typescript-eslint/explicit-function-return-type': off
+          '@typescript-eslint/no-var-requires': off
