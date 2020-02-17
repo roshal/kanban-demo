@@ -5,12 +5,10 @@ import * as m__reducers from '~/helpers/redux/reducers'
 import * as m__token from './token'
 import * as m__token__columns from './columns/token'
 import * as m__token__tasks from './tasks/token'
-
 import d__reduce__columns from './columns/reduce'
 import d__reduce__tasks from './tasks/reduce'
 
-
-export default m__reducers.middlewares_composer([
+const reduce = m__reducers.middlewares_composer([
 	m__middlewares.filters_applicator([
 		m__reducers.tokens_checker(m__token),
 	]),
@@ -21,3 +19,5 @@ export default m__reducers.middlewares_composer([
 		}),
 	]),
 ])
+
+export default reduce

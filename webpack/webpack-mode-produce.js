@@ -2,7 +2,6 @@
 const p__optimize_css_assets_webpack_plugin = require('optimize-css-assets-webpack-plugin')
 const p__terser_webpack_plugin = require('terser-webpack-plugin')
 
-
 module.exports = (env = {}, argv = {}) => {
 	return {
 		mode: 'production',

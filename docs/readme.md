@@ -27,7 +27,6 @@ prefix|description|example
 `d__`|default imported from module|`import d__component from './component'`
 `s__`|default imported style|`import s__styles from './styles.sss'`
 
-
 ## firebase
 
 [firebase](https://firebase.google.com/) is used as a hosting

@@ -1,15 +1,12 @@
 
 import * as p__immutable from 'immutable'
 
-
 import * as m__middlewares from '~/helpers/redux/middlewares'
 import * as m__reducers from '~/helpers/redux/reducers'
 
 import * as m__action_types from './action-types'
 import * as m__token from './token'
-
 import d__state from './state'
-
 
 const reducers = {
 	[m__action_types.create]: (state, action) => {
@@ -53,8 +50,7 @@ const reducers = {
 	},
 }
 
-
-export default m__reducers.middlewares_composer([
+const reduce = m__reducers.middlewares_composer([
 	m__middlewares.state_initializer(d__state),
 	m__middlewares.filters_applicator([
 		m__reducers.tokens_checker(m__token.array),
@@ -63,3 +59,5 @@ export default m__reducers.middlewares_composer([
 		m__reducers.reducers_selector(reducers),
 	]),
 ])
+
+export default reduce

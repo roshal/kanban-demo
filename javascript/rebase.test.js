@@ -1,7 +1,6 @@
 
 const m__rebase = require('./rebase')
 
-
 test('rebase', () => {
 	const string = '2109687354'
 	const prev = '0123456789'

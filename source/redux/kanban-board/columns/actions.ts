@@ -1,7 +1,6 @@
 
 import * as m__action_types from './action-types'
 
-
 export const sort = ({
 	id,
 }) => {

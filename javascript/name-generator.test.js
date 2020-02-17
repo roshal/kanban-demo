@@ -1,7 +1,6 @@
 
 const m__name_generator = require('./name-generator')
 
-
 test(m__name_generator.name, () => {
 	const map = m__name_generator(10)
 	const received = map({

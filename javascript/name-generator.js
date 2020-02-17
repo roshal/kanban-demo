@@ -1,7 +1,6 @@
 
 const p__path = require('path')
 
-
 const numbers = '0123456789'
 const letters = 'abcdefghijklmnopqrstuvwxyz'
 const symbols = [
@@ -10,7 +9,6 @@ const symbols = [
 	letters.toUpperCase(),
 	'-./\\_',
 ].join('')
-
 
 module.exports = (base) => {
 	let string

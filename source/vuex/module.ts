@@ -1,11 +1,8 @@
 
 import * as p__vuex from 'vuex'
-
 import i__axios from 'axios'
 
-
 import * as m__types from './types'
-
 
 const state = {
 	todos: null,
@@ -44,6 +41,5 @@ const module = {
 	mutations,
 	actions,
 }
-
 
 export default module

@@ -1,8 +1,7 @@
 
 import * as p__immutable from 'immutable'
 
-
-export default p__immutable.List([
+const state = p__immutable.List([
 	p__immutable.Map({
 		id: 0,
 		name: 'to do',
@@ -19,3 +18,5 @@ export default p__immutable.List([
 		sorting: 0,
 	}),
 ])
+
+export default state

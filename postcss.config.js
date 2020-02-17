@@ -1,7 +1,6 @@
 
 const p__path = require('path')
 
-
 const object = {
 	'//': (id) => {
 		return p__path.resolve(id)

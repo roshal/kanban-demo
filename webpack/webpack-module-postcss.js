@@ -5,7 +5,6 @@ const p__webpack = require('webpack')
 
 const m__name_generator = require('../javascript/name-generator')
 
-
 module.exports = (env = {}, argv = {}) => {
 	const loader = {
 		loader: p__mini_css_extract_plugin.loader,

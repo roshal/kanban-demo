@@ -1,7 +1,6 @@
 
 import * as m__helpers from './helpers'
 
-
 test(m__helpers.handle_object.name, () => {
 	const received = m__helpers.handle_object({
 		a: 0,
@@ -17,7 +16,6 @@ test(m__helpers.id.name, () => {
 	const expected = 1
 	expect(received).toEqual(expected)
 })
-
 
 test(m__helpers.styler.name, () => {
 	const style = m__helpers.styler({

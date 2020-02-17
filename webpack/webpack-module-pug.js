@@ -2,7 +2,6 @@
 const p__html_webpack_plugin = require('html-webpack-plugin')
 const p__path = require('path')
 
-
 module.exports = (env = {}, argv = {}) => {
 	return {
 		module: {

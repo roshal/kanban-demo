@@ -1,11 +1,9 @@
 
 const p__path = require('path')
 
-
 const array = [
 	p__path.resolve('node_modules'),
 ]
-
 
 module.exports = {
 	cacheDirectory: 'node/jest/cache',

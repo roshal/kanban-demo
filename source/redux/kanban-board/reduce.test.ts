@@ -1,10 +1,7 @@
 
 import * as m__token from './token'
-
-
 import d__reduce from './reduce'
 import d__state from './state'
-
 
 const name = m__token.array.join('--')
 

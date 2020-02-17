@@ -1,14 +1,12 @@
 
 import * as p__ramda from 'ramda'
 
-
 const order = [
 	'name',
 	'text',
 ].map((value) => {
 	return p__ramda.prop(value)
 })
-
 
 export const sort = (sorting: number, tasks: []) => {
 	if (0 === sorting) {

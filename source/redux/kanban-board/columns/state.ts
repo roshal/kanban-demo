@@ -1,5 +1,5 @@
 
-export default [
+const state = [
 	{
 		id: 0,
 		name: 'to do',
@@ -16,3 +16,5 @@ export default [
 		sorting: 0,
 	},
 ]
+
+export default state

@@ -1,7 +1,6 @@
 
 import * as m__helpers from './helpers'
 
-
 export const handle_object = (object: {
 	[key: string]: any,
 }) => {

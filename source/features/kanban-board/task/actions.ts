@@ -1,11 +1,9 @@
 
 import * as p__redux from 'redux'
 
-
 import * as m__actions__tasks from '~/redux/kanban-board/tasks/actions'
 
 import * as m__types from './types'
-
 
 export const produce = (
 	props: m__types.props__container,

@@ -1,13 +1,10 @@
 
 import * as p__immer from 'immer'
 
-
 import * as m__actions from '~/helpers/redux/actions'
 
 import * as m__action_types from './action-types'
-
 import d__state from './state'
-
 
 const mutations = {
 	[m__action_types.create]: (state, action) => {
@@ -46,5 +43,6 @@ const mutations = {
 
 const mutate = m__actions.selector(mutations)
 
+const reduce = p__immer.produce(mutate, d__state)
 
-export default p__immer.produce(mutate, d__state)
+export default reduce

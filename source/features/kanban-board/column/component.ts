@@ -1,18 +1,14 @@
 
 import * as p__react from 'react'
 import * as p__react_debounce_input from 'react-debounce-input'
-
-import i__react_hyperscript from 'react-hyperscript'
-
 import i__classnames from 'classnames/bind'
-
+import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '~/commons/helpers'
 
 import * as m__components from './components'
 import * as m__handlers from './handlers'
 import * as m__types from './types'
-
 
 const s__styles = require('./styles.sss')
 
@@ -80,6 +76,5 @@ const component = (
 }
 
 component.displayName = 'column'
-
 
 export default component

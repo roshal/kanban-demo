@@ -3,7 +3,6 @@ const p__path = require('path')
 
 const m__alias = require('../alias')
 
-
 module.exports = (env = {}, argv = {}) => {
 	return {
 		module: {

@@ -1,7 +1,6 @@
 
 import * as p__redux_immutable from 'redux-immutable'
 
-
 export const middlewares_composer = (middlewares: Function[]) => {
 	let reducer = (state: {}, action: Function) => {
 		return state

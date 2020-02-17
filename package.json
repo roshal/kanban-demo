@@ -50,6 +50,7 @@
     "mobx-react": "^6.1.4",
     "mobx-react-devtools": "^6.1.1",
     "nodemon": "^2.0.2",
+    "nohash": "^1.2.7",
     "normalize.css": "^8.0.1",
     "nps": "^5.9.8",
     "nps-utils": "^1.7.0",

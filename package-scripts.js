@@ -1,7 +1,6 @@
 
 const p__nps_utils = require('nps-utils')
 
-
 const {
 	series: {
 		nps: series,
@@ -64,7 +63,6 @@ const scripts = {
 	},
 
 }
-
 
 module.exports = {
 	scripts,

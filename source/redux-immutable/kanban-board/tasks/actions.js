@@ -2,7 +2,6 @@
 import * as m__action_types from './action-types'
 import * as m__token from './token'
 
-
 export const create = ({
 	column_id,
 }) => {

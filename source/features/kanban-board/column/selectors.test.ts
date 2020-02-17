@@ -1,8 +1,7 @@
 
-import * as m__selectors from './selectors'
-
 import d__state from '~/redux/state'
 
+import * as m__selectors from './selectors'
 
 test(m__selectors.selector.name, () => {
 	const select = m__selectors.selector()

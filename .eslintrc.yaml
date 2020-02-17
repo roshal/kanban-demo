@@ -68,7 +68,6 @@
         - error
         - never
 
-
 # report-unused-eslint-disable-comments
   reportUnusedDisableDirectives: true
 

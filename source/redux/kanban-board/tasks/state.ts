@@ -1,5 +1,5 @@
 
-export default [
+const state = [
 	{
 		id: 0,
 		column_id: 0,
@@ -37,3 +37,5 @@ export default [
 		text: 'edc',
 	},
 ]
+
+export default state

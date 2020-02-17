@@ -1,9 +1,8 @@
 
+const p__nohash = require('nohash')
 const p__path = require('path')
 
 const m__alias = require('../alias')
-const m__crypto_hex_sequence = require('../javascript/crypto-sequence-hex')
-
 
 const node_modules = p__path.resolve('node_modules')
 
@@ -20,7 +19,6 @@ const optimization = {
 	},
 }
 
-
 module.exports = (env = {}, argv = {}) => {
 	return {
 		mode: 'none',
@@ -31,7 +29,7 @@ module.exports = (env = {}, argv = {}) => {
 		output: {
 			chunkFilename: 'chunks/[id].js',
 			filename: '[name].js',
-			hashFunction: m__crypto_hex_sequence,
+			hashFunction: p__nohash.sequence.hex,
 			path: p__path.resolve('public'),
 			publicPath: '/',
 		},
