@@ -1,7 +1,7 @@
 
 const p__path = require('path')
 
-const object = {
+const alias = {
 	'//': (id) => {
 		return p__path.resolve(id)
 	},
@@ -10,31 +10,29 @@ const object = {
 	},
 }
 
-module.exports = {
-	syntax: 'sugarss',
-	plugins: {
-		//
-		'postcss-import': {
-			resolve: (id) => {
-				for (const key in object) {
-					if (id.startsWith(key)) {
-						id = id.slice(key.length)
-						id = object[key](id)
-						id = [id, 'sss'].join('.')
-						break
-					}
+exports.syntax = 'sugarss'
+
+exports.plugins = {
+	'postcss-import': {
+		resolve: (id) => {
+			for (const key in alias) {
+				if (id.startsWith(key)) {
+					id = id.slice(key.length)
+					id = alias[key](id)
+					id = [id, 'sss'].join('.')
+					break
 				}
-				return id
-			},
+			}
+			return id
 		},
-		//
-		'postcss-preset-env': {},
-		//
-		'postcss-mixins': {},
-		//
-		'postcss-extend': {},
-		'postcss-hexrgba': {},
-		'postcss-short': {},
-		'postcss-url': {},
 	},
+	//
+	'postcss-preset-env': {},
+	//
+	'postcss-mixins': {},
+	//
+	'postcss-extend': {},
+	'postcss-hexrgba': {},
+	'postcss-short': {},
+	'postcss-url': {},
 }

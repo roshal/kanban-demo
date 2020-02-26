@@ -10,40 +10,40 @@ const {
 	},
 } = p__nps_utils
 
-const object = {}
+const nps = {}
 
-exports.scripts = object
+exports.scripts = nps
 
-object.analyze = series('serve.analyze')
-object.develop = series('serve.develop')
-object.produce = series('serve.produce')
+nps.analyze = series('serve.analyze')
+nps.develop = series('serve.develop')
+nps.produce = series('serve.produce')
 
-object.release = series('clean', 'build.produce', 'firebase.deploy')
+nps.release = series('clean', 'build.produce', 'firebase.deploy')
 
-object.clean = 'rimraf public/*'
+nps.clean = 'rimraf public/*'
 
-object.lint = concurrent('eslint', 'stylelint')
-object.test = series('jest')
+nps.lint = concurrent('eslint', 'stylelint')
+nps.test = series('jest')
 
-object.build = {
+nps.build = {
 	analyze: 'webpack --analyze',
 	develop: 'webpack --develop',
 	produce: 'webpack --produce',
 }
 
-object.watch = {
+nps.watch = {
 	analyze: 'webpack --watch --analyze',
 	develop: 'webpack --watch --develop',
 	produce: 'webpack --watch --produce',
 }
 
-object.serve = {
+nps.serve = {
 	analyze: 'webpack-dev-server --hot --analyze',
 	develop: 'webpack-dev-server --hot --develop',
 	produce: 'webpack-dev-server --hot --produce',
 }
 
-object.firebase = {
+nps.firebase = {
 	deploy: 'firebase deploy',
 	login: {
 		default: 'firebase login',
@@ -52,17 +52,17 @@ object.firebase = {
 	serve: 'firebase serve',
 }
 
-object.eslint = {
+nps.eslint = {
 	default: 'eslint webpack source',
 	fix: 'eslint --fix webpack source',
 }
 
-object.stylelint = {
+nps.stylelint = {
 	default: 'stylelint styles source/**/*.sss',
 	fix: 'stylelint --fix styles source/**/*.sss',
 }
 
-object.jest = {
+nps.jest = {
 	default: 'jest source',
 	watch: 'jest --watch source',
 }
