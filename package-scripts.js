@@ -10,59 +10,59 @@ const {
 	},
 } = p__nps_utils
 
-exports.scripts = {
+const object = {}
 
-	analyze: series('serve.analyze'),
-	develop: series('serve.develop'),
-	produce: series('serve.produce'),
+exports.scripts = object
 
-	release: series('clean', 'build.produce', 'firebase.deploy'),
+object.analyze = series('serve.analyze')
+object.develop = series('serve.develop')
+object.produce = series('serve.produce')
 
-	clean: 'rimraf public/*',
+object.release = series('clean', 'build.produce', 'firebase.deploy')
 
-	lint: concurrent('eslint', 'stylelint'),
-	test: series('jest'),
+object.clean = 'rimraf public/*'
 
-	build: {
-		analyze: 'webpack --analyze',
-		develop: 'webpack --develop',
-		produce: 'webpack --produce',
+object.lint = concurrent('eslint', 'stylelint')
+object.test = series('jest')
+
+object.build = {
+	analyze: 'webpack --analyze',
+	develop: 'webpack --develop',
+	produce: 'webpack --produce',
+}
+
+object.watch = {
+	analyze: 'webpack --watch --analyze',
+	develop: 'webpack --watch --develop',
+	produce: 'webpack --watch --produce',
+}
+
+object.serve = {
+	analyze: 'webpack-dev-server --hot --analyze',
+	develop: 'webpack-dev-server --hot --develop',
+	produce: 'webpack-dev-server --hot --produce',
+}
+
+object.firebase = {
+	deploy: 'firebase deploy',
+	login: {
+		default: 'firebase login',
+		reauth: 'firebase login --reauth',
 	},
+	serve: 'firebase serve',
+}
 
-	watch: {
-		analyze: 'webpack --watch --analyze',
-		develop: 'webpack --watch --develop',
-		produce: 'webpack --watch --produce',
-	},
+object.eslint = {
+	default: 'eslint webpack source',
+	fix: 'eslint --fix webpack source',
+}
 
-	serve: {
-		analyze: 'webpack-dev-server --hot --analyze',
-		develop: 'webpack-dev-server --hot --develop',
-		produce: 'webpack-dev-server --hot --produce',
-	},
+object.stylelint = {
+	default: 'stylelint styles source/**/*.sss',
+	fix: 'stylelint --fix styles source/**/*.sss',
+}
 
-	firebase: {
-		deploy: 'firebase deploy',
-		login: {
-			default: 'firebase login',
-			reauth: 'firebase login --reauth',
-		},
-		serve: 'firebase serve',
-	},
-
-	eslint: {
-		default: 'eslint webpack source',
-		fix: 'eslint --fix webpack source',
-	},
-
-	stylelint: {
-		default: 'stylelint styles source/**/*.sss',
-		fix: 'stylelint --fix styles source/**/*.sss',
-	},
-
-	jest: {
-		default: 'jest source',
-		watch: 'jest --watch source',
-	},
-
+object.jest = {
+	default: 'jest source',
+	watch: 'jest --watch source',
 }
