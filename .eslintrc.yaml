@@ -2,6 +2,13 @@
 # configuration-cascading-and-hierarchy
   root: true
 
+# specifying-environments
+#  env:
+#    browser: true
+#    node: true
+#    es6: true
+#    jest: true
+
 # extending-configuration-files
   extends:
     # eslint:recommended
@@ -9,14 +16,7 @@
     - plugin:@typescript-eslint/recommended
     # plugin:@typescript-eslint/recommended-requiring-type-checking
 
-## specifying-environments
-#  env:
-#    browser: true
-#    node: true
-#    es6: true
-#    jest: true
-
-## configuring-plugins
+# configuring-plugins
 #  plugins:
 #    - import
 #    - react
