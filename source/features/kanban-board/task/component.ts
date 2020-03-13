@@ -1,9 +1,9 @@
 
 import * as p__react from 'react'
-import * as p__react_debounce_input from 'react-debounce-input'
 import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '~/commons/helpers'
+import d__debounce_input from '~/components/debounce-input'
 
 import * as m__callbacks from './callbacks'
 import * as m__handlers from './handlers'
@@ -39,8 +39,7 @@ const component = (
 	return [
 		$('div' + style('task'), [
 			$('div' + style('task--name'), [
-				$(p__react_debounce_input.DebounceInput, {
-					// @ts-ignore
+				$(d__debounce_input, {
 					className: s__styles['task--input--name'],
 					debounceTimeout: 250,
 					onChange: handlers.change_name,
@@ -49,8 +48,7 @@ const component = (
 				}),
 			]),
 			$('div' + style('task--text'), [
-				$(p__react_debounce_input.DebounceInput, {
-					// @ts-ignore
+				$(d__debounce_input, {
 					className: s__styles['task--input--text'],
 					debounceTimeout: 250,
 					onChange: handlers.change_text,
