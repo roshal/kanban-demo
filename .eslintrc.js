@@ -1,10 +1,6 @@
 
 exports.root = true
 
-exports.parserOptions = {
-	sourceType: 'module',
-}
-
 exports.env = {
 	es2020: true,
 	node: true,
@@ -38,22 +34,28 @@ exports.reportUnusedDisableDirectives = true
 
 exports.overrides = []
 
-exports.overrides.push({
-	files: [
-		'*.test.js',
-		'*.test.ts',
-	],
-	plugins: [
-		'jest',
-	],
-	extends: [
-		'plugin:jest/recommended',
-	],
-})
+const tests = {}
+
+tests.files = [
+	'*.test.js',
+	'*.test.ts',
+]
+
+tests.plugins = [
+	'jest',
+]
+
+tests.extends = [
+	'plugin:jest/recommended',
+]
+
+exports.overrides.push(tests)
 
 const javascript = {}
 
-exports.overrides.push(javascript)
+javascript.parserOptions = {
+	sourceType: 'module',
+}
 
 javascript.files = '*.js'
 
@@ -62,9 +64,9 @@ javascript.rules = {
 	'no-unused-vars': 'off',
 }
 
-const typescript = {}
+exports.overrides.push(javascript)
 
-exports.overrides.push(typescript)
+const typescript = {}
 
 typescript.files = '*.ts'
 
@@ -101,3 +103,5 @@ typescript.rules = {
 	'@typescript-eslint/quotes': ['error', 'single'],
 	'@typescript-eslint/semi': ['error', 'never'],
 }
+
+exports.overrides.push(typescript)
