@@ -1,18 +1,11 @@
 
 exports.root = true
 
-exports.env = {
-	es2020: true,
-	node: true,
-}
+exports.reportUnusedDisableDirectives = true
 
 exports.plugins = [
+	'import',
 	'react',
-]
-
-exports.extends = [
-	'eslint:recommended',
-	'plugin:react/recommended',
 ]
 
 exports.settings = {
@@ -20,6 +13,13 @@ exports.settings = {
 		version: 'detect',
 	},
 }
+
+exports.extends = [
+	'eslint:recommended',
+	'plugin:import/typescript',
+	'plugin:import/warnings',
+	'plugin:react/recommended',
+]
 
 exports.rules = {
 	/* stylistic issues */
@@ -29,8 +29,6 @@ exports.rules = {
 	'new-parens': ['error'],
 	'no-mixed-spaces-and-tabs': ['error'],
 }
-
-exports.reportUnusedDisableDirectives = true
 
 exports.overrides = []
 
@@ -53,11 +51,16 @@ exports.overrides.push(tests)
 
 const javascript = {}
 
+javascript.files = '*.js'
+
 javascript.parserOptions = {
+	ecmaVersion: 9,
 	sourceType: 'module',
 }
 
-javascript.files = '*.js'
+javascript.env = {
+	node: true,
+}
 
 javascript.rules = {
 	/* variables */
@@ -70,15 +73,15 @@ const typescript = {}
 
 typescript.files = '*.ts'
 
+typescript.parserOptions = {
+	project: 'tsconfig.json5',
+}
+
 typescript.extends = [
 	'plugin:@typescript-eslint/eslint-recommended',
 	'plugin:@typescript-eslint/recommended',
 	'plugin:@typescript-eslint/recommended-requiring-type-checking',
 ]
-
-typescript.parserOptions = {
-	project: 'tsconfig.json5',
-}
 
 typescript.rules = {
 	'@typescript-eslint/ban-ts-ignore': 'off',
