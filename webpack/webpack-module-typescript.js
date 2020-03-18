@@ -17,12 +17,6 @@ module.exports = (env = {}, argv = {}) => {
 						],
 					},
 					resolve: {
-						alias: {
-							...m__alias,
-							...argv.hot ? {
-								'react-dom': '@hot-loader/react-dom',
-							} : {},
-						},
 						extensions: [
 							'.ts',
 							'.js',
