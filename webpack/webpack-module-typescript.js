@@ -1,8 +1,6 @@
 
 const p__path = require('path')
 
-const m__alias = require('../alias')
-
 module.exports = (env = {}, argv = {}) => {
 	return {
 		module: {
@@ -28,7 +26,7 @@ module.exports = (env = {}, argv = {}) => {
 							options: {
 								context: p__path.resolve(),
 								compilerOptions: {
-									sourceMap: true,
+									sourceMap: !!argv.develop,
 								},
 							},
 						},
