@@ -12,7 +12,7 @@ export const deserialize = () => {
 	try {
 		const string = storage.getItem(m__token.value)
 		if (string === null) {
-			return undefined
+			return
 		}
 		return p__json5.parse(string)
 	} catch (error) {

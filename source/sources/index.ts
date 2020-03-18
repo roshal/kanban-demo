@@ -1,17 +1,15 @@
 
-import * as p__react_dom from 'react-dom'
-import i__react_hyperscript from 'react-hyperscript'
-
-import d__component__app from '~/components/app'
-
 import '//styles/sources/index.sss'
 
-const $ = i__react_hyperscript
+import i__react from 'react'
+import i__react_dom from 'react-dom'
 
-const element = $(d__component__app)
+import d__kanban_board from '~/apps/kanban-board'
+
+const element = i__react.createElement(d__kanban_board)
 
 const container = document.createElement('div')
 
-p__react_dom.render(element, container)
-
 document.body.appendChild(container)
+
+i__react_dom.render(element, container)

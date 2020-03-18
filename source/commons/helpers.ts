@@ -1,9 +1,8 @@
 
 import * as m__helpers from './helpers'
+import * as m__types from './types'
 
-export const handle_object = (object: {
-	[key: string]: any,
-}) => {
+export const handle_object = (object: m__types.table): m__types.table => {
 	object = {
 		...object,
 	}
