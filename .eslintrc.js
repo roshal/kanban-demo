@@ -3,9 +3,11 @@ exports.root = true
 
 exports.reportUnusedDisableDirectives = true
 
-exports.plugins = [
-	'import',
-	'react',
+exports.extends = [
+	'eslint:recommended',
+	'plugin:import/typescript',
+	'plugin:import/warnings',
+	'plugin:react/recommended',
 ]
 
 exports.settings = {
@@ -13,13 +15,6 @@ exports.settings = {
 		version: 'detect',
 	},
 }
-
-exports.extends = [
-	'eslint:recommended',
-	'plugin:import/typescript',
-	'plugin:import/warnings',
-	'plugin:react/recommended',
-]
 
 exports.rules = {
 	/* stylistic issues */
@@ -30,28 +25,13 @@ exports.rules = {
 	'no-mixed-spaces-and-tabs': ['error'],
 }
 
-exports.overrides = []
-
-const tests = {}
-
-tests.files = [
-	'*.test.js',
-	'*.test.ts',
-]
-
-tests.plugins = [
-	'jest',
-]
-
-tests.extends = [
-	'plugin:jest/recommended',
-]
-
-exports.overrides.push(tests)
+exports.overrides = [];
 
 const javascript = {}
 
-javascript.files = '*.js'
+javascript.files = [
+	'*.js',
+];
 
 javascript.parserOptions = {
 	ecmaVersion: 9,
@@ -67,11 +47,13 @@ javascript.rules = {
 	'no-unused-vars': 'off',
 }
 
-exports.overrides.push(javascript)
+exports.overrides.push(javascript);
 
 const typescript = {}
 
-typescript.files = '*.ts'
+typescript.files = [
+	'*.ts',
+];
 
 typescript.parserOptions = {
 	project: 'tsconfig.json5',
@@ -107,4 +89,15 @@ typescript.rules = {
 	'@typescript-eslint/semi': ['error', 'never'],
 }
 
-exports.overrides.push(typescript)
+const tests = {}
+
+tests.files = [
+	'*.test.js',
+	'*.test.ts',
+];
+
+tests.extends = [
+	'plugin:jest/recommended',
+]
+
+exports.overrides.push(tests);
