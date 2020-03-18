@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"moduleResolution": "node",
+		"outDir": "output",
+		"paths": {
+			"//*": ["*"],
+			"~/*": ["source/*"],
+		},
+		"target": "esnext",
+	},
+	"include": ["source"],
+}

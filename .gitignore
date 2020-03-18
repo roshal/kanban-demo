@@ -11,7 +11,7 @@
 
 !/.editorconfig
 !/.eslintignore
-!/.eslintrc.yaml
+!/.eslintrc.js
 !/.firebaserc
 !/.gitignore
 !/.stylelintignore
@@ -26,4 +26,5 @@
 !/package.json
 !/postcss.config.js
 !/tsconfig.json
+!/tsconfig.json5
 !/webpack.config.js
