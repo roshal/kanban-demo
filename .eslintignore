@@ -1,7 +1,15 @@
 
 /*
 
+!/javascript/
 !/source/
 !/webpack/
 
+!/.eslintrc.js
+
+!/alias.js
+!/babel.config.js
+!/jest.config.js
+!/package-scripts.js
+!/postcss.config.js
 !/webpack.config.js

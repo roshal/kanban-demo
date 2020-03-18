@@ -1,26 +1,34 @@
 
 exports.root = true
 
+exports.parserOptions = {
+	sourceType: 'module',
+}
+
 exports.env = {
-	//browser: true,
-	//es6: true,
-	//jest: true,
-	//node: true,
+	es2020: true,
+	node: true,
 }
 
 exports.plugins = [
-	//'import'
-	//'react'
-	//'jest'
+	'react',
 ]
 
+exports.extends = [
+	'eslint:recommended',
+	'plugin:react/recommended',
+]
+
+exports.settings = {
+	react: {
+		version: 'detect',
+	},
+}
+
 exports.rules = {
-  /* possible errors */
-	'no-console': 'off',
-  /* variables */
-	'no-unused-vars': 'off',
-  /* stylistic issues */
+	/* stylistic issues */
 	'comma-dangle': ['error', 'always-multiline'],
+	'indent': ['error', 'tab'],
 	'linebreak-style': ['error', 'unix'],
 	'new-parens': ['error'],
 	'no-mixed-spaces-and-tabs': ['error'],
@@ -30,23 +38,35 @@ exports.reportUnusedDisableDirectives = true
 
 exports.overrides = []
 
-const javascript = {
-	files: '*.js',
-}
+exports.overrides.push({
+	files: [
+		'*.test.js',
+		'*.test.ts',
+	],
+	plugins: [
+		'jest',
+	],
+	extends: [
+		'plugin:jest/recommended',
+	],
+})
+
+const javascript = {}
 
 exports.overrides.push(javascript)
 
-javascript.extends = ['eslint:recommended']
+javascript.files = '*.js'
 
-const typescript = {
-	files: '*.ts',
+javascript.rules = {
+	/* variables */
+	'no-unused-vars': 'off',
 }
+
+const typescript = {}
 
 exports.overrides.push(typescript)
 
-typescript.parserOptions = {
-	project: 'tsconfig.json5',
-}
+typescript.files = '*.ts'
 
 typescript.extends = [
 	'plugin:@typescript-eslint/eslint-recommended',
@@ -54,13 +74,17 @@ typescript.extends = [
 	'plugin:@typescript-eslint/recommended-requiring-type-checking',
 ]
 
+typescript.parserOptions = {
+	project: 'tsconfig.json5',
+}
+
 typescript.rules = {
 	'@typescript-eslint/ban-ts-ignore': 'off',
 	'@typescript-eslint/camelcase': 'off',
 	'@typescript-eslint/class-name-casing': 'off',
 	'@typescript-eslint/explicit-function-return-type': 'off',
 	'@typescript-eslint/indent': ['error', 'tab', {
-		SwitchCase: 1
+		SwitchCase: 1,
 	}],
 	'@typescript-eslint/member-delimiter-style': ['error', {
 		multiline: {
