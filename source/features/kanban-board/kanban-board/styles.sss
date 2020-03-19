@@ -2,14 +2,20 @@
 @import '~/mixins/action'
 
 .kanban-board
-	padding: 8px
+	display: inline-block
+	min-width: 100%
 
-.kanban-board--wrapper
+.kanban-board--head
+	background: #333
+
+.kanban-board--body
 	display: flex
-	width: 100%
+	padding: 8px
 
 .kanban-board--action--reset
-	padding: 8px
+	border-radius: 8px
+	margin: 0 16px
+	padding: 8px 12px
 	user-select: none
 
 .kanban-board--action--reset--text

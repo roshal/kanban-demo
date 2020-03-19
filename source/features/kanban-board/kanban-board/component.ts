@@ -17,19 +17,21 @@ const component = (
 ): p__react.ReactElement => {
 	return [
 		$('div' + style('kanban-board'), [
-			$('div' + style('kanban-board--wrapper'), [
+			$('div' + style('kanban-board--head'), [
+				$('div' + style('kanban-board--action--reset'), [
+					$('span' + style('kanban-board--action--reset--text'), {
+						onClick: props.dispatch.reset,
+					}, [
+						'reset',
+					]),
+				]),
+			]),
+			$('div' + style('kanban-board--body'), [
 				props.state.columns.map((object) => {
 					return m__components.column({
 						object,
 					})
 				}),
-			]),
-			$('div' + style('kanban-board--action--reset'), [
-				$('span' + style('kanban-board--action--reset--text'), {
-					onClick: props.dispatch.reset,
-				}, [
-					'reset',
-				]),
 			]),
 		]),
 	][0]
