@@ -30,6 +30,8 @@ exports.overrides = [];
 
 const javascript = {}
 
+exports.overrides.push(javascript);
+
 javascript.files = [
 	'*.js',
 ];
@@ -48,9 +50,9 @@ javascript.rules = {
 	'no-unused-vars': 'off',
 }
 
-exports.overrides.push(javascript);
-
 const typescript = {}
+
+exports.overrides.push(typescript);
 
 typescript.files = [
 	'*.ts',
@@ -91,9 +93,9 @@ typescript.rules = {
 	'@typescript-eslint/semi': ['error', 'never'],
 }
 
-exports.overrides.push(typescript);
-
 const test = {}
+
+exports.overrides.push(test);
 
 test.files = [
 	'*.test.js',
@@ -103,5 +105,3 @@ test.files = [
 test.extends = [
 	'plugin:jest/recommended',
 ]
-
-exports.overrides.push(test);
