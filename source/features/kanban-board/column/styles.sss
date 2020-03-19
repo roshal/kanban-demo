@@ -1,34 +1,28 @@
 
 @import '~/mixins/action'
 
-.column
+.column-wrapper
 	margin: 8px
 	min-width: 256px
 
 .column--head
 	background: #444
 	color: #fff
+	display: flex
+	flex-direction: column
+	padding: 8px 12px
 	border-top-radius: 8px
-	display: flex
-	flex-direction: column
-	padding: 8px 12px
-
-.column--head--empty
-	background: #444
-	color: #fff
-	border-radius: 8px
-	display: flex
-	flex-direction: column
-	padding: 8px 12px
 
 .column--body
-	background: #333
-	color: #fff
-	border-bottom-radius: 8px
 	border: 0 solid #000
 	display: flex
 	flex-direction: column
-	padding: 4px
+
+.column--row:first-child
+	border-top-radius: 8px
+
+.column--row:first-child:last-child
+	border-bottom-radius: 8px
 
 .column--input--name
 	background: transparent

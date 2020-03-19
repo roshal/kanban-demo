@@ -2,12 +2,16 @@
 @import '~/mixins/action'
 
 .task
-	background: #444
+	background: #333
 	color: #fff
 	display: flex
 	flex-direction: column
-	margin: 4px
 	padding: 8px 12px
+	border-bottom: 1px solid #444
+
+.task:last-child
+	border-bottom-radius: 8px
+	border-bottom: none
 
 .task--input--name
 	background: transparent
