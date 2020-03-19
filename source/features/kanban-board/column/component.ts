@@ -24,47 +24,45 @@ const component = (
 	}, [])
 	return [
 		$('div' + style('column-wrapper'), [
-			$('div' + style('column'), [
-				$('div' + style('column--row', 'column--head'), [
-					$('div' + style('column--title'), [
-						$(d__debounce_input, {
-							className: s__styles['column--input--name'],
-							debounceTimeout: 250,
-							onChange: handlers.change_name,
-							placeholder: 'column name',
-							value: props.state.name,
-						}),
-					]),
-					$('div' + style('column--options'), [
-						$('div' + style('column--action--add'), [
-							$('span' + style('column--action--add--text'), {
-								onClick: props.dispatch.add,
-							}, [
-								'add task',
-							]),
+			$('div' + style('column--row', 'column--head'), [
+				$('div' + style('column--title'), [
+					$(d__debounce_input, {
+						className: s__styles['column--input--name'],
+						debounceTimeout: 250,
+						onChange: handlers.change_name,
+						placeholder: 'column name',
+						value: props.state.name,
+					}),
+				]),
+				$('div' + style('column--options'), [
+					$('div' + style('column--action--add'), [
+						$('span' + style('column--action--add--text'), {
+							onClick: props.dispatch.add,
+						}, [
+							'add task',
 						]),
-						$('div' + style('column--action--sort'), [
-							$('span' + style('column--action--sort--arrow'), [
-								!!props.state.sorting && (
-									props.state.sorting < 0 ? '↑' : '↓'
-								), ' ',
-							]),
-							$('span' + style('column--action--sort--title'), {
-								onClick: props.dispatch.sort,
-							}, [
-								'sort',
-							]),
+					]),
+					$('div' + style('column--action--sort'), [
+						$('span' + style('column--action--sort--arrow'), [
+							!!props.state.sorting && (
+								props.state.sorting < 0 ? '↑' : '↓'
+							), ' ',
+						]),
+						$('span' + style('column--action--sort--title'), {
+							onClick: props.dispatch.sort,
+						}, [
+							'sort',
 						]),
 					]),
 				]),
-				props.state.tasks.length ? $('div' + style('column--row', 'column--body'), [
-					props.state.tasks.map((object) => {
-						return m__components.task({
-							object,
-						})
-					}),
-				]) : null,
 			]),
+			props.state.tasks.length ? $('div' + style('column--row', 'column--body'), [
+				props.state.tasks.map((object) => {
+					return m__components.task({
+						object,
+					})
+				}),
+			]) : null,
 		]),
 	][0]
 }
