@@ -24,15 +24,15 @@ const component = (
 	const references = {
 		popup: p__react.createRef(),
 	}
-	const handlers = p__react.useMemo(() => {
-		return m__handlers.produce({
-			props,
-		})
-	}, [])
 	const callbacks = p__react.useMemo(() => {
 		return m__callbacks.produce({
-			state, set_state,
-			handlers,
+			set_state,
+		})
+	}, [])
+	const handlers = p__react.useMemo(() => {
+		return m__handlers.produce({
+			callbacks,
+			props,
 			references,
 		})
 	}, [])
@@ -75,7 +75,7 @@ const component = (
 								]), ' ',
 							] : ['↓ '],
 							$('span' + style('task--action--move--title'), {
-								onClick: state.popup ? callbacks.close : callbacks.open,
+								onClick: state.popup ? handlers.close : handlers.open,
 							}, [
 								'move',
 							]),
