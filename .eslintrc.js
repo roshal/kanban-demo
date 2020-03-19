@@ -5,8 +5,7 @@ exports.reportUnusedDisableDirectives = true
 
 exports.extends = [
 	'eslint:recommended',
-	'plugin:import/typescript',
-	'plugin:import/warnings',
+	'plugin:import/recommended',
 	'plugin:react/recommended',
 ]
 
@@ -23,6 +22,8 @@ exports.rules = {
 	'linebreak-style': ['error', 'unix'],
 	'new-parens': ['error'],
 	'no-mixed-spaces-and-tabs': ['error'],
+	/* plugin:import */
+	'import/no-unresolved': ['off'],
 }
 
 exports.overrides = [];
@@ -63,6 +64,7 @@ typescript.extends = [
 	'plugin:@typescript-eslint/eslint-recommended',
 	'plugin:@typescript-eslint/recommended',
 	'plugin:@typescript-eslint/recommended-requiring-type-checking',
+	'plugin:import/typescript',
 ]
 
 typescript.rules = {
@@ -88,6 +90,8 @@ typescript.rules = {
 	'@typescript-eslint/quotes': ['error', 'single'],
 	'@typescript-eslint/semi': ['error', 'never'],
 }
+
+exports.overrides.push(typescript);
 
 const tests = {}
 
