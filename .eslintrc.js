@@ -93,15 +93,15 @@ typescript.rules = {
 
 exports.overrides.push(typescript);
 
-const tests = {}
+const test = {}
 
-tests.files = [
+test.files = [
 	'*.test.js',
 	'*.test.ts',
 ];
 
-tests.extends = [
+test.extends = [
 	'plugin:jest/recommended',
 ]
 
-exports.overrides.push(tests);
+exports.overrides.push(test);
