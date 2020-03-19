@@ -34,5 +34,6 @@ exports.plugins = {
 	'postcss-extend': {},
 	'postcss-hexrgba': {},
 	'postcss-short': {},
+	'postcss-simple-vars': {},
 	'postcss-url': {},
 }
