@@ -16,7 +16,7 @@ exports.settings = {
 }
 
 exports.rules = {
-	/* stylistic issues */
+	/* stylistic-issues */
 	'comma-dangle': ['error', 'always-multiline'],
 	'indent': ['error', 'tab'],
 	'linebreak-style': ['error', 'unix'],
