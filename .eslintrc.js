@@ -8,12 +8,6 @@ exports.extends = [
 	'plugin:import/recommended',
 ]
 
-exports.settings = {
-	react: {
-		version: 'detect',
-	},
-}
-
 exports.rules = {
 	/* stylistic-issues */
 	'comma-dangle': ['error', 'always-multiline'],
@@ -72,6 +66,12 @@ typescript.extends = [
 typescript.plugins = [
 	'react-hooks',
 ]
+
+typescript.settings = {
+	react: {
+		version: 'detect',
+	},
+}
 
 typescript.rules = {
 	/* plugin:@typescript-eslint */
