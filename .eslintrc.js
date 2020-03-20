@@ -6,7 +6,6 @@ exports.reportUnusedDisableDirectives = true
 exports.extends = [
 	'eslint:recommended',
 	'plugin:import/recommended',
-	'plugin:react/recommended',
 ]
 
 exports.settings = {
@@ -26,15 +25,15 @@ exports.rules = {
 	'import/no-unresolved': ['off'],
 }
 
-exports.overrides = [];
+exports.overrides = []
 
 const javascript = {}
 
-exports.overrides.push(javascript);
+exports.overrides.push(javascript)
 
 javascript.files = [
 	'*.js',
-];
+]
 
 javascript.parserOptions = {
 	ecmaVersion: 9,
@@ -52,11 +51,11 @@ javascript.rules = {
 
 const typescript = {}
 
-exports.overrides.push(typescript);
+exports.overrides.push(typescript)
 
 typescript.files = [
 	'*.ts',
-];
+]
 
 typescript.parserOptions = {
 	project: 'tsconfig.json5',
@@ -67,9 +66,15 @@ typescript.extends = [
 	'plugin:@typescript-eslint/recommended',
 	'plugin:@typescript-eslint/recommended-requiring-type-checking',
 	'plugin:import/typescript',
+	'plugin:react/recommended',
+]
+
+typescript.plugins = [
+	'react-hooks',
 ]
 
 typescript.rules = {
+	/* plugin:@typescript-eslint */
 	'@typescript-eslint/ban-ts-ignore': 'off',
 	'@typescript-eslint/camelcase': 'off',
 	'@typescript-eslint/class-name-casing': 'off',
@@ -91,16 +96,19 @@ typescript.rules = {
 	'@typescript-eslint/no-var-requires': 'off',
 	'@typescript-eslint/quotes': ['error', 'single'],
 	'@typescript-eslint/semi': ['error', 'never'],
+	/* plugin:react-hooks */
+	'react-hooks/exhaustive-deps': 'warn',
+	'react-hooks/rules-of-hooks': 'error',
 }
 
 const test = {}
 
-exports.overrides.push(test);
+exports.overrides.push(test)
 
 test.files = [
 	'*.test.js',
 	'*.test.ts',
-];
+]
 
 test.extends = [
 	'plugin:jest/recommended',
