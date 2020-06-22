@@ -7,11 +7,11 @@ module.exports = (env = {}, argv = {}) => {
 			rules: [
 				{
 					resource: {
-						include: [
-							p__path.resolve('source'),
-						],
 						test: [
 							/\.ts$/,
+						],
+						include: [
+							p__path.resolve('source'),
 						],
 					},
 					resolve: {
@@ -25,6 +25,7 @@ module.exports = (env = {}, argv = {}) => {
 							loader: 'ts-loader',
 							options: {
 								context: p__path.resolve(),
+								configFile: 'tsconfig.json5',
 								compilerOptions: {
 									sourceMap: !!argv.develop,
 								},

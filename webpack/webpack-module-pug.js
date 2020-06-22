@@ -8,11 +8,11 @@ module.exports = (env = {}, argv = {}) => {
 			rules: [
 				{
 					resource: {
-						include: [
-							p__path.resolve('pug'),
-						],
 						test: [
 							/\.pug$/,
+						],
+						include: [
+							p__path.resolve('pug'),
 						],
 					},
 					use: [

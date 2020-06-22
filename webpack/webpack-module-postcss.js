@@ -17,11 +17,11 @@ module.exports = (env = {}, argv = {}) => {
 			rules: [
 				{
 					resource: {
-						include: [
-							p__path.resolve('source'),
-						],
 						test: [
 							/\.sss$/,
+						],
+						include: [
+							p__path.resolve('source'),
 						],
 					},
 					use: [

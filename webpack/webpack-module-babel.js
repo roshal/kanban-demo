@@ -7,11 +7,11 @@ module.exports = (env = {}, argv = {}) => {
 			rules: [
 				{
 					resource: {
-						include: [
-							p__path.resolve('source'),
-						],
 						test: [
 							/\.js$/,
+						],
+						include: [
+							p__path.resolve('source'),
 						],
 					},
 					use: [

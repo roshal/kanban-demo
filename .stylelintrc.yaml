@@ -1,20 +1,20 @@
 
-# rules
-  rules:
-    # possible errors
-      # property
-        property-no-unknown:
-          - true
-          - ignoreProperties:
-            - border-bottom-radius
-            - border-top-radius
-    # limit language features
-      # color
-        color-named: null
-    # stylistic issues
-      # general
-        indentation: tab
+### rules
+    rules:
+      ### possible errors
+        ### property
+            property-no-unknown:
+              - true
+              - ignoreProperties:
+                - border-bottom-radius
+                - border-top-radius
+      ### limit language features
+        ### color
+            color-named: null
+      ### stylistic issues
+        ### general
+            indentation: tab
 
-# extends
-  extends:
-    - stylelint-config-sugarss-recommended
+### extends
+    extends:
+      - stylelint-config-sugarss-recommended

@@ -18,6 +18,6 @@ module.exports = (env = {}, argv = {}) => {
 			accumulator.push(config)
 		}
 		return accumulator
-	}, []);
+	}, [])
 	return p__webpack_merge(configs)
 }

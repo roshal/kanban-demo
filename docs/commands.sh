@@ -1,25 +1,11 @@
 
 exit
 
-git add --all
-
-git checkout -b shadow
-
-git checkout master
-git checkout shadow
-
-git push origin master
-git push origin shadow
-
 git merge --ff-only shadow
 git merge --squash shadow
 git merge -m '' --squash -X theirs shadow
 
 git commit --allow-empty --allow-empty-message -m ''
-git commit --allow-empty --allow-empty-message -m '' --amend
-
-git add --all && git commit --allow-empty --allow-empty-message -m '' && git push origin master
-git add --all && git commit --allow-empty --allow-empty-message -m '' --amend && git push origin master -f
 
 yarn upgrade -L
 
@@ -27,17 +13,17 @@ npx yarn-up
 
 find source -name '*.js' | xargs wc -l | sort -g
 
-# develop
+### develop
 npx nps d
 
-# release
+### release
 npx nps r
 
-# lint
+### lint
 npx nps l
 
-# nodemon
+### nodemon
 npx nodemon -w webpack -x nps d
 
-# babel-node
+### babel-node
 npx -p @babel/core -p @babel/node babel-node source/sources/index.js

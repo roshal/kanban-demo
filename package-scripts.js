@@ -53,8 +53,8 @@ nps.firebase = {
 }
 
 nps.eslint = {
-	default: 'eslint webpack source',
-	fix: 'eslint --fix webpack source',
+	default: 'eslint source webpack',
+	fix: 'eslint --fix source webpack',
 }
 
 nps.stylelint = {

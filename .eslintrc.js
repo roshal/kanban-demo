@@ -16,7 +16,7 @@ exports.rules = {
 	'new-parens': ['error'],
 	'no-mixed-spaces-and-tabs': ['error'],
 	/* plugin:import */
-	'import/no-unresolved': ['off'],
+	'import/no-unresolved': 'off',
 }
 
 exports.overrides = []
@@ -97,8 +97,8 @@ typescript.rules = {
 	'@typescript-eslint/quotes': ['error', 'single'],
 	'@typescript-eslint/semi': ['error', 'never'],
 	/* plugin:react-hooks */
-	'react-hooks/exhaustive-deps': 'warn',
-	'react-hooks/rules-of-hooks': 'error',
+	'react-hooks/exhaustive-deps': ['warn'],
+	'react-hooks/rules-of-hooks': ['error'],
 }
 
 const test = {}
