@@ -1,23 +1,11 @@
 
+const p__clean_webpack_plugin = require('clean-webpack-plugin')
 const p__nohash = require('nohash')
 const p__path = require('path')
 
 const m__alias = require('../alias')
 
 const node_modules = p__path.resolve('node_modules')
-
-const optimization = {
-	cacheGroups: {
-		default: {
-			priority: 0,
-			reuseExistingChunk: true,
-		},
-		vendors: {
-			test: node_modules,
-			priority: 1,
-		},
-	},
-}
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -57,16 +45,29 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		optimization: {
 			splitChunks: {
+				chunks: 'all',
 				minSize: 128 << 7,
 				minChunks: 1,
 				maxAsyncRequests: 4,
 				maxInitialRequests: 1,
 				automaticNameDelimiter: '/',
 				name: !argv.produce,
-				...optimization,
+				cacheGroups: {
+					default: {
+						priority: 0,
+						reuseExistingChunk: true,
+					},
+					vendors: {
+						test: node_modules,
+						priority: 1,
+					},
+				},
 			},
 			runtimeChunk: !argv.produce && 'single',
 		},
+		plugins: [
+			new p__clean_webpack_plugin.CleanWebpackPlugin(),
+		],
 		devServer: {
 			historyApiFallback: true,
 			host: '0.0.0.0',
