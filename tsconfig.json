@@ -1,12 +1,12 @@
 {
-  "compilerOptions": {
+	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"moduleResolution": "node",
 		"outDir": "output",
 		"paths": {
 			"//*": ["*"],
-			"~/*": ["source/*"]
+			"-/*": ["source/*"]
 		},
 		"target": "esnext"
 	},

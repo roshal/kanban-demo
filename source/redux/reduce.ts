@@ -2,7 +2,7 @@
 import * as p__immer from 'immer'
 import * as p__redux from 'redux'
 
-import * as m__actions from '~/helpers/redux/actions'
+import * as m__actions from '-/helpers/redux/actions'
 
 import * as m__action_types from './action-types'
 import * as m__token__kanban_board from './kanban-board/token'

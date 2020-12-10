@@ -24,7 +24,7 @@ module.exports = (env = {}, argv = {}) => {
 				{
 					resource: {
 						include: [
-							p__path.resolve('images'),
+							p__path.resolve('assets'),
 						],
 					},
 					use: [
@@ -32,6 +32,7 @@ module.exports = (env = {}, argv = {}) => {
 							loader: 'file-loader',
 							options: {
 								name: '[path][name].[ext]',
+								context: p__path.resolve('assets'),
 							},
 						},
 					],

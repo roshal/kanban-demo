@@ -1,5 +1,5 @@
 
-import d__state from '~/redux/state'
+import d__state from '-/redux/state'
 
 import * as m__selectors from './selectors'
 

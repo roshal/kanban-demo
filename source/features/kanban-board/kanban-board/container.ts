@@ -1,9 +1,9 @@
 
 import * as p__react from 'react'
 
-import * as m__actions from '~/redux/actions'
-import * as m__helper__react from '~/helpers/react'
-import * as m__helper__react_hooks from '~/helpers/react-hooks'
+import * as m__actions from '-/redux/actions'
+import * as m__helper__react from '-/helpers/react'
+import * as m__helper__react_hooks from '-/helpers/react-hooks'
 
 import * as m__selectors from './selectors'
 import * as m__types from './types'

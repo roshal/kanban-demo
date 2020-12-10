@@ -9,6 +9,7 @@ module.exports = (env = {}, argv = {}) => {
 	const loader = {
 		loader: p__mini_css_extract_plugin.loader,
 		options: {
+			esModule: true,
 			hmr: !!argv.hot,
 		},
 	}

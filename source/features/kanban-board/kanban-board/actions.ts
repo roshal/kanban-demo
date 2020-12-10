@@ -1,7 +1,7 @@
 
 import * as p__redux from 'redux'
 
-import * as m__actions from '~/redux/actions'
+import * as m__actions from '-/redux/actions'
 
 import * as m__types from './types'
 

@@ -13,14 +13,11 @@ module.exports = (env = {}, argv = {}) => {
 			minimizer: [
 				new p__optimize_css_assets_webpack_plugin({
 					cssProcessorPluginOptions: {
-						preset: [
-							'default',
-							{
-								discardComments: {
-									removeAll: true,
-								},
+						preset: ['default', {
+							discardComments: {
+								removeAll: true,
 							},
-						],
+						}],
 					},
 				}),
 				new p__terser_webpack_plugin({

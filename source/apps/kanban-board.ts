@@ -3,9 +3,9 @@ import * as p__react from 'react'
 import * as p__react_redux from 'react-redux'
 import i__react_hyperscript from 'react-hyperscript'
 
-import * as m__local_storage from '~/commons/local-storage'
-import d__kanban_board from '~/features/kanban-board'
-import d__redux_store from '~/commons/redux-store'
+import * as m__local_storage from '-/commons/local-storage'
+import d__kanban_board from '-/features/kanban-board'
+import d__redux_store from '-/commons/redux-store'
 
 const $ = i__react_hyperscript
 

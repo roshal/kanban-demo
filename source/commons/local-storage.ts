@@ -3,8 +3,8 @@ import * as p__json5 from 'json5'
 import * as p__lodash_es from 'lodash-es'
 import * as p__redux from 'redux'
 
-import * as m__token from '~/redux/token'
-import * as m__windows from '~/commons/windows'
+import * as m__token from '-/redux/token'
+import * as m__windows from '-/commons/windows'
 
 const storage = m__windows.local_storage
 

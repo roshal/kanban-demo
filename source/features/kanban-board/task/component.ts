@@ -2,8 +2,8 @@
 import * as p__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
-import * as m__helpers from '~/commons/helpers'
-import d__debounce_input from '~/components/debounce-input'
+import * as m__helpers from '-/commons/helpers'
+import d__debounce_input from '-/components/debounce-input'
 
 import * as m__callbacks from './callbacks'
 import * as m__handlers from './handlers'

@@ -2,7 +2,7 @@
 import * as p__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
-import * as m__helpers from '~/commons/helpers'
+import * as m__helpers from '-/commons/helpers'
 
 import * as m__types from './types'
 

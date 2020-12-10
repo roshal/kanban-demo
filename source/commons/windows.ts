@@ -1,5 +1,5 @@
 
-import * as m__types from '~/commons/types'
+import * as m__types from '-/commons/types'
 
 export const local_storage = window.localStorage
 
