@@ -6,14 +6,12 @@ module.exports = (env = {}, argv = {}) => {
 		module: {
 			rules: [
 				{
-					resource: {
-						test: [
-							/\.js$/,
-						],
-						include: [
-							p__path.resolve('source'),
-						],
-					},
+					test: [
+						/\.js$/,
+					],
+					include: [
+						p__path.resolve('source'),
+					],
 					use: [
 						{
 							loader: 'babel-loader',

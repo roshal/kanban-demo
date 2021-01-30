@@ -25,7 +25,7 @@ prefix|description|example
 `i__`|default imported from package|`import r__react from 'react'`
 `m__`|imported module|`import * as m__selectors from './selectors'`
 `d__`|default imported from module|`import d__component from './component'`
-`s__`|default imported style|`import s__styles from './styles.sss'`
+`s__`|default imported style|`import s__styles from './styles.pcss'`
 `r__`|required |`const r__styles = require('./styles')`
 
 ## firebase
@@ -82,7 +82,7 @@ npx nps l
 
 `|` `nps eslint` `=` `eslint webpack source`
 <br>
-`|` `nps stylelint` `=` `stylelint styles source/**/*.sss`
+`|` `nps stylelint` `=` `stylelint styles source/**/*.pcss`
 
 ## testing
 

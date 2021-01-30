@@ -19,7 +19,7 @@ exports.plugins = {
 				if (id.startsWith(key)) {
 					id = id.slice(key.length)
 					id = alias[key](id)
-					id = [id, 'sss'].join('.')
+					id = [id, 'pcss'].join('.')
 					break
 				}
 			}

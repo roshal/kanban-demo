@@ -28,9 +28,10 @@ export const id = (() => {
 export const styler = (styles: {
 	[key: string]: any,
 }) => {
+	const object = styles.default || styles
 	return (...keys: string[]) => {
 		return keys.reduce((accumulator, value) => {
-			value = styles[value]
+			value = object[value]
 			return value ? [accumulator, value].join('.') : accumulator
 		}, '')
 	}

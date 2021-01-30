@@ -6,7 +6,7 @@ import * as m__helpers from '-/commons/helpers'
 
 import * as m__types from './types'
 
-const s__styles = require('./styles.sss')
+const s__styles = require('./styles.pcss')
 
 const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)

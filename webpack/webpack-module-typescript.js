@@ -6,14 +6,12 @@ module.exports = (env = {}, argv = {}) => {
 		module: {
 			rules: [
 				{
-					resource: {
-						test: [
-							/\.ts$/,
-						],
-						include: [
-							p__path.resolve('source'),
-						],
-					},
+					test: [
+						/\.ts$/,
+					],
+					include: [
+						p__path.resolve('source'),
+					],
 					resolve: {
 						extensions: [
 							'.ts',
@@ -27,7 +25,7 @@ module.exports = (env = {}, argv = {}) => {
 								context: p__path.resolve(),
 								configFile: 'tsconfig.json5',
 								compilerOptions: {
-									sourceMap: !!argv.develop,
+									sourceMap: !!env.develop,
 								},
 							},
 						},

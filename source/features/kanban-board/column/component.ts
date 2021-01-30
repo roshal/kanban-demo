@@ -3,13 +3,13 @@ import * as p__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '-/commons/helpers'
-import d__debounce_input from '-/components/debounce-input'
+//import d__debounce_input from '-/components/debounce-input'
 
 import * as m__components from './components'
 import * as m__handlers from './handlers'
 import * as m__types from './types'
 
-const s__styles = require('./styles.sss')
+const s__styles = require('./styles.pcss')
 
 const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
@@ -26,8 +26,8 @@ const component = (
 		$('div' + style('column-wrapper'), [
 			$('div' + style('column--row', 'column--head'), [
 				$('div' + style('column--title'), [
-					$(d__debounce_input, {
-						className: s__styles['column--input--name'],
+					$('input', {
+						className: s__styles.default['column--input--name'],
 						debounceTimeout: 250,
 						onChange: handlers.change_name,
 						placeholder: 'column name',

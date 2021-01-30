@@ -1,5 +1,5 @@
 
-import '//styles/sources/index.sss'
+import '//styles/sources/index.pcss'
 
 import i__react from 'react'
 import i__react_dom from 'react-dom'

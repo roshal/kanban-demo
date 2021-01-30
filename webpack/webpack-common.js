@@ -51,7 +51,9 @@ module.exports = (env = {}, argv = {}) => {
 				maxAsyncRequests: 4,
 				maxInitialRequests: 1,
 				automaticNameDelimiter: '/',
-				name: !argv.produce,
+				...env.produce ? {
+					name: false,
+				} : {},
 				cacheGroups: {
 					default: {
 						priority: 0,
@@ -63,7 +65,7 @@ module.exports = (env = {}, argv = {}) => {
 					},
 				},
 			},
-			runtimeChunk: !argv.produce && 'single',
+			runtimeChunk: !env.produce && 'single',
 		},
 		plugins: [
 			new p__clean_webpack_plugin.CleanWebpackPlugin(),
@@ -88,7 +90,6 @@ module.exports = (env = {}, argv = {}) => {
 		stats: {
 			children: false,
 			entrypoints: false,
-			maxModules: 0,
 		},
 	}
 }

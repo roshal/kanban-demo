@@ -26,21 +26,21 @@ nps.lint = concurrent('eslint', 'stylelint')
 nps.test = series('jest')
 
 nps.build = {
-	analyze: 'webpack --analyze',
-	develop: 'webpack --develop',
-	produce: 'webpack --produce',
+	analyze: 'webpack --env analyze',
+	develop: 'webpack --env develop',
+	produce: 'webpack --env produce',
 }
 
 nps.watch = {
-	analyze: 'webpack --watch --analyze',
-	develop: 'webpack --watch --develop',
-	produce: 'webpack --watch --produce',
+	analyze: 'webpack --env analyze --watch',
+	develop: 'webpack --env develop --watch',
+	produce: 'webpack --env produce --watch',
 }
 
 nps.serve = {
-	analyze: 'webpack-dev-server --hot --analyze',
-	develop: 'webpack-dev-server --hot --develop',
-	produce: 'webpack-dev-server --hot --produce',
+	analyze: 'webpack serve --env analyze --hot',
+	develop: 'webpack serve --env develop --hot',
+	produce: 'webpack serve --env produce --hot',
 }
 
 nps.firebase = {
@@ -58,8 +58,8 @@ nps.eslint = {
 }
 
 nps.stylelint = {
-	default: 'stylelint styles source/**/*.sss',
-	fix: 'stylelint --fix styles source/**/*.sss',
+	default: 'stylelint styles source/**/*.pcss',
+	fix: 'stylelint --fix styles source/**/*.pcss',
 }
 
 nps.jest = {

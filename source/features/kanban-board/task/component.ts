@@ -3,14 +3,14 @@ import * as p__react from 'react'
 import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '-/commons/helpers'
-import d__debounce_input from '-/components/debounce-input'
+//import d__debounce_input from '-/components/debounce-input'
 
 import * as m__callbacks from './callbacks'
 import * as m__handlers from './handlers'
 import * as m__types from './types'
 import d__container__locate from '../locate/container'
 
-const s__styles = require('./styles.sss')
+const s__styles = require('./styles.pcss')
 
 const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
@@ -39,8 +39,8 @@ const component = (
 	return [
 		$('div' + style('task'), [
 			$('div' + style('task--name'), [
-				$(d__debounce_input, {
-					className: s__styles['task--name--input'],
+				$('input', {
+					className: s__styles.default['task--name--input'],
 					debounceTimeout: 250,
 					onChange: handlers.change_name,
 					placeholder: 'task name',
@@ -48,8 +48,8 @@ const component = (
 				}),
 			]),
 			$('div' + style('task--text'), [
-				$(d__debounce_input, {
-					className: s__styles['task--text--input'],
+				$('input', {
+					className: s__styles.default['task--text--input'],
 					debounceTimeout: 250,
 					onChange: handlers.change_text,
 					placeholder: 'task text',

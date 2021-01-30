@@ -10,68 +10,63 @@ module.exports = (env = {}, argv = {}) => {
 		loader: p__mini_css_extract_plugin.loader,
 		options: {
 			esModule: true,
-			hmr: !!argv.hot,
 		},
 	}
 	return {
 		module: {
 			rules: [
 				{
-					resource: {
-						test: [
-							/\.sss$/,
-						],
-						include: [
-							p__path.resolve('source'),
-						],
-					},
+					test: [
+						/\.pcss$/,
+					],
+					include: [
+						p__path.resolve('source'),
+					],
 					use: [
 						loader,
 						{
 							loader: 'css-loader',
 							options: {
 								modules: {
-									...argv.develop ? {
+									...env.develop ? {
 										getLocalIdent: m__name_generator(10),
 									} : {},
-									...argv.produce ? {
+									...env.produce ? {
 										getLocalIdent: m__name_generator(26),
 									} : {},
 								},
-								sourceMap: !!argv.develop,
+								sourceMap: !!env.develop,
 								importLoaders: 1,
 							},
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
-								sourceMap: !!argv.develop,
+								sourceMap: !!env.develop,
 							},
 						},
 					],
 				},
 				{
-					resource: {
-						include: [
-							p__path.resolve('styles'),
-						],
-						test: [
-							/\.sss$/,
-						],
-					},
+					test: [
+						/\.pcss$/,
+					],
+					include: [
+						p__path.resolve('styles'),
+					],
 					use: [
 						loader,
 						{
 							loader: 'css-loader',
 							options: {
-								sourceMap: !!argv.develop,
+								sourceMap: !!env.develop,
 								importLoaders: 1,
 							},
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
-								sourceMap: !!argv.develop,
+								sourceMap: !!env.develop,
 							},
 						},
 					],
@@ -82,7 +77,7 @@ module.exports = (env = {}, argv = {}) => {
 			new p__mini_css_extract_plugin(),
 			new p__webpack.SourceMapDevToolPlugin({
 				test: [
-					'.sss',
+					'.pcss',
 				],
 			}),
 		],

@@ -7,14 +7,12 @@ module.exports = (env = {}, argv = {}) => {
 		module: {
 			rules: [
 				{
-					resource: {
-						test: [
-							/\.pug$/,
-						],
-						include: [
-							p__path.resolve('pug'),
-						],
-					},
+					test: [
+						/\.pug$/,
+					],
+					include: [
+						p__path.resolve('pug'),
+					],
 					use: [
 						{
 							loader: 'pug-loader',
@@ -28,17 +26,17 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new p__html_webpack_plugin({
-				template: p__path.resolve('pug', 'sources', 'index.pug'),
-				templateParameters: (compilation, assets, options) => {
-					return {
-						options: {
-							compilation, assets,
-						},
-					}
-				},
-				inject: false,
+				//template: p__path.resolve('pug', 'sources', 'index.pug'),
+				//templateParameters: (compilation, assets, options) => {
+				//	return {
+				//		options: {
+				//			compilation, assets,
+				//		},
+				//	}
+				//},
+				//inject: false,
 				favicon: p__path.resolve('assets', 'sources', 'index.png'),
-				hash: !!argv.develop,
+				//hash: !!env.develop,
 			}),
 		],
 	}

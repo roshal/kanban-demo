@@ -6,11 +6,9 @@ module.exports = (env = {}, argv = {}) => {
 		module: {
 			rules: [
 				{
-					resource: {
-						include: [
-							p__path.resolve('assets'),
-						],
-					},
+					include: [
+						p__path.resolve('assets'),
+					],
 					use: [
 						{
 							loader: 'file-loader',
@@ -22,11 +20,9 @@ module.exports = (env = {}, argv = {}) => {
 					],
 				},
 				{
-					resource: {
-						include: [
-							p__path.resolve('assets'),
-						],
-					},
+					include: [
+						p__path.resolve('assets'),
+					],
 					use: [
 						{
 							loader: 'file-loader',
