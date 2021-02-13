@@ -1,14 +1,8 @@
 
-const p__nps_utils = require('nps-utils')
+const r__nps_utils = require('nps-utils')
 
-const {
-	series: {
-		nps: series,
-	},
-	concurrent: {
-		nps: concurrent,
-	},
-} = p__nps_utils
+const concurrent = r__nps_utils.concurrent.nps
+const series = r__nps_utils.series.nps
 
 const nps = {}
 
