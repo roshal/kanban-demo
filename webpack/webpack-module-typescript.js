@@ -14,8 +14,7 @@ module.exports = (env = {}, argv = {}) => {
 					],
 					resolve: {
 						extensions: [
-							'.ts',
-							'.js',
+							'.ts', '.js',
 						],
 					},
 					use: [
