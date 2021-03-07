@@ -1,8 +1,8 @@
 
-const p__path = require('path')
+const r__path = require('path')
 
 const array = [
-	p__path.resolve('node_modules'),
+	r__path.resolve('node_modules'),
 ]
 
 module.exports = {
@@ -14,8 +14,8 @@ module.exports = {
 		'js',
 	],
 	moduleNameMapper: {
-		'(?<=^//).*': p__path.resolve('$0'),
-		'(?<=^~/).*': p__path.resolve('source', '$0'),
+		'(?<=^//).*': r__path.resolve('$0'),
+		'(?<=^~/).*': r__path.resolve('source', '$0'),
 	},
 	testMatch: [
 		'**/__tests__/**/*.[jt]s',

@@ -1,7 +1,7 @@
 
-const p__path = require('path')
+const r__path = require('path')
 
 module.exports = {
-	'/': p__path.resolve(),
-	'-': p__path.resolve('source'),
+	'/': r__path.resolve(),
+	'-': r__path.resolve('source'),
 }

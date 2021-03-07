@@ -1,12 +1,12 @@
 
-const p__path = require('path')
+const r__path = require('path')
 
 const alias = {
 	'//': (id) => {
-		return p__path.resolve(id)
+		return r__path.resolve(id)
 	},
 	'~/': (id) => {
-		return p__path.resolve('styles', id)
+		return r__path.resolve('styles', id)
 	},
 }
 
