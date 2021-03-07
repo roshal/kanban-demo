@@ -12,7 +12,7 @@ module.exports = (env = {}, argv = {}) => {
 		mode: 'none',
 		context: r__path.resolve('source'),
 		entry: {
-			'index': './sources/index.ts',
+			index: './entries/index.ts',
 		},
 		output: {
 			chunkFilename: 'chunks/[id].js',
