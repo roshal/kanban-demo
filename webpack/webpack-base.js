@@ -5,7 +5,7 @@ module.exports = (env = {}, argv = {}) => {
 	const array = [
 		require('./webpack-common'),
 		require('./webpack-module-babel'),
-		require('./webpack-module-file'),
+		require('./webpack-module-files'),
 		require('./webpack-module-postcss'),
 		require('./webpack-module-pug'),
 		require('./webpack-module-typescript'),
