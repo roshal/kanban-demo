@@ -1,6 +1,6 @@
 
-const p__html_webpack_plugin = require('html-webpack-plugin')
-const p__path = require('path')
+const r__html_webpack_plugin = require('html-webpack-plugin')
+const r__path = require('path')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -11,7 +11,7 @@ module.exports = (env = {}, argv = {}) => {
 						/\.pug$/,
 					],
 					include: [
-						p__path.resolve('pug'),
+						r__path.resolve('pug'),
 					],
 					use: [
 						{
@@ -25,8 +25,8 @@ module.exports = (env = {}, argv = {}) => {
 			],
 		},
 		plugins: [
-			new p__html_webpack_plugin({
-				//template: p__path.resolve('pug', 'sources', 'index.pug'),
+			new r__html_webpack_plugin({
+				//template: r__path.resolve('pug', 'sources', 'index.pug'),
 				//templateParameters: (compilation, assets, options) => {
 				//	return {
 				//		options: {
@@ -35,7 +35,7 @@ module.exports = (env = {}, argv = {}) => {
 				//	}
 				//},
 				//inject: false,
-				favicon: p__path.resolve('assets', 'sources', 'index.png'),
+				favicon: r__path.resolve('assets', 'sources', 'index.png'),
 				//hash: !!env.develop,
 			}),
 		],

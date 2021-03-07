@@ -1,5 +1,5 @@
 
-const p__path = require('path')
+const r__path = require('path')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -10,7 +10,7 @@ module.exports = (env = {}, argv = {}) => {
 						/\.ts$/,
 					],
 					include: [
-						p__path.resolve('source'),
+						r__path.resolve('source'),
 					],
 					resolve: {
 						extensions: [
@@ -21,7 +21,7 @@ module.exports = (env = {}, argv = {}) => {
 						{
 							loader: 'ts-loader',
 							options: {
-								context: p__path.resolve(),
+								context: r__path.resolve(),
 								configFile: 'tsconfig.json5',
 								compilerOptions: {
 									sourceMap: !!env.develop,

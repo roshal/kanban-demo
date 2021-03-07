@@ -1,24 +1,24 @@
 
-const p__clean_webpack_plugin = require('clean-webpack-plugin')
-const p__nohash = require('nohash')
-const p__path = require('path')
+const r__clean_webpack_plugin = require('clean-webpack-plugin')
+const r__nohash = require('nohash')
+const r__path = require('path')
 
 const m__alias = require('../alias')
 
-const node_modules = p__path.resolve('node_modules')
+const node_modules = r__path.resolve('node_modules')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
 		mode: 'none',
-		context: p__path.resolve('source'),
+		context: r__path.resolve('source'),
 		entry: {
 			'index': './sources/index.ts',
 		},
 		output: {
 			chunkFilename: 'chunks/[id].js',
 			filename: '[name].js',
-			hashFunction: p__nohash.sequence.hex,
-			path: p__path.resolve('public'),
+			hashFunction: r__nohash.sequence.hex,
+			path: r__path.resolve('public'),
 			publicPath: '/',
 		},
 		resolve: {
@@ -68,7 +68,7 @@ module.exports = (env = {}, argv = {}) => {
 			runtimeChunk: !env.produce && 'single',
 		},
 		plugins: [
-			new p__clean_webpack_plugin.CleanWebpackPlugin(),
+			new r__clean_webpack_plugin.CleanWebpackPlugin(),
 		],
 		devServer: {
 			historyApiFallback: true,

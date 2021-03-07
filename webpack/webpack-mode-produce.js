@@ -1,6 +1,6 @@
 
-const p__optimize_css_assets_webpack_plugin = require('optimize-css-assets-webpack-plugin')
-const p__terser_webpack_plugin = require('terser-webpack-plugin')
+const r__optimize_css_assets_webpack_plugin = require('optimize-css-assets-webpack-plugin')
+const r__terser_webpack_plugin = require('terser-webpack-plugin')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -11,7 +11,7 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		optimization: {
 			minimizer: [
-				new p__optimize_css_assets_webpack_plugin({
+				new r__optimize_css_assets_webpack_plugin({
 					cssProcessorPluginOptions: {
 						preset: ['default', {
 							discardComments: {
@@ -20,7 +20,7 @@ module.exports = (env = {}, argv = {}) => {
 						}],
 					},
 				}),
-				new p__terser_webpack_plugin({
+				new r__terser_webpack_plugin({
 					extractComments: false,
 					terserOptions: {
 						output: {

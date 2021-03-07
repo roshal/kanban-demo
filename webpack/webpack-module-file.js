@@ -1,5 +1,5 @@
 
-const p__path = require('path')
+const r__path = require('path')
 
 module.exports = (env = {}, argv = {}) => {
 	return {
@@ -7,14 +7,14 @@ module.exports = (env = {}, argv = {}) => {
 			rules: [
 				{
 					include: [
-						p__path.resolve('assets'),
+						r__path.resolve('assets'),
 					],
 					use: [
 						{
 							loader: 'file-loader',
 							options: {
 								name: '[path][name].[ext]',
-								context: p__path.resolve('assets'),
+								context: r__path.resolve('assets'),
 							},
 						},
 					],

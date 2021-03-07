@@ -1,13 +1,13 @@
 
-const p__mini_css_extract_plugin = require('mini-css-extract-plugin')
-const p__path = require('path')
-const p__webpack = require('webpack')
+const r__mini_css_extract_plugin = require('mini-css-extract-plugin')
+const r__path = require('path')
+const r__webpack = require('webpack')
 
 const m__name_generator = require('../javascript/name-generator')
 
 module.exports = (env = {}, argv = {}) => {
 	const loader = {
-		loader: p__mini_css_extract_plugin.loader,
+		loader: r__mini_css_extract_plugin.loader,
 		options: {
 			esModule: true,
 		},
@@ -20,7 +20,7 @@ module.exports = (env = {}, argv = {}) => {
 						/\.pcss$/,
 					],
 					include: [
-						p__path.resolve('source'),
+						r__path.resolve('source'),
 					],
 					use: [
 						loader,
@@ -52,7 +52,7 @@ module.exports = (env = {}, argv = {}) => {
 						/\.pcss$/,
 					],
 					include: [
-						p__path.resolve('styles'),
+						r__path.resolve('styles'),
 					],
 					use: [
 						loader,
@@ -74,8 +74,8 @@ module.exports = (env = {}, argv = {}) => {
 			],
 		},
 		plugins: [
-			new p__mini_css_extract_plugin(),
-			new p__webpack.SourceMapDevToolPlugin({
+			new r__mini_css_extract_plugin(),
+			new r__webpack.SourceMapDevToolPlugin({
 				test: [
 					'.pcss',
 				],
