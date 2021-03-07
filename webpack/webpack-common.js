@@ -68,7 +68,7 @@ module.exports = (env = {}, argv = {}) => {
 			runtimeChunk: !env.produce && 'single',
 		},
 		plugins: [
-			new r__clean_webpack_plugin.CleanWebpackPlugin(),
+			new r__clean_webpack_plugin(),
 		],
 		devServer: {
 			historyApiFallback: true,
