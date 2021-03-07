@@ -19,20 +19,6 @@ module.exports = (env = {}, argv = {}) => {
 						},
 					],
 				},
-				{
-					include: [
-						p__path.resolve('assets'),
-					],
-					use: [
-						{
-							loader: 'file-loader',
-							options: {
-								name: '[path][name].[ext]',
-								context: p__path.resolve('assets'),
-							},
-						},
-					],
-				},
 			],
 		},
 	}
