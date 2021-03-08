@@ -96,6 +96,12 @@ typescript.rules = {
 	'@typescript-eslint/no-var-requires': 'off',
 	'@typescript-eslint/quotes': ['error', 'single'],
 	'@typescript-eslint/semi': ['error', 'never'],
+	...{
+		'@typescript-eslint/no-unsafe-assignment': 'off',
+		'@typescript-eslint/no-unsafe-call': 'off',
+		'@typescript-eslint/no-unsafe-member-access': 'off',
+		'@typescript-eslint/no-unsafe-return': 'off',
+	},
 	/* plugin:react-hooks */
 	'react-hooks/exhaustive-deps': ['warn'],
 	'react-hooks/rules-of-hooks': ['error'],
@@ -113,3 +119,7 @@ test.files = [
 test.extends = [
 	'plugin:jest/recommended',
 ]
+
+test.rules = {
+	'jest/valid-title': 'off',
+}
