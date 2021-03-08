@@ -25,7 +25,7 @@ const component = (
 			$('div' + style('column--row', 'column--head'), [
 				$('div' + style('column--title'), [
 					$('input', {
-						className: s__styles.default['column--input--name'],
+						className: s__styles['column--input--name'],
 						debounceTimeout: 250,
 						onChange: handlers.change_name,
 						placeholder: 'column name',

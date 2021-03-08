@@ -38,7 +38,7 @@ const component = (
 		$('div' + style('task'), [
 			$('div' + style('task--name'), [
 				$('input', {
-					className: s__styles.default['task--name--input'],
+					className: s__styles['task--name--input'],
 					debounceTimeout: 250,
 					onChange: handlers.change_name,
 					placeholder: 'task name',
@@ -47,7 +47,7 @@ const component = (
 			]),
 			$('div' + style('task--text'), [
 				$('input', {
-					className: s__styles.default['task--text--input'],
+					className: s__styles['task--text--input'],
 					debounceTimeout: 250,
 					onChange: handlers.change_text,
 					placeholder: 'task text',
