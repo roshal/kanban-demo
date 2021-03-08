@@ -1,17 +1,15 @@
 
+import * as $ from 'react-hyperscript'
 import * as p__react from 'react'
-import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '-/commons/helpers'
-//import d__debounce_input from '-/components/debounce-input'
+//	import d__debounce_input from '-/components/debounce-input'
 
 import * as m__components from './components'
 import * as m__handlers from './handlers'
 import * as m__types from './types'
+import s__styles from './styles.pcss'
 
-const s__styles = require('./styles.pcss')
-
-const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
 
 const component = (

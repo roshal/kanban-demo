@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"moduleResolution": "node",
 		"outDir": "output",
@@ -11,5 +10,5 @@
 		"removeComments": true,
 		"target": "esnext",
 	},
-	"include": ["source"],
+	"include": ["source", "typings"],
 }

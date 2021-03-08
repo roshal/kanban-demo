@@ -1,14 +1,12 @@
 
+import * as $ from 'react-hyperscript'
 import * as p__react from 'react'
-import i__react_hyperscript from 'react-hyperscript'
 
 import * as m__helpers from '-/commons/helpers'
 
 import * as m__types from './types'
+import s__styles from './styles.pcss'
 
-const s__styles = require('./styles.pcss')
-
-const $ = i__react_hyperscript
 const style = m__helpers.styler(s__styles)
 
 export const column = (
