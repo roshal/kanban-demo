@@ -3,7 +3,7 @@ import * as $ from 'react-hyperscript'
 import * as p__react from 'react'
 
 import * as m__helpers from '-/commons/helpers'
-//import d__debounce_input from '-/components/debounce-input'
+//	import d__debounce_input from '-/components/debounce-input'
 
 import * as m__callbacks from './callbacks'
 import * as m__handlers from './handlers'
@@ -39,7 +39,7 @@ const component = (
 			$('div' + style('task--name'), [
 				$('input', {
 					className: s__styles['task--name--input'],
-					debounceTimeout: 250,
+					//	debounceTimeout: 250,
 					onChange: handlers.change_name,
 					placeholder: 'task name',
 					value: props.state.name,
@@ -48,7 +48,7 @@ const component = (
 			$('div' + style('task--text'), [
 				$('input', {
 					className: s__styles['task--text--input'],
-					debounceTimeout: 250,
+					//	debounceTimeout: 250,
 					onChange: handlers.change_text,
 					placeholder: 'task text',
 					value: props.state.text,

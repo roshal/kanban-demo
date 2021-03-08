@@ -8,7 +8,7 @@ export const use_dispatch = (actions) => {
 	return p__redux.bindActionCreators(actions, dispatch)
 }
 
-export const use_state = (selector,	object?: {}) => {
+export const use_state = (selector, object?: Record<string, unknown>) => {
 	const select = selector()
 	return p__react_redux.useSelector((state) => {
 		return select(state, object)

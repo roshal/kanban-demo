@@ -4,7 +4,7 @@ export interface props__container {
 		id: number,
 	},
 	callbacks: {
-		close: Function,
+		close: (...all: any) => any,
 	},
 }
 
@@ -16,7 +16,7 @@ export interface props__component extends props__container {
 		}[],
 	},
 	dispatch: {
-		locate: Function,
+		locate: (...all: any) => any,
 	},
 }
 
@@ -26,9 +26,9 @@ export interface props__component__column {
 		name: string,
 	},
 	dispatch?: {
-		locate: Function,
+		locate: (...all: any) => any,
 	},
 	callbacks: {
-		close: Function,
+		close: (...all: any) => any,
 	},
 }

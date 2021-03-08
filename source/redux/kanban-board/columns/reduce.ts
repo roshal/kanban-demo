@@ -7,7 +7,7 @@ import * as m__action_types from './action-types'
 import d__state from './state'
 
 const mutations = {
-	[m__action_types.sort]: (state, action) => {
+	[m__action_types.sort]: (state: typeof d__state, action) => {
 		const index = state.findIndex((value) => {
 			return value.id === action.payload.id
 		})

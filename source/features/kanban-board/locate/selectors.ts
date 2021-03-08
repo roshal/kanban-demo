@@ -5,7 +5,7 @@ import d__select__tasks from '-/redux/kanban-board/tasks/select'
 
 export const selector = () => {
 	return m__react_redux.create_shallow_selector(
-		(state: {}, {
+		(state: Record<string, unknown>, {
 			id,
 		}: {
 			id: number,

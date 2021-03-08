@@ -1,6 +1,6 @@
 
 export const selector = (mutations: {
-	[key: string]: Function,
+	[key: string]: (...all: any) => any,
 }) => {
 	return (draft: string, action: {
 		type: string,

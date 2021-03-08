@@ -14,9 +14,9 @@ export interface props__component {
 		}[],
 	},
 	dispatch: {
-		add: Function,
-		rename: Function,
-		sort: Function,
+		add: (...all: any) => any,
+		rename: (...all: any) => any,
+		sort: (...all: any) => any,
 	},
 }
 

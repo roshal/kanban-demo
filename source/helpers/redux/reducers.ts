@@ -1,25 +1,25 @@
 
 import * as p__redux_immutable from 'redux-immutable'
 
-export const middlewares_composer = (middlewares: Function[]) => {
-	let reducer = (state: {}, action: Function) => {
+export const middlewares_composer = (middlewares: ((...all: any) => any)[]) => {
+	let reducer = (state: Record<string, unknown>, action: (...all: any) => any) => {
 		return state
 	}
 	middlewares = middlewares.slice()
 	middlewares.reverse()
-	middlewares.forEach((middleware: Function) => {
+	middlewares.forEach((middleware: (...all: any) => any) => {
 		reducer = middleware(reducer)
 	})
-	return (state: {}, action: Function) => {
+	return (state: Record<string, unknown>, action: (...all: any) => any) => {
 		return reducer(state, action)
 	}
 }
 
 export const reducers_combiner = (reducers: {
-	[key: string]: (state: {}, action: {}) => any,
+	[key: string]: (state: Record<string, unknown>, action: Record<string, unknown>) => any,
 }) => {
 	const reduce = p__redux_immutable.combineReducers(reducers)
-	return (state: {}, action: {
+	return (state: Record<string, unknown>, action: {
 		type: string,
 	}) => {
 		return reduce(state, action)
@@ -27,9 +27,9 @@ export const reducers_combiner = (reducers: {
 }
 
 export const reducers_selector = (reducers: {
-	[key: string]: Function,
+	[key: string]: (...all: any) => any,
 }) => {
-	return (state: {}, action: {
+	return (state: Record<string, unknown>, action: {
 		type: string,
 	}) => {
 		if (action.type in reducers) {
@@ -40,7 +40,7 @@ export const reducers_selector = (reducers: {
 }
 
 export const tokens_checker = (tokens: string[]) => {
-	return (state: {}, action: {
+	return (state: Record<string, unknown>, action: {
 		tokens?: string,
 	}) => {
 		if (action.tokens) {

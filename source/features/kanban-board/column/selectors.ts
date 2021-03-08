@@ -7,7 +7,7 @@ import * as m__react_helpers from './helpers'
 
 export const selector = () => {
 	return m__react_redux.create_shallow_selector(
-		(state: {}, {
+		(state: Record<string, unknown>, {
 			id,
 		}: {
 			id: number,

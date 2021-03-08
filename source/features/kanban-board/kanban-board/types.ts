@@ -8,7 +8,7 @@ export interface props__component extends props__container {
 		}[],
 	},
 	dispatch: {
-		reset: Function,
+		reset: (...all: any) => any,
 	},
 }
 

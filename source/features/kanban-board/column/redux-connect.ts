@@ -10,7 +10,7 @@ import d__component from './component'
 
 const cast_state = 	() => {
 	const select = m__selectors.selector()
-	return (state: {}, props: m__types.props__container) => {
+	return (state: Record<string, unknown>, props: m__types.props__container) => {
 		return select(state, props.object)
 	}
 }

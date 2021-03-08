@@ -11,7 +11,7 @@ export interface props__component extends props__container {
 		text: string,
 	},
 	dispatch: {
-		remove: Function,
-		update: Function,
+		remove: (...all: any) => any,
+		update: (...all: any) => any,
 	},
 }
