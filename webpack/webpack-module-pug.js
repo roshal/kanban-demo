@@ -26,6 +26,9 @@ module.exports = (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new r__html_webpack_plugin({
+				favicon: r__path.resolve('assets', 'sources', 'index.png'),
+				//hash: !!env.develop,
+				//inject: false,
 				//template: r__path.resolve('pug', 'sources', 'index.pug'),
 				//templateParameters: (compilation, assets, options) => {
 				//	return {
@@ -34,9 +37,6 @@ module.exports = (env = {}, argv = {}) => {
 				//		},
 				//	}
 				//},
-				//inject: false,
-				favicon: r__path.resolve('assets', 'sources', 'index.png'),
-				//hash: !!env.develop,
 			}),
 		],
 	}
