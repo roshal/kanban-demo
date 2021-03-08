@@ -22,11 +22,11 @@ this is a test task
 prefix|description|example
 ---|---|---
 `p__`|imported package|`import * as p__lodash from 'lodash'`
-`i__`|default imported from package|`import r__react from 'react'`
+`i__`|default imported from package|`import i__react from 'react'`
 `m__`|imported module|`import * as m__selectors from './selectors'`
 `d__`|default imported from module|`import d__component from './component'`
 `s__`|default imported style|`import s__styles from './styles.pcss'`
-`r__`|required |`const r__styles = require('./styles')`
+`r__`|required |`const r__path = require('path')`
 
 ## firebase
 
